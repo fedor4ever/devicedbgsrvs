@@ -1,0 +1,44 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+#ifndef __TRK_IBY__
+#define __TRK_IBY__
+
+// trk debugger stub
+#include <dbgtrccomm.iby>
+
+//For autostarting TRK at boot time, please include the ecom launcher plugin below.
+//ECOM_PLUGIN(trklauncher.dll, trklauncher.rsc)
+
+file=ABI_DIR\BUILD_DIR\trkengine.dll	sys\bin\trkengine.dll
+file=ABI_DIR\BUILD_DIR\trkconsole.exe	sys\bin\trkconsole.exe
+file=ABI_DIR\BUILD_DIR\trkapp_200170bb.exe	sys\bin\trkapp_200170bb.exe
+file=ABI_DIR\BUILD_DIR\trkserver.exe	    sys\bin\trkserver.exe
+device[VARID]=ABI_DIR\BUILD_DIR\trkdccdriver.ldd System\Libs\trkdccdriver.ldd
+device[VARID]=ABI_DIR\BUILD_DIR\trkdriver.ldd System\Libs\trkdriver.ldd
+
+file=ABI_DIR\BUILD_DIR\trktcbserver.exe	 sys\bin\TrkTcbServer.exe
+// For using DCC, please uncomment the line and comment the next line.
+//data=ZSYSTEM\..\trk\trk_dcc.ini     \trk.ini
+data=ZSYSTEM\..\trk\trk_##VARIANT##.ini     \trk.ini
+
+data=MULTI_LINGUIFY(RSC EPOCROOT##epoc32\data\Z\resource\Apps\trkapp_200170bb  resource\Apps\trkapp_200170bb)
+data=MULTI_LINGUIFY(RSC EPOCROOT##epoc32\data\Z\resource\Apps\trkapp_200170bb_loc  resource\Apps\trkapp_200170bb_loc)
+data=MULTI_LINGUIFY(RSC EPOCROOT##epoc32\data\Z\private\10003a3f\Apps\trkapp_200170bb_reg  private\10003a3f\Apps\trkapp_200170bb_reg)
+data=MULTI_LINGUIFY(MBM EPOCROOT##epoc32\data\Z\resource\Apps\trkapp_200170bb  resource\Apps\trkapp_200170bb)
+
+#endif

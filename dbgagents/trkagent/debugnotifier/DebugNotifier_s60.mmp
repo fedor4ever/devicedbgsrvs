@@ -1,0 +1,43 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+#include <platform_paths.hrh>
+
+TARGET		  DebugNotifier.dll
+TARGETTYPE	  dll
+UID           0x10004262 0x200170B3
+
+VENDORID VID_DEFAULT
+CAPABILITY ALL -TCB -DRM
+
+USERINCLUDE	 .
+MW_LAYER_SYSTEMINCLUDE
+
+
+SOURCEPATH	  .
+
+SOURCE DebugNotifierImplementation.cpp
+
+#ifdef MARM
+DEFFILE ./eabi/DebugNotifier.def
+#endif
+
+nostrictdef
+
+LIBRARY		 euser.lib
+LIBRARY      aknnotify.lib
+

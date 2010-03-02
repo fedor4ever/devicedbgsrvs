@@ -1,0 +1,55 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+
+#if(!defined __SERIES60_30__ && !defined __SERIES60_31__)
+  #include <platform_paths.hrh>
+#endif
+
+#include <kernel/kern_ext.mmh>
+
+macro 	__OEM_TRK__
+macro 	__S60__
+
+TARGET			TrkDccDriver.ldd
+TARGETTYPE		LDD
+UID				0x100000AF 0x200159DE
+SOURCEPATH		.
+SOURCE			TrkDccDriver.cpp
+
+
+NOSTRICTDEF
+
+#if defined (__SERIES60_30__) || defined(__SERIES60_31__)
+
+systeminclude		\epoc32\include
+systeminclude		\epoc32\include\nkern 
+systeminclude 		\epoc32\include\kernel
+systeminclude		\epoc32\include\kernel\arm
+systeminclude		\epoc32\include\nkern\arm
+systeminclude		\epoc32\include\memmodel\epoc
+systeminclude		\epoc32\include\memmodel\epoc\mmubase
+
+DEFFILE			..\eabi\trkdccdriver.def
+#else
+OS_LAYER_KERNEL_SYSTEMINCLUDE
+
+DEFFILE			../eabi/trkdccdriver.def
+#endif
+
+VENDORID VID_DEFAULT
+capability			all

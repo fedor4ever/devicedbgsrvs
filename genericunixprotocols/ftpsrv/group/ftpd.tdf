@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tool name="FTP Daemon" 
+	description="A file transfer protocol server (FTP) to manage files on devices, reference hardware or emulators."  
+	version="1.0.1000" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+ 
+  <files>
+    <file source="/epoc32/release/winscw/udeb/test_ftpd.exe" target="$EPOCROOT/epoc32/release/winscw/udeb"/>
+    <file source="/epoc32/release/winscw/urel/test_ftpd.exe" target="$EPOCROOT/epoc32/release/winscw/urel"/>
+    <file source="/epoc32/release/armv5/udeb/test_ftpd.exe" target="$EPOCROOT/epoc32/release/armv5/udeb"/>
+    <file source="/epoc32/release/armv5/urel/test_ftpd.exe" target="$EPOCROOT/epoc32/release/armv5/urel"/>
+     <file source="/epoc32/rom/include/test_ftpd.iby" target="$EPOCROOT/epoc32/rom/include"/>
+  </files>
+	
+</tool>

@@ -1,0 +1,180 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// @File								te_dexec.script
+//
+
+//! @SYMTestSuiteName               	DT-dexc-userside
+//! @SYMScriptTestEnvironment       	TEF
+
+PRINT Running te_coredumpserver.DEXC
+
+LOAD_SERVER te_coredumpserverSuite
+
+
+
+START_TESTCASE                DT-dexc-userside-0001
+//! @SYMTestCaseID              DT-dexc-userside-0001
+//! @SYMTestCaseDesc            Loading and unloading multiple dexc plugins
+//! @SYMTestPriority            High
+//! @SYMTestActions             Test we can load/unload 1 dexc plugin and then that we can load/unload multiple ones.
+//! @SYMTestExpectedResults     Should suceed without error and be available via the GetFormattersL call
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+RUN_TEST_STEP 100 te_coredumpserverSuite DEXECPluginStep
+END_TESTCASE DT-dexc-userside-0001
+
+
+START_TESTCASE                DT-dexc-userside-0002
+//! @SYMTestCaseID              DT-dexc-userside-0002
+//! @SYMTestCaseDesc            dexc with Prefetch Abort
+//! @SYMTestPriority            High
+//! @SYMTestActions             Crash the app with prefetch abort and verify the dexc file is generated and that the crashed process has been correctly dealt with as per config
+//! @SYMTestExpectedResults     Should find expected dexc files and correct process list
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+RUN_TEST_STEP 100 te_coredumpserverSuite DEXECUserSideStep \testdata\configs\te_dexec.ini user_PrefetchAbort
+END_TESTCASE DT-dexc-userside-0002
+
+
+START_TESTCASE                DT-dexc-userside-0003
+//! @SYMTestCaseID              DT-dexc-userside-0003
+//! @SYMTestCaseDesc            dexc with Data Read
+//! @SYMTestPriority            High
+//! @SYMTestActions             Crash the app with Data Read and verify the dexc file is generated and that the crashed process has been correctly dealt with as per config
+//! @SYMTestExpectedResults     Should find expected dexc files and correct process list
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+RUN_TEST_STEP 100 te_coredumpserverSuite DEXECUserSideStep  \testdata\configs\te_dexec.ini user_DataRead
+END_TESTCASE DT-dexc-userside-0003
+
+
+START_TESTCASE                DT-dexc-userside-0004
+//! @SYMTestCaseID              DT-dexc-userside-0004
+//! @SYMTestCaseDesc            dexc with Data Write
+//! @SYMTestPriority            High
+//! @SYMTestActions             Crash the app with Data Write and verify the dexc file is generated and that the crashed process has been correctly dealt with as per config
+//! @SYMTestExpectedResults     Should find expected dexc files and correct process list
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+RUN_TEST_STEP 100 te_coredumpserverSuite DEXECUserSideStep  \testdata\configs\te_dexec.ini user_DataWrite
+END_TESTCASE DT-dexc-userside-0004
+
+
+START_TESTCASE                DT-dexc-userside-0005
+//! @SYMTestCaseID              DT-dexc-userside-0005
+//! @SYMTestCaseDesc            dexc with Undefined Instruction
+//! @SYMTestPriority            High
+//! @SYMTestActions             Crash the app with undefined instruction and verify the dexc file is generated and that the crashed process has been correctly dealt with as per config
+//! @SYMTestExpectedResults     Should find expected dexc files and correct process list
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+RUN_TEST_STEP 100 te_coredumpserverSuite DEXECUserSideStep  \testdata\configs\te_dexec.ini user_UndefInstr
+END_TESTCASE DT-dexc-userside-0005
+
+
+START_TESTCASE                DT-dexc-userside-0006
+//! @SYMTestCaseID              DT-dexc-userside-0006
+//! @SYMTestCaseDesc            dexc with User Panic
+//! @SYMTestPriority            High
+//! @SYMTestActions             Crash the app with user panic and verify the dexc file is generated and that the crashed process has been correctly dealt with as per config
+//! @SYMTestExpectedResults     Should find expected dexc files and correct process list
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+RUN_TEST_STEP 100 te_coredumpserverSuite DEXECUserSideStep  \testdata\configs\te_dexec.ini user_UserPanic
+END_TESTCASE DT-dexc-userside-0006
+
+
+START_TESTCASE                DT-dexc-userside-0007
+//! @SYMTestCaseID              DT-dexc-userside-0007
+//! @SYMTestCaseDesc            dexc with User Exception
+//! @SYMTestPriority            High
+//! @SYMTestActions             Crash the app with user exception and verify the dexc file is generated and that the crashed process has been correctly dealt with as per config
+//! @SYMTestExpectedResults     Should find expected dexc files and correct process list
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+RUN_TEST_STEP 100 te_coredumpserverSuite DEXECUserSideStep  \testdata\configs\te_dexec.ini user_UserException
+END_TESTCASE DT-dexc-userside-0007
+
+
+START_TESTCASE                DT-dexc-userside-0008
+//! @SYMTestCaseID              DT-dexc-userside-0008
+//! @SYMTestCaseDesc            dexc with stack overflow
+//! @SYMTestPriority            High
+//! @SYMTestActions             Crash the board with stack overflow and verify the dexc file is generated and that the crashed process has been correctly dealt with as per config
+//! @SYMTestExpectedResults     Should find expected dexc files and correct process list
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+RUN_TEST_STEP 100 te_coredumpserverSuite DEXECUserSideStep  \testdata\configs\te_dexec.ini user_StackOverflow
+END_TESTCASE DT-dexc-userside-0008
+
+
+START_TESTCASE                DT-dexc-userside-0009
+//! @SYMTestCaseID              DT-dexc-userside-0009
+//! @SYMTestCaseDesc            dexc with User Leave
+//! @SYMTestPriority            High
+//! @SYMTestActions             Crash the app with user leave and verify the dexc file is generated and that the crashed process has been correctly dealt with as per config
+//! @SYMTestExpectedResults     Should find expected dexc files and correct process list
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+RUN_TEST_STEP 100 te_coredumpserverSuite DEXECUserSideStep  \testdata\configs\te_dexec.ini user_UserLeave
+END_TESTCASE DT-dexc-userside-0009
+
+
+START_TESTCASE                DT-dexc-userside-0010
+//! @SYMTestCaseID              DT-dexc-userside-0010
+//! @SYMTestCaseDesc            dexc with Thread Panic
+//! @SYMTestPriority            High
+//! @SYMTestActions             Crash the app with thread panic and verify the dexc file is generated and that the crashed process has been correctly dealt with as per config
+//! @SYMTestExpectedResults     Should find expected dexc files and correct process list
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+RUN_TEST_STEP 100 te_coredumpserverSuite DEXECUserSideStep  \testdata\configs\te_dexec.ini user_ThreadPanic
+END_TESTCASE DT-dexc-userside-0010
+
+
+START_TESTCASE                DT-dexc-userside-0011
+//! @SYMTestCaseID              DT-dexc-userside-0011
+//! @SYMTestCaseDesc            dexc with Division By Zero
+//! @SYMTestPriority            High
+//! @SYMTestActions             Crash the app with division by zero and verify the dexc file is generated and that the crashed process has been correctly dealt with as per config
+//! @SYMTestExpectedResults     Should find expected dexc files and correct process list
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+RUN_TEST_STEP 100 te_coredumpserverSuite DEXECUserSideStep  \testdata\configs\te_dexec.ini user_DivByZero
+END_TESTCASE DT-dexc-userside-0011
+PRINT Completed te_coredumpserver.DEXC
+
+

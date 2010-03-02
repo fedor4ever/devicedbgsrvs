@@ -1,0 +1,84 @@
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// @File								tcds_scm_config.script
+//
+
+//! @SYMTestSuiteName               	DT-SCM-CONFIG
+//! @SYMScriptTestEnvironment       	TEF
+
+LOAD_SUITE tcds_kernel
+
+START_TESTCASE                DT-SCM-CONFIG-0001
+//! @SYMTestCaseID              DT-SCM-CONFIG-0001
+//! @SYMTestCaseDesc            Configure the SCM to dump variant specific data
+//! @SYMTestPriority            High
+//! @SYMTestActions             Configure the SCM to dump variant specific data
+//! @SYMTestExpectedResults     Configuration should succeed
+//! @SYMTestType                ST
+//! @SYMCreationDate            29/09/2009
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ2596
+    START_TEST_BLOCK    100    tcds_kernel \data\tcds_scm_config.ini
+       	CREATE_OBJECT	CSCMConfig	scmConfig
+		COMMAND		scmConfig	  ConfigureOn   EVariantSpecificData
+		COMMAND		scmConfig	  ConfigureOn   ECrashedProcessMetaData
+		COMMAND		scmConfig	  ConfigureOn   ECrashedThreadMetaData
+		COMMAND		scmConfig	  ConfigureOff  ERomInfo
+		COMMAND		scmConfig	  ConfigureOff  ELocks
+		COMMAND		scmConfig	  ConfigureOff  EKernelHeap
+		COMMAND		scmConfig	  ConfigureOff  ETraceData
+		COMMAND		scmConfig	  ConfigureOff  EProcessCodeSegs
+		COMMAND		scmConfig	  ConfigureOff  EThreadsUsrStack
+		COMMAND		scmConfig	  ConfigureOff  EThreadsSvrStack
+		COMMAND		scmConfig	  ConfigureOff  EThreadsSvrRegisters
+		COMMAND		scmConfig	  ConfigureOn   EProcessMetaData
+		COMMAND		scmConfig	  ConfigureOn   EThreadsMetaData
+		COMMAND		scmConfig	  ConfigureOn   ECrashedProcessCodeSegs
+		COMMAND		scmConfig	  ConfigureOn   ECrashedProcessUsrStacks
+		COMMAND		scmConfig	  ConfigureOn   ECrashedProcessSvrStacks
+    END_TEST_BLOCK
+END_TESTCASE DT-SCM-CONFIG-0001
+
+START_TESTCASE                DT-SCM-CONFIG-0002
+//! @SYMTestCaseID              DT-SCM-CONFIG-0002
+//! @SYMTestCaseDesc            Configure the SCM not to dump variant specific data
+//! @SYMTestPriority            High
+//! @SYMTestActions             Configure the SCM not to dump variant specific data
+//! @SYMTestExpectedResults     Configuration should succeed
+//! @SYMTestType                ST
+//! @SYMCreationDate            29/09/2009
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ2596
+    START_TEST_BLOCK    100    tcds_kernel \data\tcds_scm_config.ini
+		CREATE_OBJECT	CSCMConfig	scmConfig
+		COMMAND		scmConfig	  ConfigureOff   EVariantSpecificData
+		COMMAND		scmConfig	  ConfigureOn   ECrashedProcessMetaData
+		COMMAND		scmConfig	  ConfigureOn   ECrashedThreadMetaData
+		COMMAND		scmConfig	  ConfigureOff  ERomInfo
+		COMMAND		scmConfig	  ConfigureOff  ELocks
+		COMMAND		scmConfig	  ConfigureOff  EKernelHeap
+		COMMAND		scmConfig	  ConfigureOff  ETraceData
+		COMMAND		scmConfig	  ConfigureOff  EProcessCodeSegs
+		COMMAND		scmConfig	  ConfigureOff  EThreadsUsrStack
+		COMMAND		scmConfig	  ConfigureOff  EThreadsSvrStack
+		COMMAND		scmConfig	  ConfigureOff  EThreadsSvrRegisters
+		COMMAND		scmConfig	  ConfigureOn   EProcessMetaData
+		COMMAND		scmConfig	  ConfigureOn   EThreadsMetaData
+		COMMAND		scmConfig	  ConfigureOn   ECrashedProcessCodeSegs
+		COMMAND		scmConfig	  ConfigureOn   ECrashedProcessUsrStacks
+		COMMAND		scmConfig	  ConfigureOn   ECrashedProcessSvrStacks
+	END_TEST_BLOCK
+END_TESTCASE DT-SCM-CONFIG-0002

@@ -1,0 +1,37 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+
+
+TARGET			TrkConsole.exe
+TARGETTYPE		exe
+
+UID			0x1000008C 0x200159E2
+
+SOURCEPATH		.
+SOURCE			TrkConsole.cpp
+
+LIBRARY			euser.lib
+
+SYSTEMINCLUDE	/epoc32/include
+USERINCLUDE    ../engine
+
+VENDORID VID_DEFAULT
+
+CAPABILITY All -TCB -DRM
+
+EPOCSTACKSIZE 0x12000

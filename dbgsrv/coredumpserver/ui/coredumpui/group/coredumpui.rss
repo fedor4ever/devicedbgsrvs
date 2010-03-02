@@ -1,0 +1,1039 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+NAME CDUI
+
+#include "coredumpui.hrh"
+
+#include <eikon.rh>
+
+#include <eikcore.rsg>
+// for symbolic definition of buttons
+#include <eikon.rsg> //for runtime
+
+// The three following resources are mandatory fields and need to be the 
+// first resource fields in the resource file. Need to be defined in this order.
+// These resources don't need to contain any useful info, just need to be there.
+
+// RSS_SIGNATURE can be used to specify version information
+RESOURCE RSS_SIGNATURE {}
+
+// Defines the name of the default file the application framework creates.
+// This resource must always be the second resource in the resource file.
+RESOURCE TBUF { buf=""; }
+
+// This resource is used to define an application's GUI. 
+RESOURCE EIK_APP_INFO
+{
+	menubar=r_resource_menubar;
+}
+
+//
+// Menus
+//
+
+RESOURCE MENU_BAR r_resource_menubar
+{
+	titles=
+	{
+		MENU_TITLE { menu_pane=r_resource_menu_1; txt="Lists"; },
+		MENU_TITLE { menu_pane=r_resource_menu_2; txt="Configure"; },
+		MENU_TITLE { menu_pane=r_resource_menu_3; txt="Flash"; }
+	};
+}
+
+RESOURCE MENU_PANE r_resource_menu_1
+{
+	items=
+	{
+		MENU_ITEM {command=EResourceMenu1Item0; txt="Process";},
+		MENU_ITEM {command=EResourceMenu1Item1; txt="Thread"; },
+		MENU_ITEM {command=EResourceMenu1Item2; txt="Plugin Types"; },
+		MENU_ITEM {command=EResourceMenu1PluginInstances; txt="Plugin Instances"; },
+		MENU_ITEM {command=EResourceMenu1Executables; txt="Executables"; },
+		MENU_ITEM {command=EEikCmdExit; txt="Exit"; }
+	};
+}
+
+RESOURCE MENU_PANE r_resource_menu_2
+{
+	items=
+	{	
+		MENU_ITEM {command=EResMenu2ConfCDS; txt="Configure CDS"; },
+		MENU_ITEM {command=EResMenu2ConfSCM; txt="Configure SCM"; },
+		MENU_ITEM {command=EResMenu2CancelCrash; txt="Cancel Crash"; }
+	};
+}
+
+RESOURCE MENU_PANE r_resource_menu_3
+{
+	items=
+	{
+		MENU_ITEM {command=EResMenu3ListCrashes; txt="Show Crashes"; }
+	};
+}
+
+//
+// CDS dialog
+//
+
+RESOURCE DIALOG r_configure_cds_dialog
+{
+	title = "Configure CDS";
+	flags = EEikDialogFlagWait;
+	buttons = r_cds_dialog_buttons;
+	pages = r_cds_dialog_pages;
+}
+
+RESOURCE DLG_BUTTONS r_cds_dialog_buttons
+{
+	buttons=
+	{
+		DLG_BUTTON
+		{
+			id=EBidCDSConfigure;
+			button=CMBUT {txt="Configure";};
+			hotkey = 'F';
+		},
+		DLG_BUTTON
+		{
+			id=EEikBidCancel;
+			button=CMBUT {txt="Cancel";};
+			hotkey = 'C';
+		}
+	};
+}
+
+RESOURCE ARRAY r_cds_dialog_pages
+{
+	items =
+	{
+		PAGE
+		{
+			text = "CDS Configuration";
+			id = EConfigCDSPage;
+			lines = r_cds_dialog_lines;
+		}
+	};
+}
+
+RESOURCE ARRAY r_cds_dialog_lines
+{
+	items =
+	{
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = ELabel1;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EEdwin1;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = ELabel2;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type = EEikCtEdwin;
+			id = EEdwin2;
+			control = EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = ELabel3;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EEdwin3;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = ELabel4;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EEdwin4;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = ELabel5;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EEdwin5;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = ELabel6;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EEdwin6;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = ELabel7;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EEdwin7;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		}
+	};
+}
+
+
+//
+// Plugin dialog
+//
+
+RESOURCE DIALOG r_configure_plugin_dialog
+{
+	title = "Configure plugin";
+	flags = EEikDialogFlagWait;
+	buttons = r_plugin_dialog_buttons;
+	pages = r_plugin_dialog_pages;
+}
+
+RESOURCE DLG_BUTTONS r_plugin_dialog_buttons
+{
+	buttons=
+	{
+		DLG_BUTTON
+		{
+			id=EBidPluginConfigure;
+			button=CMBUT {txt="Configure";};
+			hotkey = 'F';
+		},
+		DLG_BUTTON
+		{
+			id=EEikBidCancel;
+			button=CMBUT {txt="Cancel";};
+			hotkey = 'C';
+		}
+	};
+}
+
+RESOURCE ARRAY r_plugin_dialog_pages
+{
+	items =
+	{
+		PAGE
+		{
+			text = "Plugin Configuration";
+			id = EConfigPluginPage;
+			lines = r_plugin_dialog_lines;
+		}
+	};
+}
+
+RESOURCE ARRAY r_plugin_dialog_lines
+{
+	items =
+	{
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = EPluginLabel1;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EPluginEdwin1;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = EPluginLabel2;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type = EEikCtEdwin;
+			id = EPluginEdwin2;
+			control = EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = EPluginLabel3;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EPluginEdwin3;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = EPluginLabel4;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EPluginEdwin4;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = EPluginLabel5;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EPluginEdwin5;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = EPluginLabel6;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EPluginEdwin6;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = EPluginLabel7;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EPluginEdwin7;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = EPluginLabel8;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EPluginEdwin8;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = EPluginLabel9;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EPluginEdwin9;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = EPluginLabel10;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EPluginEdwin10;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = EPluginLabel11;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EPluginEdwin11;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = EPluginLabel12;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EPluginEdwin12;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = EPluginLabel13;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EPluginEdwin13;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = EPluginLabel14;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EPluginEdwin14;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = EPluginLabel15;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EPluginEdwin15;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = EPluginLabel16;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EPluginEdwin16;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = EPluginLabel17;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EPluginEdwin17;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = EPluginLabel18;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EPluginEdwin18;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		}
+	};
+}
+
+
+
+// configure SCM dialog //
+
+RESOURCE DIALOG r_configure_scm_dialog
+{
+	title = "Configure SCM";
+	flags = EEikDialogFlagWait;
+	buttons = r_scm_dialog_buttons;
+	pages = r_scm_dialog_pages;
+}
+
+RESOURCE DLG_BUTTONS r_scm_dialog_buttons
+{
+	buttons=
+	{
+		DLG_BUTTON
+		{
+			id=EBidCDSConfigure;
+			button=CMBUT {txt="Configure";};
+			hotkey = 'F';
+		},
+		DLG_BUTTON
+		{
+			id=EEikBidCancel;
+			button=CMBUT {txt="Cancel";};
+			hotkey = 'C';
+		}
+	};
+}
+
+RESOURCE ARRAY r_scm_dialog_pages
+{
+	items =
+	{
+		PAGE
+		{
+			text = "SCM Configuration";
+			id = EConfigSCMPage;
+			lines = r_scm_dialog_lines;
+		}
+	};
+}
+
+
+
+
+RESOURCE ARRAY r_scm_dialog_lines
+{
+	items =
+	{
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = ELabel0;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EEdwin0;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = ELabel1;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EEdwin1;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = ELabel2;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type = EEikCtEdwin;
+			id = EEdwin2;
+			control = EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = ELabel3;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EEdwin3;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = ELabel4;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EEdwin4;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = ELabel5;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EEdwin5;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = ELabel6;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EEdwin6;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = ELabel7;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EEdwin7;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = ELabel8;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EEdwin8;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = ELabel9;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EEdwin9;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = ELabel10;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EEdwin10;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = ELabel11;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EEdwin11;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = ELabel12;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EEdwin12;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = ELabel13;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EEdwin13;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},		
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = ELabel14;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EEdwin14;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},		
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = ELabel15;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EEdwin15;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = ELabel16;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EEdwin16;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},		
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = ELabel17;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EEdwin17;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtLabel;
+			id = ELabel18;
+			control = LABEL
+			{
+				horiz_align=EEikLabelAlignHLeft;
+			};
+		},
+		DLG_LINE
+		{
+			type=EEikCtEdwin;
+			id = EEdwin18;
+			control=EDWIN
+			{
+				width = 20;
+			};
+		}
+
+	};
+}
+
+
+

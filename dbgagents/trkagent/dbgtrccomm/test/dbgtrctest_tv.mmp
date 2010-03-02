@@ -1,0 +1,38 @@
+/*
+* Copyright (c) 2000 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+
+
+
+TARGET        usbosttest.exe
+TARGETTYPE    exe
+UID           0x200159E1
+
+VENDORID 0x101FB657
+CAPABILITY 		ALL -TCB -DRM
+
+SOURCEPATH    .
+SOURCE       dbgtrctest.cpp dummytraceserver.cpp
+
+
+SYSTEMINCLUDE	/epoc32/include
+USERINCLUDE 	../inc
+
+
+LIBRARY       euser.lib usbostcomm.lib
+
+

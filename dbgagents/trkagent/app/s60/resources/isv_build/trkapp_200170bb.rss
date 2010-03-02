@@ -1,0 +1,427 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+
+NAME TRKD
+
+#include <eikon.rh>
+#include <eikcore.rsg>
+#include <avkon.rh>
+#include <avkon.rsg>
+#include <avkon.hrh>
+
+#include <trkapp_200170bb.mbg>
+
+#include "TrkApp.hrh"
+#include "trkapp_200170bb_loc.rls"
+
+RESOURCE RSS_SIGNATURE { }
+
+RESOURCE TBUF { buf="TRK"; }
+
+RESOURCE EIK_APP_INFO
+	{
+	hotkeys=r_trk_hotkeys;
+	menubar=r_trk_menubar;
+	cba = R_AVKON_SOFTKEYS_OPTIONS_BACK;
+	}
+
+
+
+//
+//
+// Resources for the trk hot keys
+//
+//
+RESOURCE HOTKEYS r_trk_hotkeys
+    {
+    control=
+        {
+        HOTKEY 
+        	{ 
+        	command=EEikCmdExit; 
+        	key='e'; 
+        	}
+        };
+    }
+//----------------------------------------------------
+//   
+//    r_trkapp_view
+//    Conn settings view
+//
+//----------------------------------------------------
+//
+RESOURCE AVKON_VIEW r_trkapp_view
+    {
+    menubar = r_trk_menubar;
+
+    cba = R_AVKON_SOFTKEYS_OPTIONS_BACK;    
+    }    
+
+//----------------------------------------------------
+//   
+//    r_trksettings_view
+//    Conn settings view
+//
+//----------------------------------------------------
+//
+RESOURCE AVKON_VIEW r_trksettings_view
+    {
+    menubar = r_settings_view_menubar;
+
+    cba = R_AVKON_SOFTKEYS_OPTIONS_BACK;    
+    }   
+    
+//
+//
+// Resources for the trk menu bar.
+//
+//
+RESOURCE MENU_BAR r_trk_menubar
+    {
+    titles=
+        {
+        MENU_TITLE 
+        	{ 
+        	menu_pane=r_trk_main_menu; 
+        	txt=STRING_r_trk_menu; 
+        	}
+		};
+    }
+
+
+//
+//
+// Resources for the trk main menu bar.
+//
+//
+RESOURCE MENU_PANE r_trk_main_menu
+	{
+	items=
+		{		
+		MENU_ITEM 
+			{ 
+			command=ETrkConnect;
+			txt=STRING_r_trk_menu_connect;
+			},
+		MENU_ITEM 
+			{ 
+			command=ETrkDisconnect;
+			txt=STRING_r_trk_menu_disconnect;
+			},
+		MENU_ITEM 
+			{ 
+			command=ETrkSettings;
+			txt=STRING_r_trk_menu_settings;
+			},
+		MENU_ITEM 
+			{ 
+			command=ETrkAbout;
+			txt=STRING_r_trk_menu_about;
+			},
+		MENU_ITEM 
+			{ 
+			command=EAknSoftkeyExit;
+			txt=STRING_r_trk_menu_exit; 
+			}
+        };
+    }
+
+
+//
+//
+// Resources for the settings view menu bar.
+//
+//
+RESOURCE MENU_BAR r_settings_view_menubar
+    {
+    titles=
+        {
+        MENU_TITLE { menu_pane=r_settings_view_menu;  txt=STRING_r_trk_menu; }
+		};
+    }
+
+//
+//
+// Resources for the settings view menu pane.
+//
+//
+RESOURCE MENU_PANE r_settings_view_menu
+	{
+	items=
+		{
+		MENU_ITEM
+			{
+			command=ETrkCmdChange;
+			txt=STRING_r_settings_view_menu_change;
+			}
+		};
+    }
+    
+ 
+//
+//
+// Resources for the trk connection settings list.
+//
+//
+RESOURCE AVKON_SETTING_ITEM_LIST r_trk_connection_settings_list
+	{
+	flags= EAknSettingItemIncludeHiddenInOrdinal;
+	title = STRING_r_trk_settings_dialog_title;
+	initial_number = 1;
+	items =
+		{
+		AVKON_SETTING_ITEM
+			{
+			identifier = ETrkConnectionType;
+			setting_page_resource = r_connectiontype_setting_page;
+			associated_resource = r_connectiontype_texts;
+			name = STRING_r_trk_settings_connection_type;
+			},
+		AVKON_SETTING_ITEM
+			{
+			identifier = ETrkConnectionPort;
+			setting_page_resource = r_port_setting_page;         
+			name = STRING_r_trk_settings_connection_port;
+			},
+		AVKON_SETTING_ITEM
+			{
+			identifier = ETrkConnectionBaudRate;
+			setting_page_resource = r_baudrate_setting_page;
+            associated_resource = r_baudrate_texts;
+			name = STRING_r_trk_settings_connection_baudrate;
+			}
+		};
+	}
+
+
+RESOURCE AVKON_SETTING_PAGE r_connectiontype_setting_page
+	{
+	number = EAknSettingPageNoOrdinalDisplayed;
+	label = STRING_r_trk_settings_connection_type;
+	softkey_resource = R_AVKON_SOFTKEYS_OK_CANCEL;	
+	type = EAknCtPopupSettingList;
+	editor_resource_id = r_connectiontype_popupsettings_editor;
+	}
+
+RESOURCE POPUP_SETTING_LIST r_connectiontype_popupsettings_editor
+    {
+    }
+
+RESOURCE AVKON_POPUP_SETTING_TEXTS r_connectiontype_texts
+    {
+    flags = 0;
+    setting_texts_resource = r_connectiontypes_enum_text;
+    popped_up_texts_resource = r_connectiontypes_array;
+    }
+
+RESOURCE ARRAY r_connectiontypes_enum_text
+    {
+    items =
+        {
+        AVKON_ENUMERATED_TEXT
+            {
+            value = 0;
+            text = STRING_r_trk_settings_connection_usb_dbg_trc;
+            },
+        AVKON_ENUMERATED_TEXT
+            {
+            value = 1;
+            text = STRING_r_trk_settings_connection_bluetooth;
+            }
+        };
+    }
+
+RESOURCE ARRAY r_connectiontypes_array
+	{
+	items =
+		{
+		LBUF { txt=STRING_r_trk_settings_connection_usb_dbg_trc; },
+		LBUF { txt=STRING_r_trk_settings_connection_bluetooth; }
+		};
+	}  
+
+
+RESOURCE AVKON_SETTING_PAGE r_port_setting_page
+	{
+	number = EAknSettingPageNoOrdinalDisplayed;
+	label = STRING_r_trk_settings_connection_port;
+	softkey_resource = R_AVKON_SOFTKEYS_OK_CANCEL;
+	type = EAknCtIntegerEdwin;
+	editor_resource_id = r_port_editor;
+	}
+
+RESOURCE AVKON_INTEGER_EDWIN r_port_editor
+    {
+    maxlength = 2;
+    min = 0;
+    max = 100;
+    }
+	
+RESOURCE AVKON_SETTING_PAGE r_baudrate_setting_page
+	{
+	number = EAknSettingPageNoOrdinalDisplayed;
+	label = STRING_r_trk_settings_connection_baudrate;
+	softkey_resource = R_AVKON_SOFTKEYS_OK_CANCEL;	
+	type = EAknCtPopupSettingList;
+	editor_resource_id = r_baudrate_popupsettings_editor;
+	}
+
+RESOURCE POPUP_SETTING_LIST r_baudrate_popupsettings_editor
+    {
+    }
+
+RESOURCE AVKON_POPUP_SETTING_TEXTS r_baudrate_texts
+    {
+    flags = 0;
+    setting_texts_resource = r_baudrates_enum_text;
+    popped_up_texts_resource = r_baudrates_array;
+    }
+
+RESOURCE ARRAY r_baudrates_enum_text
+    {
+    items =
+        {
+        AVKON_ENUMERATED_TEXT
+            {
+            value = 0;
+            text = STRING_r_trk_settings_connection_baud_300;
+            },
+        AVKON_ENUMERATED_TEXT
+            {
+            value = 1;
+            text = STRING_r_trk_settings_connection_baud_1200;
+            },
+        AVKON_ENUMERATED_TEXT
+            {
+            value = 2;
+            text = STRING_r_trk_settings_connection_baud_2400;
+            },
+        AVKON_ENUMERATED_TEXT
+            {
+            value = 3;
+            text = STRING_r_trk_settings_connection_baud_48600;
+            },
+        AVKON_ENUMERATED_TEXT
+            {
+            value = 4;
+            text = STRING_r_trk_settings_connection_baud_9600;
+            },
+        AVKON_ENUMERATED_TEXT
+            {
+            value = 5;
+            text = STRING_r_trk_settings_connection_baud_19200;
+            },
+        AVKON_ENUMERATED_TEXT
+            {
+            value = 6;
+            text = STRING_r_trk_settings_connection_baud_38400;
+            },
+        AVKON_ENUMERATED_TEXT
+            {
+            value = 7;
+            text = STRING_r_trk_settings_connection_baud_57600;
+            },
+    	AVKON_ENUMERATED_TEXT
+            {
+            value = 8;
+            text = STRING_r_trk_settings_connection_baud_115200;
+            },
+      	AVKON_ENUMERATED_TEXT
+            {
+            value = 9;
+            text = STRING_r_trk_settings_connection_baud_230400;
+            },
+        AVKON_ENUMERATED_TEXT
+            {
+            value = 10;
+            text = STRING_r_trk_settings_connection_baud_460800;
+            },
+        AVKON_ENUMERATED_TEXT
+            {
+            value = 11;
+            text = STRING_r_trk_settings_connection_baud_576000;
+            },
+    	AVKON_ENUMERATED_TEXT
+            {
+            value = 12;
+            text = STRING_r_trk_settings_connection_baud_1152000;
+            },
+      	AVKON_ENUMERATED_TEXT
+            {
+            value = 13;
+            text = STRING_r_trk_settings_connection_baud_4000000;
+            }
+        };
+    }
+
+RESOURCE ARRAY r_baudrates_array
+	{
+	items=
+		{
+		LBUF { txt=STRING_r_trk_settings_connection_baud_300; },
+		LBUF { txt=STRING_r_trk_settings_connection_baud_1200; },
+		LBUF { txt=STRING_r_trk_settings_connection_baud_2400; },
+		LBUF { txt=STRING_r_trk_settings_connection_baud_4800; },
+		LBUF { txt=STRING_r_trk_settings_connection_baud_9600; },
+		LBUF { txt=STRING_r_trk_settings_connection_baud_19200; },
+		LBUF { txt=STRING_r_trk_settings_connection_baud_38400; },
+		LBUF { txt=STRING_r_trk_settings_connection_baud_57600; },
+		LBUF { txt=STRING_r_trk_settings_connection_baud_115200; },
+		LBUF { txt=STRING_r_trk_settings_connection_baud_230400; },
+		LBUF { txt=STRING_r_trk_settings_connection_baud_460800; },
+		LBUF { txt=STRING_r_trk_settings_connection_baud_576000; },
+		LBUF { txt=STRING_r_trk_settings_connection_baud_1152000; },
+		LBUF { txt=STRING_r_trk_settings_connection_baud_4000000; }
+        };
+    }
+
+
+// *****************************************************************************
+// Trk AboutDialog
+// -----------------------------------------------------------------------------
+//
+//    r_trk_about_dialog
+//    About dialog.
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE DIALOG r_trk_about_dialog
+    {
+    flags = EGeneralQueryFlags | EEikDialogFlagNoBorder | EEikDialogFlagNoShadow;
+    buttons = R_AVKON_SOFTKEYS_OK_EMPTY;
+    items=
+        {
+        DLG_LINE
+			{
+            type = EAknCtPopupHeadingPane;
+            id = EAknMessageQueryHeaderId;
+            control = AVKON_HEADING
+                {
+                headinglayout = R_AVKON_WML_SIGN_QUERY_HEADING_PANE;
+                };
+            },
+        DLG_LINE
+            {
+            type = EAknCtMessageQuery;
+            id = EAknMessageQueryContentId;
+            control = AVKON_MESSAGE_QUERY
+                {
+                };
+            }
+		};
+    }

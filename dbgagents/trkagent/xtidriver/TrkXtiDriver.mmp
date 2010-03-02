@@ -1,0 +1,75 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+
+#if(!defined __SERIES60_30__ && !defined __SERIES60_31__)
+  #include <platform_paths.hrh>
+#endif
+
+#include <kernel/kern_ext.mmh>
+
+// For including the XTI driver in the build, please uncomment the line below
+// and also uncomment the same in trk.iby file in ..\..\rom folder.
+//#define _ENABLE_XTI_DRIVER_
+
+#if defined (_ENABLE_XTI_DRIVER_) || defined (FF_PLATFORM_SIMULATOR)
+
+
+macro 	__OEM_TRK__
+
+TARGET			TrkXtiDriver.ldd
+TARGETTYPE		LDD
+UID				0x100000AF 0x200159DD
+SOURCEPATH		.
+SOURCE			TrkXtiDriver.cpp
+SOURCE			TrkXtiSubscriber.cpp
+
+LIBRARY			tracecore.lib
+
+#if defined (__SERIES60_30__) || defined(__SERIES60_31__)
+
+systeminclude		\epoc32\include
+systeminclude		\epoc32\include\nkern 
+systeminclude 		\epoc32\include\kernel
+systeminclude		\epoc32\include\internal
+systeminclude		\epoc32\include\kernel\arm
+systeminclude		\epoc32\include\nkern\arm
+systeminclude		\epoc32\include\memmodel\epoc
+systeminclude		\epoc32\include\memmodel\epoc\mmubase
+
+DEFFILE			..\eabi\trkxtidriver.def
+
+#else
+
+OS_LAYER_KERNEL_SYSTEMINCLUDE
+systeminclude		/epoc32/include/internal
+
+DEFFILE			../eabi/trkxtidriver.def
+
+#endif
+
+NOSTRICTDEF
+
+
+VENDORID VID_DEFAULT
+capability			all
+
+#else
+
+TARGETTYPE NONE
+
+#endif // _ENABLE_XTI_DRIVER_ || FF_PLATFORM_SIMULATOR

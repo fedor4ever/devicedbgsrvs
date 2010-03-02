@@ -1,0 +1,52 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+
+TARGET		TrkEngine.dll
+TARGETTYPE	dll
+UID		0x00000000 0x200159D9
+
+VENDORID 0x101FB657
+CAPABILITY ALL -TCB -DRM
+
+SOURCEPATH	.
+SOURCE		TrkEngine.cpp TrkDispatchLayer.cpp TrkFramingLayer.cpp TrkEngineModel.cpp
+SOURCE		TrkSerialCommPort.cpp DateTimeConverter.cpp TrkUsbPortListener.cpp
+SOURCE		TrkSwInstall.cpp TrkSwInstUIHandler.cpp TrkBtSocketCommPort.cpp
+
+
+LIBRARY		efsrv.lib euser.lib c32.lib sishelper.lib usbman.lib
+LIBRARY		esock.lib bluetooth.lib btextnotifiers.lib btmanclient.lib sdpagent.lib sdpdatabase.lib 
+LIBRARY     sishelper.lib
+LIBRARY 	usbostcomm.lib
+LIBRARY 	sysutil.lib 
+LIBRARY		etel3rdparty.lib 
+
+SYSTEMINCLUDE	/epoc32/include
+SYSTEMINCLUDE	/epoc32/include\kernel
+USERINCLUDE	. 
+
+USERINCLUDE	../eka2driver
+
+
+#if defined(WINS)
+    deffile ./trkengU_win.def
+#elif defined(EABI)
+    deffile ../eabi/isv_trkengine.def
+#endif
+nostrictdef
+

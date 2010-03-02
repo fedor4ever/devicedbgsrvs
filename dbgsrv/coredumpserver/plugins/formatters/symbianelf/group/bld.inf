@@ -1,0 +1,41 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// @file bld.inf Build information file
+//
+
+PRJ_PLATFORMS
+ARMV5 WINSCW
+
+PRJ_EXPORTS
+
+symbianelfformatter.iby		/epoc32/rom/include/symbianelfformatter.iby
+../inc/symbianelfdefs.h		/epoc32/include/tools/coredump/symbianelfdefs.h
+../selflib/selflib.h		/epoc32/include/tools/coredump/selflib.h
+
+PRJ_MMPFILES
+
+#if defined(MARM)
+symbianelfformatter.mmp
+#endif
+selflib.mmp
+
+PRJ_TESTMMPFILES
+
+#if defined(MARM)
+../test/tsymbianelfformatter.mmp
+../test/tsymbianelfstringinfo.mmp
+#endif
+
+PRJ_TESTEXPORTS
+../test/tsymbianelfformatter.iby		/epoc32/rom/include/tsymbianelfformatter.iby

@@ -1,0 +1,123 @@
+// Copyright (c) 2008-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// @File								DT-formatters-SELF.script
+//
+
+//! @SYMTestSuiteName               	DT-formatters-SELF
+//! @SYMScriptTestEnvironment       	TEF
+
+LOAD_SUITE tcds_kernel
+
+START_TESTCASE                DT-formatters-SELF-001
+//! @SYMTestCaseID              DT-formatters-SELF-001
+//! @SYMTestCaseDesc            Test SELF Configuration to hold trace data with a system crash.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Configure the CDS to collect a crash log for our test crash application's crash event. Generate a system crash by crashing kernel side code using our test crash application and restart the board. Load the SELF formatter plugin and an arbitrary writer. Configure the SELF formatter to hold trace data. Process the crash log. Ensure the trace data is there and correct.
+//! @SYMTestExpectedResults     SELF crash dump should contain trace data.
+//! @SYMTestType                CT
+//! @SYMCreationDate            10/8/2007
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    1000    tcds_kernel \data\tcds_kernel.ini
+       	CREATE_OBJECT	CProcessCrashWrapper	self
+            COMMAND		    self	      NewL
+            COMMAND         self          ReadCrashInfo
+	        COMMAND         self          LoadPlugins
+	        COMMAND         self          ConfigurePlugins
+       	    COMMAND         self          ValidateTraceSELFFile
+       	    COMMAND         self          UnLoadPlugins
+    END_TEST_BLOCK
+END_TESTCASE DT-formatters-SELF-001
+
+START_TESTCASE                DT-formatters-SELF-005
+//! @SYMTestCaseID              DT-formatters-SELF-005
+//! @SYMTestCaseDesc            Test SELF Configuration to hold heap data.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Configure the CDS to collect a crash log for our test crash application's crash event. Generate a system crash by crashing kernel side code using our test crash application and restart the board. Load the SELF formatter plugin and an arbitrary writer. Configure the SELF formatter to hold heap data. Process the crash log and confirm heap data is present.
+//! @SYMTestExpectedResults     SELF crash dump should contain trace data.
+//! @SYMTestType                CT
+//! @SYMCreationDate            13/8/2007
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    1000    tcds_kernel \data\tcds_kernel.ini
+       	CREATE_OBJECT	CProcessCrashWrapper	self
+            COMMAND		    self	      NewL
+            COMMAND         self          ReadCrashInfo
+	        COMMAND         self          LoadPlugins
+	        COMMAND         self          ConfigurePlugins
+       	    COMMAND         self          ValidateHeapSELFFile
+       	    COMMAND         self          UnLoadPlugins
+    END_TEST_BLOCK
+END_TESTCASE DT-formatters-SELF-005
+
+START_TESTCASE                DT-formatters-SELF-009
+//! @SYMTestCaseID              DT-formatters-SELF-009
+//! @SYMTestCaseDesc            The SELF dump file should be verified to display the CPU ID of the thread it was running on.
+//! @SYMTestPriority            High
+//! @SYMTestActions             The CPU ID should be available. For a non SMP system (H4) it should be -1.
+//! @SYMTestExpectedResults     The CPU ID for the crashed threads should all be the same.
+//! @SYMTestType                CT
+//! @SYMCreationDate            10/6/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    1000    tcds_kernel \data\tcds_kernel.ini
+       	CREATE_OBJECT	CProcessCrashWrapper	self
+       		COMMAND		    self	      NewL
+       		COMMAND 		self 		  ReadCrashInfo
+       	    COMMAND		    self	      LoadPlugins
+       	    COMMAND			self		  ConfigurePlugins
+       	    COMMAND		    self	      ValidateSelfCPUID
+       	    COMMAND			self 		  UnLoadPlugins
+    END_TEST_BLOCK
+END_TESTCASE DT-formatters-SELF-009
+
+START_TESTCASE                DT-formatters-SELF-0010
+//! @SYMTestCaseID              DT-formatters-SELF-0010
+//! @SYMTestCaseDesc			For system crashes the SELF file should contain variant specific data when configured to do so
+//! @SYMTestPriority            High
+//! @SYMTestActions				Configure SCM to dump with variant data and verify its in SELF file
+//! @SYMTestExpectedResults		Variant data section present
+//! @SYMTestType                CT
+//! @SYMCreationDate            30/9/2009
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ2596
+    START_TEST_BLOCK    1000    tcds_kernel \data\tcds_self.ini
+       	CREATE_OBJECT	CSymbianElfWrapper	self
+		COMMAND			self		GenerateSelfFile	self0010
+		COMMAND			self		VerifySectionExists	self0010
+    END_TEST_BLOCK
+END_TESTCASE DT-formatters-SELF-0010
+
+START_TESTCASE                DT-formatters-SELF-0011
+//! @SYMTestCaseID              DT-formatters-SELF-0011
+//! @SYMTestCaseDesc			For system crashes the SELF file should contain variant specific data when configured to do so
+//! @SYMTestPriority            High
+//! @SYMTestActions				Configure SCM to dump with no variant data (or use an app dump) and verify its not in SELF file
+//! @SYMTestExpectedResults		Variant data section present
+//! @SYMTestType                CT
+//! @SYMCreationDate            30/9/2009
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ2596
+    START_TEST_BLOCK    1000    tcds_kernel \data\tcds_self.ini
+       	CREATE_OBJECT	CSymbianElfWrapper	self
+		COMMAND			self		GenerateSelfFile			self0011
+		COMMAND			self		VerifySectionDoesNotExist	self0011
+    END_TEST_BLOCK
+END_TESTCASE DT-formatters-SELF-0011
+

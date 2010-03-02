@@ -1,0 +1,24 @@
+EXPORTS
+	?PluginRequestL@RCoreDumpSession@@QBEXABVTPluginRequest@@@Z @ 1 NONAME ; void RCoreDumpSession::PluginRequestL(class TPluginRequest const &) const
+	?ObservationRequestL@RCoreDumpSession@@QBEXABVTDesC16@@0H@Z @ 2 NONAME ; void RCoreDumpSession::ObservationRequestL(class TDesC16 const &, class TDesC16 const &, int) const
+	?GetWritersL@RCoreDumpSession@@QBEXAAV?$RPointerArray@VCPluginInfo@@@@@Z @ 3 NONAME ; void RCoreDumpSession::GetWritersL(class RPointerArray<class CPluginInfo> &) const
+	?GetFormattersL@RCoreDumpSession@@QBEXAAV?$RPointerArray@VCPluginInfo@@@@@Z @ 4 NONAME ; void RCoreDumpSession::GetFormattersL(class RPointerArray<class CPluginInfo> &) const
+	??0RCoreDumpSession@@QAE@XZ @ 5 NONAME ; RCoreDumpSession::RCoreDumpSession(void)
+	?GetThreadsL@RCoreDumpSession@@QBEXAAV?$RPointerArray@VCThreadInfo@@@@_K@Z @ 6 NONAME ; void RCoreDumpSession::GetThreadsL(class RPointerArray<class CThreadInfo> &, unsigned long long) const
+	?Connect@RCoreDumpSession@@QAEHXZ @ 7 NONAME ; int RCoreDumpSession::Connect(void)
+	?ProcessCrashLogL@RCoreDumpSession@@QAEXH@Z @ 8 NONAME ; void RCoreDumpSession::ProcessCrashLogL(int)
+	?DeleteCrashLogL@RCoreDumpSession@@QBEXH@Z @ 9 NONAME ; void RCoreDumpSession::DeleteCrashLogL(int) const
+	?SetConfigParameterL@RCoreDumpSession@@QBEXABVCOptionConfig@@@Z @ 10 NONAME ; void RCoreDumpSession::SetConfigParameterL(class COptionConfig const &) const
+	?ListCrashesInFlashL@RCoreDumpSession@@QBEXAAV?$RPointerArray@VTCrashInfo@@@@@Z @ 11 NONAME ; void RCoreDumpSession::ListCrashesInFlashL(class RPointerArray<class TCrashInfo> &) const
+	?Disconnect@RCoreDumpSession@@QAEXXZ @ 12 NONAME ; void RCoreDumpSession::Disconnect(void)
+	?SaveConfigL@RCoreDumpSession@@QBEXABVTDesC16@@@Z @ 13 NONAME ; void RCoreDumpSession::SaveConfigL(class TDesC16 const &) const
+	?GetExecutablesL@RCoreDumpSession@@QBEXAAV?$RPointerArray@VCExecutableInfo@@@@@Z @ 14 NONAME ; void RCoreDumpSession::GetExecutablesL(class RPointerArray<class CExecutableInfo> &) const
+	?GetConfigParameterL@RCoreDumpSession@@QBEPAVCOptionConfig@@H@Z @ 15 NONAME ; class COptionConfig * RCoreDumpSession::GetConfigParameterL(int) const
+	?GetNumberConfigParametersL@RCoreDumpSession@@QBEHXZ @ 16 NONAME ; int RCoreDumpSession::GetNumberConfigParametersL(void) const
+	?GetProcessesL@RCoreDumpSession@@QBEXAAV?$RPointerArray@VCProcessInfo@@@@@Z @ 17 NONAME ; void RCoreDumpSession::GetProcessesL(class RPointerArray<class CProcessInfo> &) const
+	?LoadConfigL@RCoreDumpSession@@QBEXABVTDesC16@@@Z @ 18 NONAME ; void RCoreDumpSession::LoadConfigL(class TDesC16 const &) const
+	?GetPluginListL@RCoreDumpSession@@QBEXAAV?$RArray@VTPluginInfo@@@@@Z @ 19 NONAME ; void RCoreDumpSession::GetPluginListL(class RArray<class TPluginInfo> &) const
+	?DeleteCrashPartitionL@RCoreDumpSession@@QBEXXZ @ 20 NONAME ; void RCoreDumpSession::DeleteCrashPartitionL(void) const
+	?ProcessCrashLog@RCoreDumpSession@@QAEXHAAVTRequestStatus@@@Z @ 21 NONAME ; void RCoreDumpSession::ProcessCrashLog(int, class TRequestStatus &)
+	?CancelProcessCrashLog@RCoreDumpSession@@QAEHH@Z @ 22 NONAME ; int RCoreDumpSession::CancelProcessCrashLog(int)
+

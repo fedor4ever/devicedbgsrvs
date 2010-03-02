@@ -1,0 +1,58 @@
+// Copyright (c) 2006-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+PRJ_PLATFORMS
+ARMV5
+
+PRJ_EXPORTS
+//coredumpserver.iby has Core Dump Server itself and coredumpinterface.iby and cdssupport.iby
+..\server\src\coredumpserver.iby				\epoc32\rom\include\coredumpserver.iby
+..\server\src\coredumpserverstub.iby			\epoc32\rom\include\coredumpserverstub.iby
+
+..\interface\common\crashdata.h					tools\coredump\crashdata.h
+..\interface\common\debuglogging.h				tools\coredump\debuglogging.h
+..\interface\common\executabledata.h			tools\coredump\executabledata.h
+..\interface\common\plugindata.h				tools\coredump\plugindata.h
+..\interface\common\processdata.h				tools\coredump\processdata.h
+..\interface\common\streamelement.h				tools\coredump\streamelement.h
+..\interface\common\threaddata.h				tools\coredump\threaddata.h
+..\interface\config\optionconfig.h				tools\coredump\optionconfig.h
+..\interface\datasave\crashdatasave.h			tools\coredump\crashdatasave.h
+..\interface\datasave\crashdatasave.inl			tools\coredump\crashdatasave.inl
+..\interface\datasource\crashdatasource.h		tools\coredump\crashdatasource.h
+..\interface\formatter\formatterapi.h			tools\coredump\formatterapi.h
+..\interface\formatter\formatterapi.inl			tools\coredump\formatterapi.inl
+..\interface\server\coredumpinterface.h			tools\coredump\coredumpinterface.h
+..\interface\server\coredumpserverapi.h			tools\coredump\coredumpserverapi.h
+
+
+
+// Default allowed plugins
+..\server\plugins\pluginList1.plugin   \epoc32\data\Z\private\10282FE5\pluginList1.plugin
+
+// Stub SIS file for installing core dump server and plugins after rom build
+..\server\plugins\coredumpserverstub.SIS   \epoc32\data\Z\system\install\coredumpserverstub.SIS
+
+PRJ_TESTEXPORTS
+t_core_dump_all.iby						\epoc32\rom\include\t_core_dump_all.iby
+
+
+PRJ_MMPFILES
+..\cdssupport\group\cdssupport.mmp
+..\config\src\coredumpinterface.mmp
+#if defined(MARM_ARMV5) || defined(MARM_ARMV4)
+..\server\src\coredumpserver.mmp
+#endif
+

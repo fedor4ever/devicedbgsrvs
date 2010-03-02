@@ -1,0 +1,2 @@
+By installing this software you accept the terms of the 
+Carbide.C++ End-User License Agreement. The license agreement can be found in your Carbide.c++ installation directory, under the "EULA" subfolder.

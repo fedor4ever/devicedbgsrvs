@@ -1,0 +1,400 @@
+// Copyright (c) 2008-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// @File								tcds_unit.script
+//
+
+//! @SYMTestSuiteName               	DT-SCDS-UNIT
+//! @SYMScriptTestEnvironment       	TEF
+
+LOAD_SUITE tcds_unit
+
+
+
+START_TESTCASE                DT-SCDS-UNIT-0001
+//! @SYMTestCaseID              DT-SCDS-UNIT-0001
+//! @SYMTestCaseDesc            Test we can construct a flash data source and delete it succesfully.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Call NewL and delete it.
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                UT
+//! @SYMCreationDate            25/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_unit \data\tcds_unit.ini
+    	CREATE_OBJECT	CFlashDataSourceWrapper	session1
+		COMMAND		session1	NewL
+    END_TEST_BLOCK
+END_TESTCASE DT-SCDS-UNIT-0001
+                     
+
+
+START_TESTCASE                DT-SCDS-UNIT-0002
+//! @SYMTestCaseID              DT-SCDS-UNIT-0002
+//! @SYMTestCaseDesc            Tests the ReadCrashLog method on the flash data source.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Write dummy data to flash and read it back via GetFlashBuffer.
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                UT
+//! @SYMCreationDate            25/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_unit \data\tcds_unit.ini
+    	CREATE_OBJECT	CFlashDataSourceWrapper	session1
+		COMMAND		session1	ReadCrashLog
+    END_TEST_BLOCK
+END_TESTCASE DT-SCDS-UNIT-0002
+
+
+START_TESTCASE                DT-SCDS-UNIT-0003
+//! @SYMTestCaseID              DT-SCDS-UNIT-0003
+//! @SYMTestCaseDesc            Tests we can retrieve the flash buffer of the flash data source.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Get the flash buffer with GetFlashBuffer and make sure its ok.
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                UT
+//! @SYMCreationDate            25/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_unit \data\tcds_unit.ini
+    	CREATE_OBJECT	CFlashDataSourceWrapper	session1
+		COMMAND		session1	GetFlashBuffer
+    END_TEST_BLOCK
+END_TESTCASE DT-SCDS-UNIT-0003
+
+
+START_TESTCASE                DT-SCDS-UNIT-0004
+//! @SYMTestCaseID              DT-SCDS-UNIT-0004
+//! @SYMTestCaseDesc            Tests we can read and process a crash header from the flash partition.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Write a dummy header to the flash partition and read it back. It should be as expected. Tests ProcessCrashHeader().
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                UT
+//! @SYMCreationDate            25/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_unit \data\tcds_unit.ini
+    	CREATE_OBJECT	CFlashDataSourceWrapper	session1
+		COMMAND		session1	ProcessCrashHeader1
+    END_TEST_BLOCK
+END_TESTCASE DT-SCDS-UNIT-0004
+
+
+START_TESTCASE                DT-SCDS-UNIT-0005
+//! @SYMTestCaseID              DT-SCDS-UNIT-0005
+//! @SYMTestCaseDesc            Tests we can recognise a corrupt crash header from the flash partition
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Write a dummy data to the flash partition and read it back. Should recognise as corrupt. Tests ProcessCrashHeader.
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                UT
+//! @SYMCreationDate            25/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_unit \data\tcds_unit.ini
+    	CREATE_OBJECT	CFlashDataSourceWrapper	session1
+		COMMAND		session1	ProcessCrashHeader2
+    END_TEST_BLOCK
+END_TESTCASE DT-SCDS-UNIT-0005
+
+
+START_TESTCASE                DT-SCDS-UNIT-0006
+//! @SYMTestCaseID              DT-SCDS-UNIT-0006
+//! @SYMTestCaseDesc            Tests we can retrieve the process list.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Write a known process list to flash and then read it back. Should be as expected.
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                UT
+//! @SYMCreationDate            25/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_unit \data\tcds_unit.ini
+    	CREATE_OBJECT	CFlashDataSourceWrapper	session1
+		COMMAND		session1	GetProcessListL1
+    END_TEST_BLOCK
+END_TESTCASE DT-SCDS-UNIT-0006
+
+
+START_TESTCASE                DT-SCDS-UNIT-0007
+//! @SYMTestCaseID              DT-SCDS-UNIT-0007
+//! @SYMTestCaseDesc            Tests we can handle things ok when there is no process list.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Write a dummy crash with no process list. Should handle it and return a zero sized process list.
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                UT
+//! @SYMCreationDate            25/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_unit \data\tcds_unit.ini
+    	CREATE_OBJECT	CFlashDataSourceWrapper	session1
+		COMMAND		session1	GetProcessListL2
+    END_TEST_BLOCK
+END_TESTCASE DT-SCDS-UNIT-0007
+
+
+START_TESTCASE                DT-SCDS-UNIT-0008
+//! @SYMTestCaseID              DT-SCDS-UNIT-0008
+//! @SYMTestCaseDesc            Tests we can retrieve the system wide thread list.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Write a known system wide thread list to flash and then read it back. Should be as expected.
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                UT
+//! @SYMCreationDate            25/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_unit \data\tcds_unit.ini
+    	CREATE_OBJECT	CFlashDataSourceWrapper	session1
+		COMMAND		session1	GetThreadListL1
+    END_TEST_BLOCK
+END_TESTCASE  DT-SCDS-UNIT-0008
+
+
+START_TESTCASE                DT-SCDS-UNIT-0009
+//! @SYMTestCaseID              DT-SCDS-UNIT-0009
+//! @SYMTestCaseDesc            Tests we can handle things ok when there is no process list.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Write a dummy crash with no thread list. Should handle it and return a zero sized process list.
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                UT
+//! @SYMCreationDate            25/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_unit \data\tcds_unit.ini
+    	CREATE_OBJECT	CFlashDataSourceWrapper	session1
+		COMMAND		session1	GetThreadListL2
+    END_TEST_BLOCK
+END_TESTCASE DT-SCDS-UNIT-0009
+
+
+START_TESTCASE                DT-SCDS-UNIT-0010
+//! @SYMTestCaseID              DT-SCDS-UNIT-0010
+//! @SYMTestCaseDesc            Tests we can retrieve process specific thread list.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Write a dummy crash with a thread list with threads for multiple known process IDs. Retrieve the thread list via one of those process ID's and should only see the threads for that process.
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                UT
+//! @SYMCreationDate            25/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_unit \data\tcds_unit.ini
+    	CREATE_OBJECT	CFlashDataSourceWrapper	session1
+		COMMAND		session1	GetThreadListL3
+    END_TEST_BLOCK
+END_TESTCASE DT-SCDS-UNIT-0010
+
+
+START_TESTCASE                DT-SCDS-UNIT-0011
+//! @SYMTestCaseID              DT-SCDS-UNIT-0011
+//! @SYMTestCaseDesc            Tests we can read registers back from the flash succesfully.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Write a dummy crash with registers for the crashed thread, usr registers and svr registers. Should be able to retrieve all.
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                UT
+//! @SYMCreationDate            25/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_unit \data\tcds_unit.ini
+    	CREATE_OBJECT	CFlashDataSourceWrapper	session1
+		COMMAND		session1	ReadRegistersL1
+    END_TEST_BLOCK
+END_TESTCASE DT-SCDS-UNIT-0011
+
+
+START_TESTCASE                DT-SCDS-UNIT-0012
+//! @SYMTestCaseID              DT-SCDS-UNIT-0012
+//! @SYMTestCaseDesc            Tests we can read memory back from the flash succesfully.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Write a dummy crash with some memory. Should be able to retrieve it.
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                UT
+//! @SYMCreationDate            25/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_unit \data\tcds_unit.ini
+    	CREATE_OBJECT	CFlashDataSourceWrapper	session1
+		COMMAND		session1	ReadMemoryL1
+    END_TEST_BLOCK
+END_TESTCASE DT-SCDS-UNIT-0012
+
+
+START_TESTCASE                DT-SCDS-UNIT-0013
+//! @SYMTestCaseID              DT-SCDS-UNIT-0013
+//! @SYMTestCaseDesc            Tests we can read code segments back from the flash succesfully.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Write a dummy crash with some code segments. Should be able to retrieve expected code segments.
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                UT
+//! @SYMCreationDate            25/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_unit \data\tcds_unit.ini
+    	CREATE_OBJECT	CFlashDataSourceWrapper	session1
+		COMMAND		session1	GetCodeSegmentsL1
+    END_TEST_BLOCK
+END_TESTCASE DT-SCDS-UNIT-0013
+
+
+START_TESTCASE                DT-SCDS-UNIT-0014
+//! @SYMTestCaseID              DT-SCDS-UNIT-0014
+//! @SYMTestCaseDesc            Tests we can recognise corrupt code segments.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Write a dummy crash with some code segments but not code segment set (descriptor). Should get back a KErrCorrupt.
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                UT
+//! @SYMCreationDate            25/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_unit \data\tcds_unit.ini
+    	CREATE_OBJECT	CFlashDataSourceWrapper	session1
+		COMMAND		session1	GetCodeSegmentsL2
+    END_TEST_BLOCK
+END_TESTCASE DT-SCDS-UNIT-0014
+
+
+START_TESTCASE                DT-SCDS-UNIT-0015
+//! @SYMTestCaseID              DT-SCDS-UNIT-0015
+//! @SYMTestCaseDesc            Tests we can read back entire trace data via flash data source.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Write a dummy crash with some trace data. Should retrieve expected trace.
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                UT
+//! @SYMCreationDate            25/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_unit \data\tcds_unit.ini
+    	CREATE_OBJECT	CFlashDataSourceWrapper	session1
+		COMMAND		session1	ReadTraceBufferL1
+    END_TEST_BLOCK
+END_TESTCASE DT-SCDS-UNIT-0015
+
+
+START_TESTCASE                DT-SCDS-UNIT-0016
+//! @SYMTestCaseID              DT-SCDS-UNIT-0016
+//! @SYMTestCaseDesc            Tests we can calculate the check sum of the crash.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Calculate check sum and should be as expected.
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                UT
+//! @SYMCreationDate            25/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_unit \data\tcds_unit.ini
+    	CREATE_OBJECT	CFlashDataSourceWrapper	session1
+		COMMAND		session1	CalcChecksum
+    END_TEST_BLOCK
+END_TESTCASE DT-SCDS-UNIT-0016
+
+
+START_TESTCASE                DT-SCDS-UNIT-0018
+//! @SYMTestCaseID              DT-SCDS-UNIT-0018
+//! @SYMTestCaseDesc            Tests we can get back the correct size of trace available
+//! @SYMTestPriority            High
+//! @SYMTestActions             Write trace data to flash. Should get back expected.
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                UT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_unit \data\tcds_unit.ini
+    	CREATE_OBJECT	CFlashDataSourceWrapper	session1
+		COMMAND		session1	TraceDataSize
+    END_TEST_BLOCK
+END_TESTCASE DT-SCDS-UNIT-0018
+
+
+START_TESTCASE                DT-SCDS-UNIT-0019
+//! @SYMTestCaseID              DT-SCDS-UNIT-0019
+//! @SYMTestCaseDesc            Tests we can get back KErrNotFound when trace is not available
+//! @SYMTestPriority            High
+//! @SYMTestActions             Write no trace data to flash. Should get KErrNotFound when we look for it.
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                UT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_unit \data\tcds_unit.ini
+    	CREATE_OBJECT	CFlashDataSourceWrapper	session1
+		COMMAND		session1	TraceDataSizeNotFound
+    END_TEST_BLOCK
+END_TESTCASE DT-SCDS-UNIT-0019
+
+START_TESTCASE                DT-SCDS-UNIT-0020
+//! @SYMTestCaseID              DT-SCDS-UNIT-0020
+//! @SYMTestCaseDesc            Tests we can read the trace buffer with an offset
+//! @SYMTestPriority            High
+//! @SYMTestActions             Write trace data to flash. Read little chunks. Should be as expected.
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                UT
+//! @SYMCreationDate            27/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_unit \data\tcds_unit.ini
+    	CREATE_OBJECT	CFlashDataSourceWrapper	session1
+		COMMAND		session1	ReadTraceBufferL2
+    END_TEST_BLOCK
+END_TESTCASE DT-SCDS-UNIT-0020
+
+START_TESTCASE                DT-CDS-UNIT-0001
+//! @SYMTestCaseID              DT-CDS-UNIT-0001
+//! @SYMTestCaseDesc            Tests we can get trace buffer size
+//! @SYMTestPriority            High
+//! @SYMTestActions             Write trace data to buffer. Get size and should be4 expected.
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                UT
+//! @SYMCreationDate            27/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_unit \data\tcds_unit.ini
+    	CREATE_OBJECT	CServerDataSourceWrapper	session1
+		COMMAND		session1	GetAvailableTraceSizeL
+    END_TEST_BLOCK
+END_TESTCASE DT-CDS-UNIT-0001
+
+
+START_TESTCASE                DT-SCDS-UNIT-0021
+//! @SYMTestCaseID              DT-SCDS-UNIT-0021
+//! @SYMTestCaseDesc            Tests data source does not return duplicate segments
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Write a dummy crash with duplicate code segmentscheck no duplicates in returned list
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                UT
+//! @SYMCreationDate            25/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_unit \data\tcds_unit.ini
+    	CREATE_OBJECT	CFlashDataSourceWrapper	session1
+		COMMAND		session1	GetCodeSegmentsL3
+    END_TEST_BLOCK
+END_TESTCASE DT-SCDS-UNIT-0021
+
+

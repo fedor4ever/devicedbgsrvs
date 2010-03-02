@@ -1,0 +1,52 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+
+
+#if(defined __SERIES60_30__ || defined __SERIES60_31__)
+#include "..\..\..\dbgtrccomm\group\s60\bld.inf"
+#else
+#include "../../../dbgtrccomm/group/s60/bld.inf"
+#endif
+
+PRJ_PLATFORMS
+DEFAULT
+
+PRJ_EXPORTS
+
+#if defined (__SERIES60_30__) || defined(__SERIES60_31__)
+..\..\trk_bt.ini    \epoc32\data\Z\trk\trk_bt.ini
+..\..\trk_usb.ini    \epoc32\data\Z\trk\trk_usb.ini
+#else
+../../trk_bt.ini    /epoc32/data/Z/trk/trk_bt.ini
+../../trk_usb.ini    /epoc32/data/Z/trk/trk_usb.ini
+#endif
+
+PRJ_MMPFILES
+gnumakefile ..\trk_aif_svg_icons_dc.mk
+
+#ifdef MARM
+#if defined (__SERIES60_30__) || defined(__SERIES60_31__)
+..\..\..\eka2driver\isv_trkkerneldriver_s60
+..\..\..\engine\isv_trkengine_s60
+..\..\..\app\s60\isv_trkapp_s60
+#else
+../../../eka2driver/isv_trkkerneldriver_s60
+../../../engine/isv_trkengine_s60
+../../../app/s60/isv_trkapp_s60
+#endif
+#endif

@@ -1,0 +1,5 @@
+EXPORTS
+	_Z15FactoryFunctionv @ 1 NONAME
+	_ZTI14CDebugNotifier @ 2 NONAME ; #<TI>#
+	_ZTV14CDebugNotifier @ 3 NONAME ; #<VT>#
+

@@ -1,0 +1,40 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+#ifndef __TRK_IBY__
+#define __TRK_IBY__
+
+// trk debugger stub
+
+//For disabling autostart of TRK, comment the line below
+ECOM_PLUGIN(trklauncher.dll, trklauncher.rsc)
+
+file=ABI_DIR\BUILD_DIR\trkengine.dll	System\Libs\trkengine.dll
+file=ABI_DIR\BUILD_DIR\trkconsole.exe	System\Programs\TRKConsole.exe
+
+
+device[VARID]=ABI_DIR\BUILD_DIR\trkdriver.ldd System\Libs\trkdriver.ldd
+device[VARID]=ABI_DIR\BUILD_DIR\trkdccdriver.ldd System\Libs\trkdccdriver.ldd
+device[VARID]=ABI_DIR\BUILD_DIR\trkxtidriver.ldd System\Libs\trkxtidriver.ldd
+file=ABI_DIR\BUILD_DIR\trktcbserver.exe	 sys\bin\TrkTcbServer.exe
+file=ABI_DIR\BUILD_DIR\trkserver.exe	 sys\bin\trkserver.exe
+
+// To use DCC, modify the line below to include the dcc ini file
+data=ZSYSTEM\..\trk\trk_xti.ini     \trk.ini
+
+
+#endif

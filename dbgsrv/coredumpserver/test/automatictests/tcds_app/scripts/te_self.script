@@ -1,0 +1,180 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// @File								te_self.script
+//
+
+//! @SYMTestSuiteName               	DT-self-userside
+//! @SYMScriptTestEnvironment       	TEF
+
+PRINT Running te_coredumpserver.SELF
+
+LOAD_SERVER te_coredumpserverSuite
+
+
+
+START_TESTCASE                DT-self-userside-0001
+//! @SYMTestCaseID              DT-self-userside-0001
+//! @SYMTestCaseDesc            SELF plugins
+//! @SYMTestPriority            High
+//! @SYMTestActions             Test we can load/unload one and multiple plugins. Loaded plugins should be visible via CDS API.
+//! @SYMTestExpectedResults     Should Load and Unload as expected.
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+RUN_TEST_STEP 100 te_coredumpserverSuite SELFPluginStep
+END_TESTCASE DT-self-userside-0001
+
+
+START_TESTCASE                DT-self-userside-0002
+//! @SYMTestCaseID              DT-self-userside-0002
+//! @SYMTestCaseDesc            self with prefetch abort
+//! @SYMTestPriority            High
+//! @SYMTestActions             Crash the app using specified crash reason and check that the SELF file is generated and the process list afterwards is as expected.
+//! @SYMTestExpectedResults     SELF file generated and expected post proc suceeded.
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+RUN_TEST_STEP 100 te_coredumpserverSuite SELFUserSideStep  \testdata\configs\te_self.ini user_PrefetchAbort
+END_TESTCASE DT-self-userside-0002
+
+
+START_TESTCASE                DT-self-userside-0011
+//! @SYMTestCaseID              DT-self-userside-0011
+//! @SYMTestCaseDesc            self with data read
+//! @SYMTestPriority            High
+//! @SYMTestActions             Crash the app using specified crash reason and check that the SELF file is generated and the process list afterwards is as expected.
+//! @SYMTestExpectedResults     SELF file generated and expected post proc suceeded.
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+RUN_TEST_STEP 100 te_coredumpserverSuite SELFUserSideStep  \testdata\configs\te_self.ini user_DataRead
+END_TESTCASE DT-self-userside-0011
+
+
+START_TESTCASE                DT-self-userside-0003
+//! @SYMTestCaseID              DT-self-userside-0003
+//! @SYMTestCaseDesc            self with data write
+//! @SYMTestPriority            High
+//! @SYMTestActions             Crash the app using specified crash reason and check that the SELF file is generated and the process list afterwards is as expected.
+//! @SYMTestExpectedResults     SELF file generated and expected post proc suceeded.
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+RUN_TEST_STEP 100 te_coredumpserverSuite SELFUserSideStep  \testdata\configs\te_self.ini user_DataWrite
+END_TESTCASE DT-self-userside-0003
+
+
+START_TESTCASE                DT-self-userside-0004
+//! @SYMTestCaseID              DT-self-userside-0004
+//! @SYMTestCaseDesc            self with undefined instruction
+//! @SYMTestPriority            High
+//! @SYMTestActions             Crash the app using specified crash reason and check that the SELF file is generated and the process list afterwards is as expected.
+//! @SYMTestExpectedResults     SELF file generated and expected post proc suceeded.
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+RUN_TEST_STEP 100 te_coredumpserverSuite SELFUserSideStep  \testdata\configs\te_self.ini user_UndefInstr
+END_TESTCASE DT-self-userside-0004
+
+
+START_TESTCASE                DT-self-userside-0005
+//! @SYMTestCaseID              DT-self-userside-0005
+//! @SYMTestCaseDesc            self with user panic
+//! @SYMTestPriority            High
+//! @SYMTestActions             Crash the app using specified crash reason and check that the SELF file is generated and the process list afterwards is as expected.
+//! @SYMTestExpectedResults     SELF file generated and expected post proc suceeded.
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+RUN_TEST_STEP 100 te_coredumpserverSuite SELFUserSideStep  \testdata\configs\te_self.ini user_UserPanic
+END_TESTCASE DT-self-userside-0005
+
+
+START_TESTCASE                DT-self-userside-0006
+//! @SYMTestCaseID              DT-self-userside-0006
+//! @SYMTestCaseDesc            self with user exception
+//! @SYMTestPriority            High
+//! @SYMTestActions             Crash the app using specified crash reason and check that the SELF file is generated and the process list afterwards is as expected.
+//! @SYMTestExpectedResults     SELF file generated and expected post proc suceeded.
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+RUN_TEST_STEP 100 te_coredumpserverSuite SELFUserSideStep  \testdata\configs\te_self.ini user_UserException
+END_TESTCASE DT-self-userside-0006
+
+
+START_TESTCASE                DT-self-userside-0007
+//! @SYMTestCaseID              DT-self-userside-0007
+//! @SYMTestCaseDesc            self with stack overflow
+//! @SYMTestPriority            High
+//! @SYMTestActions             Crash the app using specified crash reason and check that the SELF file is generated and the process list afterwards is as expected.
+//! @SYMTestExpectedResults     SELF file generated and expected post proc suceeded.
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+RUN_TEST_STEP 100 te_coredumpserverSuite SELFUserSideStep  \testdata\configs\te_self.ini user_StackOverflow
+END_TESTCASE DT-self-userside-0007
+
+
+START_TESTCASE                DT-self-userside-0010
+//! @SYMTestCaseID              DT-self-userside-0010
+//! @SYMTestCaseDesc            self with user leave
+//! @SYMTestPriority            High
+//! @SYMTestActions             Crash the app using specified crash reason and check that the SELF file is generated and the process list afterwards is as expected.
+//! @SYMTestExpectedResults     SELF file generated and expected post proc suceeded.
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+RUN_TEST_STEP 100 te_coredumpserverSuite SELFUserSideStep  \testdata\configs\te_self.ini user_UserLeave
+END_TESTCASE DT-self-userside-0010
+
+
+START_TESTCASE                DT-self-userside-0008
+//! @SYMTestCaseID              DT-self-userside-0008
+//! @SYMTestCaseDesc            self with thread panic
+//! @SYMTestPriority            High
+//! @SYMTestActions             Crash the app using specified crash reason and check that the SELF file is generated and the process list afterwards is as expected.
+//! @SYMTestExpectedResults     SELF file generated and expected post proc suceeded.
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+RUN_TEST_STEP 100 te_coredumpserverSuite SELFUserSideStep  \testdata\configs\te_self.ini user_ThreadPanic
+END_TESTCASE DT-self-userside-0008
+
+
+START_TESTCASE                DT-self-userside-0009
+//! @SYMTestCaseID              DT-self-userside-0009
+//! @SYMTestCaseDesc            self with division by zero
+//! @SYMTestPriority            High
+//! @SYMTestActions             Crash the app using specified crash reason and check that the SELF file is generated and the process list afterwards is as expected.
+//! @SYMTestExpectedResults     SELF file generated and expected post proc suceeded.
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+RUN_TEST_STEP 100 te_coredumpserverSuite SELFUserSideStep  \testdata\configs\te_self.ini user_DivByZero
+END_TESTCASE DT-self-userside-0009
+PRINT Completed te_coredumpserver.SELF
+
+

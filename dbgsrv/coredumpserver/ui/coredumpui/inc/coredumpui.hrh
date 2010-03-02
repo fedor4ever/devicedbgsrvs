@@ -1,0 +1,127 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+#include "coredumpuiplatform.hrh"
+
+/**
+@file
+@internalTechnology
+@released
+*/
+
+enum TResourceMenuCommands
+	{
+	EResourceMenu1Item0 = 200,
+	EResourceMenu1Item1,
+	EResourceMenu1Item2,
+	EResourceMenu1PluginInstances,
+	EResourceMenu1Executables,
+	EResMenu2ConfCDS = 300,
+	EResMenu2ConfPlugin,
+	EResMenu2CancelCrash,
+	EResMenu3ListCrashes,
+	EResMenu2ConfSCM
+	};
+
+enum TResourceDialogControls
+	{
+	EPage1 = 1000,
+	EPage2,
+
+	ELabel0 = 1050,
+	ELabel1,
+	ELabel2,
+	ELabel3,
+	ELabel4,
+	ELabel5,
+	ELabel6,
+	ELabel7,
+	ELabel8,
+	ELabel9,
+	ELabel10,
+	ELabel11,
+	ELabel12,
+	ELabel13,
+	ELabel14,
+	ELabel15,
+	ELabel16,
+	ELabel17,
+	ELabel18,
+	
+	EEdwin0,
+	EEdwin1,
+	EEdwin2,
+	EEdwin3,
+	EEdwin4,
+	EEdwin5,
+	EEdwin6,
+	EEdwin7,
+	EEdwin8,
+	EEdwin9,
+	EEdwin10,
+	EEdwin11,
+	EEdwin12,
+	EEdwin13,
+	EEdwin14,
+	EEdwin15,
+	EEdwin16,
+	EEdwin17,
+	EEdwin18,
+	
+	EBidCDSConfigure,
+	EBidPluginConfigure,
+	
+	EConfigCDSPage,
+	EConfigSCMPage,
+	
+	EConfigPluginPage,
+	EPluginLabel1,
+	EPluginLabel2,
+	EPluginLabel3,
+	EPluginLabel4,
+	EPluginLabel5,
+	EPluginLabel6,
+	EPluginLabel7,
+	EPluginLabel8,
+	EPluginLabel9,
+	EPluginLabel10,
+	EPluginLabel11,
+	EPluginLabel12,
+	EPluginLabel13,
+	EPluginLabel14,
+	EPluginLabel15,
+	EPluginLabel16,
+	EPluginLabel17,
+	EPluginLabel18,
+	EPluginEdwin1,
+	EPluginEdwin2,
+	EPluginEdwin3,
+	EPluginEdwin4,
+	EPluginEdwin5,
+	EPluginEdwin6,
+	EPluginEdwin7,
+	EPluginEdwin8,
+	EPluginEdwin9,
+	EPluginEdwin10,
+	EPluginEdwin11,
+	EPluginEdwin12,
+	EPluginEdwin13,
+	EPluginEdwin14,
+	EPluginEdwin15,
+	EPluginEdwin16,
+	EPluginEdwin17,
+	EPluginEdwin18
+	
+	};

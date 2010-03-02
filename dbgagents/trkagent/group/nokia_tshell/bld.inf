@@ -1,0 +1,44 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+
+
+PRJ_PLATFORMS
+DEFAULT
+
+PRJ_EXPORTS
+
+trk_tshell.iby 		/epoc32/rom/include/trk.iby
+
+../trk.ini    		/epoc32/data/Z/trk/trk.ini
+../trk_bt.ini    	/epoc32/data/Z/trk/trk_bt.ini
+../trk_usb.ini    	/epoc32/data/Z/trk/trk_usb.ini
+../trk_dcc.ini    	/epoc32/data/Z/trk/trk_dcc.ini
+../s60/trk_xti.ini    	/epoc32/data/Z/trk/trk_xti.ini
+
+PRJ_MMPFILES
+
+#ifdef MARM
+../../dccdriver/trkdccdriver_tv
+../../eka2driver/trkkerneldriver_tv
+../../xtidriver/trkxtidriver
+../../engine/trkengine_nokia_tshell
+../../app/console/TrkConsole.mmp
+../../trkserver/trkserver_tv.mmp
+../../tcbserver/trktcbserver_tv
+../../trklauncher/trklauncher_tv
+#endif

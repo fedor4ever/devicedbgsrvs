@@ -1,0 +1,63 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+
+macro 		__OEM_TRK__
+
+
+macro __UIQ_BUILD__
+
+TARGET		TrkEngine.dll
+TARGETTYPE	dll
+UID		0x00000000 0x200159D9
+
+VENDORID 0x101FB657    // NOKIA VID
+CAPABILITY ALL -TCB -DRM
+
+SOURCEPATH	.
+
+SOURCE		TrkEngine.cpp TrkDispatchLayer.cpp TrkFramingLayer.cpp
+SOURCE		TrkSerialCommPort.cpp TrkBtSocketCommPort.cpp TrkDccCommPort.cpp DateTimeConverter.cpp
+SOURCE 		TrkEngineModel.cpp TrkDbgTrcCommPort.cpp TrkUsbPortListener.cpp
+SOURCE		TrkSwInstall.cpp TrkSwInstUIHandler.cpp
+
+
+
+SOURCEPATH	..\tcbclient
+SOURCE		TrkTcbCliSession.cpp TrkTcbClientUtils.cpp TrkTcbClientDefs.cpp 
+
+LIBRARY		efsrv.lib euser.lib c32.lib sishelper.lib btdevice.lib 
+LIBRARY     bluetooth.lib qbtsharedui.lib btextnotifiers.lib esock.lib 
+LIBRARY     usbman.lib usbostcomm.lib
+
+SYSTEMINCLUDE	\epoc32\include
+SYSTEMINCLUDE	\epoc32\include\kernel
+USERINCLUDE	. 
+
+USERINCLUDE	..\eka2driver
+USERINCLUDE	..\tcbclient
+USERINCLUDE	..\tcbserver
+USERINCLUDE	..\dccdriver
+
+
+#if defined(WINS)
+    deffile .\trkengU_win.def
+#elif defined(EABI)
+    deffile ..\eabi\trkengine_uiq.def
+#endif
+nostrictdef
+

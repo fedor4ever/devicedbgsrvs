@@ -1,0 +1,56 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+//! @File								te_self_trace.script
+//! @SYMTestSuiteName               	DT-self-userside
+//! @SYMScriptTestEnvironment       	TEF
+
+PRINT Running te_coredumpserver.SELFTrace
+
+LOAD_SERVER te_coredumpserverSuite
+
+
+
+START_TESTCASE                DT-self-userside-0012
+//! @SYMTestCaseID              DT-self-userside-0012
+//! @SYMTestCaseDesc            Test SELF Configuration to hold trace data with a user side crash.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Configure the CDS to generate a core dump for our test crash application. Load the SELF formatter plugin and an arbitrary writer. Configure the SELF formatter to hold trace data. Generate a user side crash using our test crash application. Observe trace data in generated crash dump.
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+RUN_TEST_STEP 100 te_coredumpserverSuite SELFUserSideTrace  \testdata\configs\te_self_trace.ini user_Trace
+END_TESTCASE DT-self-userside-0012
+
+
+START_TESTCASE                DT-self-userside-0013
+//! @SYMTestCaseID              DT-self-userside-0013
+//! @SYMTestCaseDesc            Test SELF Configuration to not hold trace data with a user side crash.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Configure the CDS to generate a core dump for our test crash application. Load the SELF formatter plugin and an arbitrary writer. Configure the SELF formatter to not hold trace data. Generate a user side crash with trace using our test crash application. Ensure there is no trace data in generated crash dump.
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+RUN_TEST_STEP 100 te_coredumpserverSuite SELFUserSideTrace \testdata\configs\te_self_trace.ini user_WithoutTrace
+END_TESTCASE DT-self-userside-0013
+PRINT Completed te_coredumpserver.SELFTrace
+
+

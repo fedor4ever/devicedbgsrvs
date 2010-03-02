@@ -1,0 +1,48 @@
+#
+# Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+# All rights reserved.
+# This component and the accompanying materials are made available
+# under the terms of "Eclipse Public License v1.0"
+# which accompanies this distribution, and is available
+# at the URL "http://www.eclipse.org/legal/epl-v10.html".
+#
+# Initial Contributors:
+# Nokia Corporation - initial contribution.
+#
+# Contributors:
+#
+# Description: 
+#
+
+component	dev_devicedbgsrvs_dbgsrv_coredumpserver
+
+source	/src/tools/dev/devicedbgsrvs/dbgsrv/coredumpserver
+
+# Core Dump Server
+binary	/src/tools/dev/devicedbgsrvs/dbgsrv/coredumpserver/group armv5
+exports	/src/tools/dev/devicedbgsrvs/dbgsrv/coredumpserver/group
+
+# User interfaces
+binary	/src/tools/dev/devicedbgsrvs/dbgsrv/coredumpserver/ui/coredumpui/group armv5
+binary	/src/tools/dev/devicedbgsrvs/dbgsrv/coredumpserver/ui/scriptconfig armv5
+exports	/src/tools/dev/devicedbgsrvs/dbgsrv/coredumpserver/ui/coredumpui/group
+exports	/src/tools/dev/devicedbgsrvs/dbgsrv/coredumpserver/ui/scriptconfig
+
+# Plugins
+binary	/src/tools/dev/devicedbgsrvs/dbgsrv/coredumpserver/plugins/formatters/dexc/group armv5
+binary	/src/tools/dev/devicedbgsrvs/dbgsrv/coredumpserver/plugins/formatters/symbianelf/group armv5
+binary	/src/tools/dev/devicedbgsrvs/dbgsrv/coredumpserver/plugins/formatters/utrace/group armv5
+binary	/src/tools/dev/devicedbgsrvs/dbgsrv/coredumpserver/plugins/writers/file/group armv5
+binary	/src/tools/dev/devicedbgsrvs/dbgsrv/coredumpserver/plugins/formatters/symbianelf/group winscw
+exports	/src/tools/dev/devicedbgsrvs/dbgsrv/coredumpserver/plugins/formatters/dexc/group
+exports	/src/tools/dev/devicedbgsrvs/dbgsrv/coredumpserver/plugins/formatters/symbianelf/group
+exports	/src/tools/dev/devicedbgsrvs/dbgsrv/coredumpserver/plugins/formatters/utrace/group
+exports	/src/tools/dev/devicedbgsrvs/dbgsrv/coredumpserver/plugins/writers/file/group
+
+notes_source	/component_defs/release.src
+#touch to force CBR re-release
+
+ipr E 
+ipr T /src/tools/dev/devicedbgsrvs/dbgsrv/coredumpserver/test
+ipr T /src/tools/dev/devicedbgsrvs/dbgsrv/coredumpserver/ui
+

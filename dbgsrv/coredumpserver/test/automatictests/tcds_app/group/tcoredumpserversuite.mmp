@@ -1,0 +1,65 @@
+// Copyright (c) 2002-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// Te_coredumpserverSuite.mmp
+//
+
+TARGET      Te_coredumpserverSuite.exe
+TARGETTYPE  exe
+UID             0x1000007A 0x102836B7 
+
+//Please add any change under here
+SOURCEPATH  ..\src
+SOURCE	            tcoredumpserversuiteserver.cpp
+SOURCE	            tcoredumpserversuitestepbase.cpp
+SOURCE              DEXCusersidestep.cpp
+SOURCE              liststep.cpp
+SOURCE              parameterstep.cpp
+SOURCE              SELFusersidestep.cpp
+SOURCE				SELFpluginstep.cpp
+SOURCE				DEXCpluginstep.cpp
+SOURCE 				testformatterusersidestep.cpp
+SOURCE 				CDSconnectionstep.cpp
+SOURCE 				CDStokenstep.cpp
+SOURCE				utracestep.cpp
+SOURCE				SELFusersidestrace.cpp
+SOURCE              testsignaling.cpp
+	
+USERINCLUDE   ..\..\common
+USERINCLUDE   ..\src
+USERINCLUDE   ..\inc
+
+SYSTEMINCLUDE \epoc32\include
+SYSTEMINCLUDE \epoc32\include\test
+SYSTEMINCLUDE \epoc32\include\drivers
+SYSTEMINCLUDE \epoc32\include\ecom
+SYSTEMINCLUDE \epoc32\include\tools\coredump
+SYSTEMINCLUDE \epoc32\include\tools
+
+//Please add your system include under here. 
+
+LIBRARY     euser.lib
+LIBRARY		testexecuteutils.lib 
+LIBRARY		testexecutelogclient.lib 
+LIBRARY     efsrv.lib
+
+//Please add your libraries under here. For example:
+LIBRARY     estor.lib
+LIBRARY     coredumpinterface.lib
+LIBRARY     cdssupport.lib
+LIBRARY     bafl.lib 
+LIBRARY     versit.lib
+
+CAPABILITY PowerMgmt
+
+MACRO CDSDEBUG

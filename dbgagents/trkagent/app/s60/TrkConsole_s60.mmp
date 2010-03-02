@@ -1,0 +1,57 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+#if(!defined __SERIES60_30__ && !defined __SERIES60_31__)
+  #include <platform_paths.hrh>
+#endif
+
+TARGET			TrkConsole.exe
+TARGETTYPE		exe
+
+UID			0x1000008C 0x200159E2
+
+#if defined (__SERIES60_30__) || defined(__SERIES60_31__)
+SOURCEPATH 	  ..\console
+#else
+SOURCEPATH 	  ../console
+#endif
+SOURCE			TrkConsole.cpp
+
+#if defined (__SERIES60_30__) || defined(__SERIES60_31__)
+SOURCEPATH    ..\..\trksrvclient
+#else
+SOURCEPATH    ../../trksrvclient
+#endif
+SOURCE 		    trksrvclisession.cpp trksrvclientutils.cpp trksrvclientdefs.cpp
+
+LIBRARY			euser.lib
+
+#if defined (__SERIES60_30__) || defined(__SERIES60_31__)
+  	SYSTEMINCLUDE	\epoc32\include
+  	USERINCLUDE   ..\..\engine
+  	USERINCLUDE   ..\..\trksrvclient  
+  	USERINCLUDE    ..\..\trkserver
+#else
+    MW_LAYER_SYSTEMINCLUDE
+    USERINCLUDE   ../../engine
+	USERINCLUDE   ../../trksrvclient  
+	USERINCLUDE    ../../trkserver
+#endif
+
+VENDORID VID_DEFAULT
+CAPABILITY All -TCB -DRM
+EPOCSTACKSIZE 0x12000

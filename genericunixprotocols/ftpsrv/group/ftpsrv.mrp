@@ -1,0 +1,9 @@
+component	dev_devicedbgsrvs_genericunixprotocols_ftpsrv
+
+source	/src/tools/dev/devicedbgsrvs/genericunixprotocols/ftpsrv/group
+binary	/src/tools/dev/devicedbgsrvs/genericunixprotocols/ftpsrv/group all
+exports	/src/tools/dev/devicedbgsrvs/genericunixprotocols/ftpsrv/group
+
+ipr T
+
+notes_source /component_defs/release.src

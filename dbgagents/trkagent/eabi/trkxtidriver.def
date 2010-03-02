@@ -1,0 +1,9 @@
+EXPORTS
+	_Z19CreateLogicalDevicev @ 1 NONAME
+	_ZTI14DTrkXtiChannel @ 2 NONAME ; #<TI>#
+	_ZTI17DTrkXtiSubscriber @ 3 NONAME ; #<TI>#
+	_ZTI20DTrkXtiDriverFactory @ 4 NONAME ; #<TI>#
+	_ZTV14DTrkXtiChannel @ 5 NONAME ; #<VT>#
+	_ZTV17DTrkXtiSubscriber @ 6 NONAME ; #<VT>#
+	_ZTV20DTrkXtiDriverFactory @ 7 NONAME ; #<VT>#
+

@@ -1,0 +1,60 @@
+;
+; Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+; All rights reserved.
+; This component and the accompanying materials are made available
+; under the terms of "Eclipse Public License v1.0"
+; which accompanies this distribution, and is available
+; at the URL "http://www.eclipse.org/legal/epl-v10.html".
+;
+; Initial Contributors:
+; Nokia Corporation - initial contribution.
+;
+; Contributors:
+;
+; Description: 
+;
+
+
+;Languages
+&EN
+
+;Header
+#{"Toolsstarter server"},(0x200170B5),1,00,3
+
+;Localised Vendor name
+%{"Nokia-EN"}
+
+;Unique Vendor name
+:"Nokia"
+
+;Supports Series 60 v 5.0
+[0x1028315F], 0, 0, 0, {"Series60ProductID"}
+
+"eula.txt"-"", FILETEXT, TEXTEXIT
+
+
+;Embedded component
+;@"s60_5_x_sys_trk_3_2.sisx",(0x200170BB)
+
+
+;Embedded component
+;@"TraceSwitch.sisx",(0x20010231)
+
+
+
+
+;Files to install
+"\epoc32\release\armv5\urel\toolsstarterserver.exe"			-"!:\sys\bin\toolsstarterserver.exe", FILERUN, RUNINSTALL
+;"\epoc32\data\z\resource\apps\0x200170B5.rsc"			-"c:\private\101f875a\import\[200170B5].rsc"
+
+"\epoc32\release\armv5\urel\toolsstarterautolaunch.dll"			-"!:\sys\bin\toolsstarterautolaunch.dll"
+"\epoc32\data\z\resource\plugins\toolsstarterautolaunch.rsc"			-"c:\resource\plugins\toolsstarterautolaunch.rsc"
+
+
+
+
+; Required files
+; None
+
+; Component .sis files
+; None

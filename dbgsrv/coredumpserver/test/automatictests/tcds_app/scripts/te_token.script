@@ -1,0 +1,39 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// @File								te_token.script
+//
+
+//! @SYMTestSuiteName               	DT-coredumpserver-token
+//! @SYMScriptTestEnvironment       	TEF
+
+PRINT Running te_coredumpserver.Tokens
+
+LOAD_SERVER te_coredumpserverSuite
+
+START_TESTCASE                DT-coredumpserver-token-0001
+//! @SYMTestCaseID              DT-coredumpserver-token-0001
+//! @SYMTestCaseDesc            Test security is enforced by debug token.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Attach to something not marked debuggable with a token. Then attach to it without a token. Then attach to something marked as debuggable without a token.
+//! @SYMTestExpectedResults     attach to things marked as debuggable.
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+RUN_TEST_STEP 100 te_coredumpserverSuite TokenStep
+END_TESTCASE DT-coredumpserver-token-0001
+
+PRINT Completed te_coredumpserver.Tokens
+
+

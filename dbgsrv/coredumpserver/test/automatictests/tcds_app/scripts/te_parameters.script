@@ -1,0 +1,39 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// @File								te_parameters.script
+//
+
+//! @SYMTestSuiteName               	DT-coredumpserver-params
+//! @SYMScriptTestEnvironment       	TEF
+
+PRINT Running te_coredumpserver.Parameters
+
+LOAD_SERVER te_coredumpserverSuite
+
+START_TESTCASE                DT-coredumpserver-params-0001
+//! @SYMTestCaseID              DT-coredumpserver-params-0001
+//! @SYMTestCaseDesc            Tests that the Core Dump Server Post Processing and Pre Processing values do what they should.
+//! @SYMTestPriority            High
+//! @SYMTestActions             Test varying combinations of pre and post processing values.
+//! @SYMTestExpectedResults     Expected
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+RUN_TEST_STEP 400 te_coredumpserverSuite ParametersStep
+END_TESTCASE DT-coredumpserver-params-0001
+
+PRINT Completed te_coredumpserver.Parameters
+
+

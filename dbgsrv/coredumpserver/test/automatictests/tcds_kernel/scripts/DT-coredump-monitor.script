@@ -1,0 +1,267 @@
+// Copyright (c) 2008-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// @File								DT-coredump-monitor.script
+//
+
+//! @SYMTestSuiteName               	DT-coredump-monitor
+//! @SYMScriptTestEnvironment       	TEF
+
+LOAD_SUITE tcds_kernel
+
+//! @SYMTestCaseID              DT-coredump-monitor-002
+//! @SYMTestCaseDesc            The Crash Logger Config Values displayed in CDS should correspond to the default build time values
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Ensure build time configuration parameters are correct.
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                CT
+//! @SYMTESTSTATUS              2. Functional
+//! @SYMPREQ                    PREQ1700
+START_TESTCASE DT-coredump-monitor-002
+    START_TEST_BLOCK    100    tcds_kernel \data\tcds_kernel.ini
+       	CREATE_OBJECT	CCoreDumpMonitor	monitor 
+       	    COMMAND		    monitor	      ReadDefaultConfigValues
+    END_TEST_BLOCK
+END_TESTCASE DT-coredump-monitor-002
+
+START_TESTCASE DT-coredump-monitor-004
+//! @SYMTestCaseID              DT-coredump-monitor-004
+//! @SYMTestCaseDesc            Trusted clients should be able to view crash logger configuration parameters.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Using CDS API, a trusted agent should try to read the crash logger properties. This should suceed.
+//! @SYMTestExpectedResults     Parameters should be read sucessfully.
+//! @SYMTestType                CT
+//! @SYMCreationDate            22/8/2007
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+//! @SYMREQ                     XXXX
+    START_TEST_BLOCK    100    tcds_kernel \data\tcds_kernel.ini
+       	CREATE_OBJECT	CCoreDumpMonitor	monitor 
+       	    COMMAND		    monitor	      TrustedAccessToSCMConfig
+    END_TEST_BLOCK
+END_TESTCASE DT-coredump-monitor-004
+
+
+START_TESTCASE                DT-coredump-monitor-005
+//! @SYMTestCaseID              DT-coredump-monitor-005
+//! @SYMTestCaseDesc            Untrusted clients should not be able to view crash logger configuration parameters.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Using CDS API, a trusted agent should try to read the crash logger properties. This should fail with permission denied.
+//! @SYMTestExpectedResults     Parameters should be read sucessfully.
+//! @SYMTestType                CT
+//! @SYMCreationDate            22/8/2007
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+//! @SYMREQ                     XXXX
+    START_TEST_BLOCK    100    tcds_kernel \data\tcds_kernel.ini
+       	CREATE_OBJECT	CCoreDumpMonitor	monitor 
+       	    COMMAND		    monitor	      UntrustedAccessToSCMConfig
+    END_TEST_BLOCK
+END_TESTCASE DT-coredump-monitor-005
+
+
+START_TESTCASE                DT-coredump-monitor-007
+//! @SYMTestCaseID              DT-coredump-monitor-007
+//! @SYMTestCaseDesc            When crash log is full first crash should be
+//!								written at start of flash
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Crash the board sufficient times so that flash is full
+//!								then check that the first crash in flash is newest
+//! @SYMTestExpectedResults     First crash should be newest
+//! @SYMTestType                SYM-TEF
+//! @SYMTESTSTATUS              2. Functional
+//! @SYMPREQ                    PREQ1700
+//! @SYMREQ                     7209
+	START_TEST_BLOCK    100    tcds_kernel \data\tcds_kernel.ini
+       	CREATE_OBJECT		CCoreDumpMonitor	monitor 
+			COMMAND         monitor       ValidateNewestCrash
+    END_TEST_BLOCK
+END_TESTCASE DT-coredump-monitor-007
+
+
+START_TESTCASE                DT-coredump-monitor-009
+//! @SYMTestCaseID              DT-coredump-monitor-009
+//! @SYMTestCaseDesc            Crash logger should be able to gather trace buffer data and include it with the rest of of the system crash data.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Configure the CDS to collect a crash log for our test crash application's crash event. Load the UTrace formatter and arbitrary writer. Generate a system crash by crashing kernel side code using our test crash application. The crash application should make trace calls so as to generate trace data. Restart the board, process the crash and verify the expected trace data is there
+//! @SYMTestExpectedResults     Expected trace data should be present in the crash log.
+//! @SYMTestType                CT
+//! @SYMCreationDate            13/8/2007
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+//! @SYMREQ                     XXXX
+    START_TEST_BLOCK    100    tcds_kernel \data\tcds_kernel.ini
+       	CREATE_OBJECT	CCoreDumpMonitor	monitor 
+       	    COMMAND		    monitor	      GatherTraceBuffer  
+	END_TEST_BLOCK
+END_TESTCASE DT-coredump-monitor-009
+
+
+START_TESTCASE                DT-coredump-monitor-010
+//! @SYMTestCaseID              DT-coredump-monitor-010
+//! @SYMTestCaseDesc            Ensure that the coredump monitor can dump multiple crashes
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Crash the board more than once
+//! @SYMTestExpectedResults     The List crashes call should return multiple crashes
+//! @SYMTestType                CT
+//! @SYMCreationDate            5/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+//! @SYMREQ                     XXXX
+    START_TEST_BLOCK    100    tcds_kernel \data\tcds_kernel.ini
+       	CREATE_OBJECT	CProcessCrashWrapper	monitor 
+       	    COMMAND		    monitor	      NewL  
+			COMMAND         monitor       CheckMultipleCrashes
+	END_TEST_BLOCK
+END_TESTCASE DT-coredump-monitor-010
+
+
+START_TESTCASE                DT-coredump-monitor-011
+//! @SYMTestCaseID              DT-coredump-monitor-011
+//! @SYMTestCaseDesc            Test crash information in the ELF file namely
+//!                             1) Crash Type
+//!                             2) Thread Name
+//!                             3) Process ID
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Crash the board with  a specific crash type
+//!                             verify the ELF file to be a valid ELF file
+//!                             Check on that crash type
+//!                             validate the thread name with the application that had crshed
+//! @SYMTestExpectedResults     Should fetch right results from the ELF File
+//!                             1) Crash Type
+//!                             2) Thread Name
+//!                             3) Process ID
+//! @SYMTestType                CT
+//! @SYMCreationDate            5/11/2008
+//! @SYMAuthor                  sakhyaghosh
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+//! @SYMREQ                     XXXX
+    START_TEST_BLOCK    10000    tcds_kernel \data\tcds_kernel.ini
+       	CREATE_OBJECT	CProcessCrashWrapper	monitor 
+            COMMAND		    monitor	      	 NewL   
+            COMMAND         monitor          ReadCrashInfo
+			COMMAND         monitor          LoadPlugins
+			COMMAND         monitor          ConfigurePlugins
+      	    COMMAND         monitor          ValidateSingleELFFile 
+       	    COMMAND         monitor          UnLoadPlugins 
+	END_TEST_BLOCK
+END_TESTCASE DT-coredump-monitor-011
+
+
+START_TESTCASE                DT-coredump-monitor-012
+//! @SYMTestCaseID              DT-coredump-monitor-012
+//! @SYMTestCaseDesc            Test crash information in Multiple ELF file namely
+//!                             1) Crash Type
+//!                             2) Thread Name Validation
+//!                             3) Process ID
+//! @SYMTestPriority            High
+//! @SYMTestActions             crash the board a number of times
+//!                             check for the crashes to be present
+//!                             read the crash information and process the crash
+//!                             with SELF formatter and file writter loaded generate multiple SELF files
+//!                             validate all the SELF files for the correctness
+//! @SYMTestExpectedResults     Should be able t generate multiple ELF Files for multiple crashes and then validate each of the ELF files for:
+//!                             1) Crash Type
+//!                             2) Thread Name
+//!                             3) Process ID
+//! @SYMTestType                CT
+//! @SYMCreationDate            14/11/2008
+//! @SYMAuthor                  sakhyaghosh
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+//! @SYMREQ                     XXXX
+    START_TEST_BLOCK    1000    tcds_kernel \data\tcds_kernel.ini
+       	CREATE_OBJECT	CProcessCrashWrapper	processb 
+            COMMAND		    processb	      NewL   
+            COMMAND         processb          ReadCrashInfo
+	        COMMAND         processb          LoadPlugins
+	        COMMAND         processb          ConfigurePlugins  
+       	    COMMAND         processb          ValidateMultipleSELFFile  
+       	    COMMAND         processb          UnLoadPlugins    
+	END_TEST_BLOCK
+END_TESTCASE DT-coredump-monitor-012
+
+START_TESTCASE                DT-coredump-monitor-013
+//! @SYMTestCaseID              DT-coredump-monitor-013
+//! @SYMTestCaseDesc            Processing Corrupt Crash should return KErrCorrupt, part of the negative test case of CDS ProcessCrashLog
+//! @SYMTestPriority            High
+//! @SYMTestActions             - Crash Board
+//!                             - Restart Board Before Crash has finished
+//!                             - Should see crash entry, but processing should return Corrupt
+//! @SYMTestExpectedResults     Processing the corrupt crash should return KErrCorrupt
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  sakhyaghosh
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+//! @SYMREQ                     XXXX
+    START_TEST_BLOCK    1000    tcds_kernel \data\tcds_kernel.ini
+       	CREATE_OBJECT	CProcessCrashWrapper	processb 
+            COMMAND		    processb	      NewL   
+       	    COMMAND         processb          ValidateCorruptCrash         
+	END_TEST_BLOCK
+END_TESTCASE DT-coredump-monitor-013
+START_TESTCASE                DT-coredump-monitor-014
+//! @SYMTestCaseID              DT-coredump-monitor-014
+//! @SYMTestCaseDesc            Processing Asynchronously for the Crash Log from flash
+//! @SYMTestPriority            High
+//! @SYMTestActions             - Crash Board
+//!                             - Restart Board Before Crash has finished
+//!                             - Should see teh crash log and process the crash asynchronously
+//! @SYMTestExpectedResults     Processing of the crash log from flash done asynchronously
+//! @SYMTestType                CT
+//! @SYMCreationDate            5/1/2009
+//! @SYMAuthor                  sakhyaghosh
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    1000    tcds_kernel \data\tcds_kernel.ini
+       	CREATE_OBJECT	CProcessCrashWrapper	processb 
+            COMMAND		    processb	      NewL   
+            COMMAND         processb          ReadCrashInfo
+	        COMMAND         processb          LoadPlugins
+	        COMMAND         processb          ConfigurePlugins  
+       	    COMMAND         processb          ValidateAsyncProcessCrashLog  
+       	    COMMAND         processb          UnLoadPlugins    
+	END_TEST_BLOCK
+END_TESTCASE DT-coredump-monitor-014
+
+
+START_TESTCASE                DT-coredump-monitor-015
+//! @SYMTestCaseID              DT-coredump-monitor-015
+//! @SYMTestCaseDesc            Processing Asynchronously for the Crash Log from flash while processing of live crash is in progress
+//! @SYMTestPriority            High
+//! @SYMTestActions             - Crash Board
+//!                             - Restart Board Before Crash has finished
+//!                             - Should start a live crash
+//!                             - Process crash log from flash asynchronously while the live crash processing is in progress
+//! @SYMTestExpectedResults     Processing of the crash log done asynchronously whilst a live crash is ongoing
+//! @SYMTestType                CT
+//! @SYMCreationDate            5/1/2009
+//! @SYMAuthor                  sakhyaghosh
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    1000    tcds_kernel \data\tcds_kernel.ini
+       	CREATE_OBJECT	CProcessCrashWrapper	processb 
+            COMMAND		    processb	      NewL   
+            COMMAND         processb          ReadCrashInfo
+	        COMMAND         processb          LoadPlugins
+	        COMMAND         processb          ConfigurePlugins  
+       	    COMMAND         processb          ValidateAsyncProcessAndLiveCrash    User_PrefetchAbort  
+       	    COMMAND         processb          UnLoadPlugins    
+	END_TEST_BLOCK
+END_TESTCASE DT-coredump-monitor-015

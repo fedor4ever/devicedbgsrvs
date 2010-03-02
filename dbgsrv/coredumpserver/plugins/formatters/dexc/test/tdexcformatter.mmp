@@ -1,0 +1,44 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+target tdexcformatter.exe
+targettype	exe
+uid 				0xE8000077
+VENDORID    0x70000001
+
+sourcepath .
+source tdexcformatter.cpp
+sourcepath ../../test
+source testcrashdatasource.cpp
+source testcrashdatasave.cpp
+
+sourcepath ../src
+source dexcformatter.cpp
+
+userinclude		../inc
+userinclude		../../test/
+
+systeminclude /epoc32/include
+systeminclude /epoc32/include/ecom
+systeminclude /epoc32/include/drivers
+systeminclude /epoc32/include/tools/coredump
+
+library euser.lib ecom.lib estor.lib
+library cdssupport.lib
+
+CAPABILITY 	PowerMgmt
+
+
+OPTION CW -w nounused -w noempty

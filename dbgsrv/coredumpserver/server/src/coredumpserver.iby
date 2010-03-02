@@ -1,0 +1,27 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+#ifndef CORE_DUMP_SERVER_IBY
+#define CORE_DUMP_SERVER_IBY
+
+file=ABI_DIR\BUILD_DIR\coredump_svr.exe			sys\bin\coredump_svr.exe
+file=ABI_DIR\BUILD_DIR\coredumpinterface.dll	sys\bin\coredumpinterface.dll
+file=ABI_DIR\BUILD_DIR\cdssupport.dll			sys\bin\cdssupport.dll
+
+data=EPOCROOT##epoc32\data\Z\private\10282FE5\pluginList1.plugin  \private\10282FE5\pluginList1.plugin
+
+#endif

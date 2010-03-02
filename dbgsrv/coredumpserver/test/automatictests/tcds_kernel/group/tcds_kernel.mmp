@@ -1,0 +1,68 @@
+// Copyright (c) 2008-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+TARGET				tcds_kernel.exe
+TARGETTYPE			exe
+UID					0x1000007A 0x102836BC
+
+//Please add any change under here
+SOURCEPATH			../src
+SOURCE				tcds_kernelBlockServer.cpp
+SOURCE				tcds_kernelBlockController.cpp
+
+USERINCLUDE 		../inc
+USERINCLUDE			../../../../server/inc
+USERINCLUDE			../inc/cds
+
+SYSTEMINCLUDE   \epoc32\include\stdapis
+
+SYSTEMINCLUDE		\epoc32\include
+SYSTEMINCLUDE		\epoc32\include\drivers
+SYSTEMINCLUDE		\epoc32\include\test
+SYSTEMINCLUDE		\epoc32\include\tools
+SYSTEMINCLUDE		\epoc32\include\tools\coredump
+SYSTEMINCLUDE		\epoc32\include\ecom
+SYSTEMINCLUDE		\epoc32\include\stdapis
+SYSTEMINCLUDE		\epoc32\include\libc
+
+//Please add your system include under here.
+
+LIBRARY				euser.lib
+LIBRARY				testexecuteutils.lib
+LIBRARY				testexecutelogclient.lib
+LIBRARY				cdssupport.lib
+LIBRARY				efsrv.lib
+LIBRARY				libc.lib
+LIBRARY				bafl.lib
+LIBRARY				hal.lib
+
+//WRAPPERS Source Code
+SOURCEPATH ..\src\cds
+
+SOURCE t_process_crash.cpp
+SOURCE t_crash_board.cpp
+SOURCE t_coredumpserver.cpp
+SOURCE t_coredumpmonitor.cpp
+SOURCE t_scm_config.cpp
+SOURCE t_self.cpp
+
+SOURCEPATH ../../../../server/src
+SOURCE flashdatasource.cpp
+
+LIBRARY coredumpinterface.lib //Core Dump Server
+
+STATICLIBRARY scmusr_lib.lib
+
+//MACRO CDSDEBUG for LOG_MSG SOURCE t_coredumpserver.cpp

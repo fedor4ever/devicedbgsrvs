@@ -1,0 +1,25 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+#ifndef __TOOLSSTARTER_IBY__
+#define __TOOLSSTARTER_IBY__
+
+file=ABI_DIR\BUILD_DIR\toolsstarterclient.dll	System\Libs\toolsstarterclient.dll
+file=ABI_DIR\BUILD_DIR\toolsstarterserver.exe	System\Programs\toolsstarterserver.exe
+ECOM_PLUGIN(toolsstarterautolaunch.dll, toolsstarterautolaunch.rsc)
+//data=MULTI_LINGUIFY(RSC EPOCROOT##epoc32\data\Z\resource\Apps\0x200170B5.rsc  private\101f875a\import\[0x200170B5].rsc)
+
+#endif //__TOOLSSTARTER_IBY__

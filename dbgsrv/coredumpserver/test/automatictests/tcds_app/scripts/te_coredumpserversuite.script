@@ -1,0 +1,31 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+//! @File								te_coredumpserversuite.script
+//! @SYMTestSuiteName               	Core Dump Application Crash
+//! @SYMScriptTestEnvironment       	TEF
+PRINT Run all te_coredumpserver Suite Tests
+
+//
+LOAD_SUITE te_coredumpserverSuite
+//
+
+//RUN_TEST_STEP 100 te_coredumpserverSuite DEXECStep \testdata\configs\te_coredumpserverSuite.ini Section0
+RUN_TEST_STEP 100 te_coredumpserverSuite ListsStep \testdata\configs\te_coredumpserverSuite.ini Section1
+//RUN_TEST_STEP 100 te_coredumpserverSuite ParametersStep \testdata\configs\te_coredumpserverSuite.ini Section2
+//RUN_TEST_STEP 100 te_coredumpserverSuite PluginsStep \testdata\configs\te_coredumpserverSuite.ini Section3
+//RUN_TEST_STEP 100 te_coredumpserverSuite SELFStep \testdata\configs\te_coredumpserverSuite.ini Section4
+
+PRINT Complate_te_coredumpserver_Tests

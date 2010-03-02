@@ -1,0 +1,9 @@
+component	dev_devicedbgsrvs_dbgguides_dbgsolutionsguide
+
+source /src/tools/dev/devicedbgsrvs/dbgguides/dbgsolutionsguide/com.nokia.debug_0.1.jar
+source /src/tools/dev/devicedbgsrvs/dbgguides/dbgsolutionsguide/group/dbgsolutionsguide.mrp
+source /src/tools/dev/devicedbgsrvs/dbgguides/dbgsolutionsguide/group/bld.inf
+
+exports /src/tools/dev/devicedbgsrvs/dbgguides/dbgsolutionsguide/group
+
+notes_source	\component_defs\release.src

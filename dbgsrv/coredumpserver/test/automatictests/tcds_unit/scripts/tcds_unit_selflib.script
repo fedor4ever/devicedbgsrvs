@@ -1,0 +1,122 @@
+//! @File
+//! @SYMTestSuiteName					DT-SELFLIB-UNIT
+//! @SYMScriptTestEnvironment			TEF
+
+// Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+LOAD_SUITE tcds_unit_selflib
+
+START_TESTCASE					DT-SELFLIB-UNIT-0001
+//! @SYMTestCaseID				DT-SELFLIB-UNIT-0001
+//! @SYMTestCaseDesc			Basic NewL & NewLC testing
+//! @SYMTestPriority			Critical
+//! @SYMTestActions				Call NewL/NewLC and delete it.
+//! @SYMTestExpectedResults		Pass
+//! @SYMTestType				UT
+//! @SYMCreationDate			10/05/2009
+//! @SYMAuthor					stephenroberts
+//! @SYMTestStatus				2. Functional
+//! @SYMPREQ					PREQ2596
+	START_TEST_BLOCK	100	tcds_unit_selflib \data\tcds_unit_selflib.ini
+		CREATE_OBJECT	CSELFLibWrapper	wrapper
+		COMMAND		wrapper	PrepareFiles
+		COMMAND		wrapper	NewL
+		COMMAND		wrapper NewLC
+		COMMAND		wrapper	TearDownFiles
+	END_TEST_BLOCK
+END_TESTCASE DT-SELFLIB-UNIT-0001
+
+START_TESTCASE					DT-SELFLIB-UNIT-0002
+//! @SYMTestCaseID				DT-SELFLIB-UNIT-0002
+//! @SYMTestCaseDesc			Test that construction fails a) files with invalid signatures b) corrupt ELF files
+//! @SYMTestPriority			Critical
+//! @SYMTestActions				Call it on various files
+//! @SYMTestExpectedResults		Pass
+//! @SYMTestType				UT
+//! @SYMCreationDate			10/08/2009
+//! @SYMAuthor					stephenroberts
+//! @SYMTestStatus				2. Functional
+//! @SYMPREQ					PREQ2596
+	START_TEST_BLOCK	100	tcds_unit_selflib \data\tcds_unit_selflib.ini
+		CREATE_OBJECT	CSELFLibWrapper	wrapper
+		COMMAND		wrapper	PrepareFiles
+		COMMAND		wrapper	TestConstruction_InvalidFile_Signature
+		COMMAND		wrapper	TestConstruction_InvalidFile_Size
+		COMMAND		wrapper TestConstruction_NotSupported
+		COMMAND		wrapper TestConstruction_Inuse
+		COMMAND		wrapper	TearDownFiles
+	END_TEST_BLOCK
+END_TESTCASE DT-SELFLIB-UNIT-0002
+
+START_TESTCASE					DT-SELFLIB-UNIT-0003
+//! @SYMTestCaseID				DT-SELFLIB-UNIT-0003
+//! @SYMTestCaseDesc			Tests we can get the ELF header via SELF lib
+//! @SYMTestPriority			Critical
+//! @SYMTestActions				Open file, validate returned ELF header
+//! @SYMTestExpectedResults		Pass
+//! @SYMTestType				UT
+//! @SYMCreationDate			10/09/2009
+//! @SYMAuthor					stephenroberts
+//! @SYMTestStatus				2. Functional
+//! @SYMPREQ					PREQ2596
+	START_TEST_BLOCK	100	tcds_unit_selflib \data\tcds_unit_selflib.ini
+		CREATE_OBJECT	CSELFLibWrapper	wrapper
+		COMMAND		wrapper	PrepareFiles
+		COMMAND		wrapper	GetElfHeaderL
+		COMMAND		wrapper	TearDownFiles
+	END_TEST_BLOCK
+END_TESTCASE DT-SELFLIB-UNIT-0003
+
+START_TESTCASE					DT-SELFLIB-UNIT-0004
+//! @SYMTestCaseID				DT-SELFLIB-UNIT-0004
+//! @SYMTestCaseDesc			Test we can insert Variant Specific data to the ELF file
+//! @SYMTestPriority			Critical
+//! @SYMTestActions				Test we can insert Variant Specific data to the ELF file
+//! @SYMTestExpectedResults		Pass
+//! @SYMTestType				UT
+//! @SYMCreationDate			12/09/2009
+//! @SYMAuthor					stephenroberts
+//! @SYMTestStatus				2. Functional
+//! @SYMPREQ					PREQ2596
+	START_TEST_BLOCK	100	tcds_unit_selflib \data\tcds_unit_selflib.ini
+		CREATE_OBJECT	CSELFLibWrapper	wrapper
+		COMMAND		wrapper	PrepareFiles
+		COMMAND		wrapper	InsertVariantSpecificData
+		COMMAND		wrapper InsertMultipleVariants
+		COMMAND		wrapper InsertNothingAndUpdate
+		COMMAND		wrapper	TearDownFiles
+	END_TEST_BLOCK
+END_TESTCASE DT-SELFLIB-UNIT-0004
+
+START_TESTCASE					DT-SELFLIB-UNIT-0005
+//! @SYMTestCaseID				DT-SELFLIB-UNIT-0005
+//! @SYMTestCaseDesc			Performance test
+//! @SYMTestPriority			Critical
+//! @SYMTestActions				Test the performance is acceptable
+//! @SYMTestExpectedResults		Pass
+//! @SYMTestType				UT
+//! @SYMCreationDate			16/09/2009
+//! @SYMAuthor					stephenroberts
+//! @SYMTestStatus				2. Functional
+//! @SYMPREQ					PREQ2596
+	START_TEST_BLOCK	1000000	tcds_unit_selflib \data\tcds_unit_selflib.ini
+		CREATE_OBJECT	CSELFLibWrapper	wrapper
+		COMMAND		wrapper	PrepareFiles
+		COMMAND		wrapper	TestPerformance
+		COMMAND		wrapper TestStress
+		COMMAND		wrapper	TearDownFiles
+	END_TEST_BLOCK
+END_TESTCASE DT-SELFLIB-UNIT-0005

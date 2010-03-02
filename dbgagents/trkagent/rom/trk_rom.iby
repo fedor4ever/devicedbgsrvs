@@ -1,0 +1,31 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+#ifndef __TRK_ROM_IBY__
+#define __TRK_ROM_IBY__
+
+
+device[VARID]=ABI_DIR\BUILD_DIR\trkdriver.ldd System\Libs\trkdriver.ldd
+device[VARID]=ABI_DIR\BUILD_DIR\trkdccdriver.ldd System\Libs\trkdccdriver.ldd
+
+// Comment out the ifdef below to include the trk xti driver
+// By default, this is not included since tracecore is not included in the S60 clean environments.
+#ifdef FF_PLATFORM_SIMULATOR
+device[VARID]=ABI_DIR\BUILD_DIR\trkxtidriver.ldd System\Libs\trkxtidriver.ldd
+#endif
+
+
+#endif //__TRK_ROM_IBY__

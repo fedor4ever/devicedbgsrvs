@@ -1,0 +1,114 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+
+macro 		__S60__
+
+#if(!defined __SERIES60_30__ && !defined __SERIES60_31__)
+  #include <platform_paths.hrh>
+#endif
+
+
+TARGET		  trkapp_200170bb.exe
+TARGETTYPE    exe
+epocstacksize 0x12000
+
+UID           0x100039CE 0x200170BB
+VENDORID      VID_DEFAULT
+CAPABILITY 	  ALL -TCB -DRM
+
+
+SOURCEPATH    .
+SOURCE        TrkApplication.cpp TrkDocument.cpp TrkAppUi.cpp TrkApp.cpp
+SOURCE		  TrkAppView.cpp TrkAppContainer.cpp TrkSettingsView.cpp TrkSettingsContainer.cpp 
+SOURCE	 	  TrkSettingsList.cpp TrkSettingsData.cpp
+
+#if defined (__SERIES60_30__) || defined(__SERIES60_31__)
+  	SYSTEMINCLUDE	\epoc32\include
+  	USERINCLUDE   ..\..\engine 
+#else
+    MW_LAYER_SYSTEMINCLUDE
+    USERINCLUDE   ../../engine
+#endif
+
+LIBRARY       euser.lib apparc.lib cone.lib eikcore.lib eikctl.lib eikcoctl.lib viewcli.lib
+LIBRARY       gdi.lib
+LIBRARY	      avkon.lib aknnotify.lib
+
+#if defined (__SERIES60_30__) || defined(__SERIES60_31__)
+
+sourcepath	.\resources\isv_build
+userinclude .
+userinclude .\resources
+START RESOURCE	trkapp_200170bb.rss
+HEADER
+targetpath	\resource\apps
+lang		sc
+end
+
+sourcepath	.\resources
+START RESOURCE	trkapp_200170bb_reg.rss
+TARGETPATH	\private\10003a3f\apps
+END
+
+sourcepath	.\resources\isv_build
+userinclude .
+userinclude .\resources
+start resource trkapp_200170bb_loc.rss
+targetpath \resource\apps
+lang sc
+end
+
+START BITMAP    trkapp_200170bb.mbm
+HEADER
+TARGETPATH      \resource\apps
+SOURCEPATH 		..\common\resources
+SOURCE          c8  TrkIcn24.bmp TrkIcn24m.bmp TrkIcn32.bmp TrkIcn32m.bmp TrkIcn48.bmp TrkIcn48m.bmp
+END
+
+#else
+
+sourcepath	./resources/isv_build
+userinclude .
+userinclude ./resources
+START RESOURCE	trkapp_200170bb.rss
+HEADER
+targetpath	/resource/apps
+lang		sc
+end
+
+sourcepath	./resources
+START RESOURCE	trkapp_200170bb_reg.rss
+TARGETPATH	/private/10003a3f/apps
+END
+
+sourcepath	./resources/isv_build
+userinclude .
+userinclude ./resources
+start resource trkapp_200170bb_loc.rss
+targetpath /resource/apps
+lang sc
+end
+
+START BITMAP    trkapp_200170bb.mbm
+HEADER
+TARGETPATH      /resource/apps
+SOURCEPATH 		../common/resources
+SOURCE          c8  TrkIcn24.bmp TrkIcn24m.bmp TrkIcn32.bmp TrkIcn32m.bmp TrkIcn48.bmp TrkIcn48m.bmp
+END
+
+#endif

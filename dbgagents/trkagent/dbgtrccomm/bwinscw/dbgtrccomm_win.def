@@ -1,0 +1,18 @@
+EXPORTS
+	??0RDbgTrcComm@@QAE@XZ @ 1 NONAME ; RDbgTrcComm::RDbgTrcComm(void)
+	?Close@RDbgTrcComm@@QAEHXZ @ 2 NONAME ; int RDbgTrcComm::Close(void)
+	?Connect@RDbgTrcComm@@QAEHXZ @ 3 NONAME ; int RDbgTrcComm::Connect(void)
+	?Disconnect@RDbgTrcComm@@QAEHXZ @ 4 NONAME ; int RDbgTrcComm::Disconnect(void)
+	?GetAcmConfig@RDbgTrcComm@@QAEHAAVTDes8@@@Z @ 5 NONAME ; int RDbgTrcComm::GetAcmConfig(class TDes8 &)
+	?Open@RDbgTrcComm@@QAEHXZ @ 6 NONAME ; int RDbgTrcComm::Open(void)
+	?ReadCancel@RDbgTrcComm@@QAEHXZ @ 7 NONAME ; int RDbgTrcComm::ReadCancel(void)
+	?ReadMessage@RDbgTrcComm@@QAEXAAVTRequestStatus@@AAVTDes8@@@Z @ 8 NONAME ; void RDbgTrcComm::ReadMessage(class TRequestStatus &, class TDes8 &)
+	?RegisterProtocolID@RDbgTrcComm@@QAEHW4TOstProtIds@@H@Z @ 9 NONAME ; int RDbgTrcComm::RegisterProtocolID(enum TOstProtIds, int)
+	?RegisterProtocolIDs@RDbgTrcComm@@QAEHPBW4TOstProtIds@@IH@Z @ 10 NONAME ; int RDbgTrcComm::RegisterProtocolIDs(enum TOstProtIds const *, unsigned int, int)
+	?SetAcmConfig@RDbgTrcComm@@QAEHAAVTDesC8@@@Z @ 11 NONAME ; int RDbgTrcComm::SetAcmConfig(class TDesC8 &)
+	?UnRegisterProtocolID@RDbgTrcComm@@QAEHW4TOstProtIds@@@Z @ 12 NONAME ; int RDbgTrcComm::UnRegisterProtocolID(enum TOstProtIds)
+	?UnRegisterProtocolIDs@RDbgTrcComm@@QAEHPBW4TOstProtIds@@I@Z @ 13 NONAME ; int RDbgTrcComm::UnRegisterProtocolIDs(enum TOstProtIds const *, unsigned int)
+	?Version@RDbgTrcComm@@QBE?AVTVersion@@XZ @ 14 NONAME ; class TVersion RDbgTrcComm::Version(void) const
+	?WriteCancel@RDbgTrcComm@@QAEHXZ @ 15 NONAME ; int RDbgTrcComm::WriteCancel(void)
+	?WriteMessage@RDbgTrcComm@@QAEXAAVTRequestStatus@@ABVTDesC8@@H@Z @ 16 NONAME ; void RDbgTrcComm::WriteMessage(class TRequestStatus &, class TDesC8 const &, int)
+

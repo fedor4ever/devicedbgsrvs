@@ -1,0 +1,9 @@
+EXPORTS
+	_Z19CreateLogicalDevicev @ 1 NONAME
+	_ZTI16DMetroTrkChannel @ 2 NONAME ; #<TI>#
+	_ZTI21DMetroTrkEventHandler @ 3 NONAME ; #<TI>#
+	_ZTI22DMetroTrkDriverFactory @ 4 NONAME ; #<TI>#
+	_ZTV16DMetroTrkChannel @ 5 NONAME ; #<VT>#
+	_ZTV21DMetroTrkEventHandler @ 6 NONAME ; #<VT>#
+	_ZTV22DMetroTrkDriverFactory @ 7 NONAME ; #<VT>#
+

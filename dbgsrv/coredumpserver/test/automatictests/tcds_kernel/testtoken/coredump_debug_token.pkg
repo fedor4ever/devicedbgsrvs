@@ -1,0 +1,28 @@
+;
+; Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+; All rights reserved.
+; This component and the accompanying materials are made available
+; under the terms of "Eclipse Public License v1.0"
+; which accompanies this distribution, and is available
+; at the URL "http://www.eclipse.org/legal/epl-v10.html".
+;
+; Initial Contributors:
+; Nokia Corporation - initial contribution.
+;
+; Contributors:
+;
+; Description: 
+;
+
+&EN
+; Localised vendor names
+%{"Symbian Software Ltd."}
+; Single, non-localised (global) vendor name
+:"Symbian Software Ltd."
+;
+; Replace the Package UID (0xE8000091) with your own.
+;
+#{"OEM Debug Token SIS"},(0x102836B8),1,0,0
+;
+"\epoc32\release\armv5\urel\OEMDebug_10282FE5.exe" - "!:\sys\bin\OEMDebug_10282FE5.exe"
+

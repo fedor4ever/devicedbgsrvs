@@ -1,0 +1,76 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+macro	__S60__
+
+#if(!defined __SERIES60_30__ && !defined __SERIES60_31__)
+  #include <platform_paths.hrh>
+#endif
+
+TARGET		TrkEngine.dll
+TARGETTYPE	dll
+UID		0x00000000 0x200159D9
+
+VENDORID VID_DEFAULT
+CAPABILITY ALL -TCB -DRM
+
+SOURCEPATH	.
+
+SOURCE		TrkEngine.cpp TrkDispatchLayer.cpp TrkFramingLayer.cpp
+SOURCE		TrkSerialCommPort.cpp TrkBtSocketCommPort.cpp DateTimeConverter.cpp
+SOURCE 		TrkEngineModel.cpp TrkUsbPortListener.cpp TrkDbgTrcCommPort.cpp
+SOURCE		TrkSwInstall.cpp TrkSwInstUIHandler.cpp
+
+
+LIBRARY	efsrv.lib euser.lib c32.lib sishelper.lib
+LIBRARY eikcoctl.lib
+LIBRARY	esock.lib
+LIBRARY bluetooth.lib
+LIBRARY btextnotifiers.lib
+LIBRARY btmanclient.lib
+LIBRARY sdpagent.lib
+LIBRARY sdpdatabase.lib 
+LIBRARY	charconv.lib
+LIBRARY	flogger.lib
+LIBRARY SWInstCli.lib
+LIBRARY usbman.lib
+LIBRARY usbostcomm.lib
+LIBRARY sysutil.lib 
+LIBRARY	etel3rdparty.lib 
+
+
+#if defined (__SERIES60_30__) || defined(__SERIES60_31__)
+  	SYSTEMINCLUDE	\epoc32\include
+  	USERINCLUDE	..\eka2driver
+	
+	#if defined(WINS)
+    deffile .\trkengU_win.def
+	#elif defined(EABI)
+	    deffile ..\eabi\isv_trkengine.def
+	#endif
+
+#else
+    MW_LAYER_SYSTEMINCLUDE
+	USERINCLUDE	../eka2driver
+	#if defined(WINS)
+    deffile ./trkengU_win.def
+	#elif defined(EABI)
+	    deffile ../eabi/isv_trkengine.def
+	#endif
+#endif
+nostrictdef
+

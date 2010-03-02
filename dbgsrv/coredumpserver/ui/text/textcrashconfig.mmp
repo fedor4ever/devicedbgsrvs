@@ -1,0 +1,36 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+
+
+TARGET        textcrashconfig.exe
+TARGETTYPE    exe
+UID			  0x1000008D 0x1112FFFF
+VENDORID	  0x70000001
+
+ 
+SOURCEPATH    .
+SOURCE        textcrashconfig.cpp
+
+SYSTEMINCLUDE \epoc32\include 
+SYSTEMINCLUDE \epoc32\include\drivers
+SYSTEMINCLUDE \epoc32\include\tools\coredump
+
+LIBRARY       euser.lib
+LIBRARY       coredumpinterface.lib
+LIBRARY       estor.lib
+LIBRARY       cdssupport.lib
+
+//MACRO CDSDEBUG

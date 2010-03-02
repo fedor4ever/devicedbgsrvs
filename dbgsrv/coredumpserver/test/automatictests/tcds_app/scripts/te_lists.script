@@ -1,0 +1,39 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// @File								te_lists.script
+//
+
+//! @SYMTestSuiteName               	DT-coredumpserver-lists
+//! @SYMScriptTestEnvironment       	TEF
+
+PRINT Running te_coredumpserver.Lists
+
+LOAD_SERVER te_coredumpserverSuite
+
+START_TESTCASE                DT-coredumpserver-lists-0001
+//! @SYMTestCaseID              DT-coredumpserver-lists-0001
+//! @SYMTestCaseDesc            Tests we can get required lists from CDS
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Test we can get expected thread, process, plugin and executable lists from CDS
+//! @SYMTestExpectedResults     Lists as expected.
+//! @SYMTestType                CT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+RUN_TEST_STEP 100 te_coredumpserverSuite ListsStep
+END_TESTCASE DT-coredumpserver-lists-0001
+
+PRINT Completed te_coredumpserver.Lists
+
+

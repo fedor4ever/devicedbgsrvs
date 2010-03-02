@@ -1,0 +1,59 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+
+#if(!defined __SERIES60_30__ && !defined __SERIES60_31__)
+  #include <platform_paths.hrh>
+#endif
+
+PRJ_PLATFORMS
+DEFAULT
+
+PRJ_EXPORTS
+
+#if(!defined __SERIES60_30__ && !defined __SERIES60_31__ && !defined __S60_32__)
+      ../../rom/dbgtrccomm.iby     CORE_IBY_EXPORT_PATH(tools,dbgtrccomm.iby)
+#endif
+
+#if(defined __SERIES60_30__ || defined __SERIES60_31__)
+..\..\inc\dbgtrccomm.h	\epoc32\include\dbgtrccomm.h
+..\..\inc\ostprotdefs.h	\epoc32\include\ostprotdefs.h
+#else
+../../inc/dbgtrccomm.h	/epoc32/include/dbgtrccomm.h
+../../inc/ostprotdefs.h	/epoc32/include/ostprotdefs.h
+#endif
+
+
+PRJ_MMPFILES
+#ifdef MARM
+#if defined (__SERIES60_30__) || defined(__SERIES60_31__)
+..\..\client\dbgtrccli_s60.mmp
+..\..\server\dbgtrcserver_s60.mmp
+#else
+../../client/dbgtrccli_s60.mmp
+../../server/dbgtrcserver_s60.mmp
+#endif
+#endif
+
+PRJ_TESTMMPFILES
+#ifdef MARM 
+#if defined (__SERIES60_30__) || defined(__SERIES60_31__)
+..\..\test\dbgtrctest_s60.mmp
+#else
+../../test/dbgtrctest_s60.mmp
+#endif
+#endif

@@ -1,0 +1,44 @@
+// Copyright (c) 2002-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+PRJ_EXPORTS
+
+PRJ_TESTEXPORTS
+..\scripts\te_coredumpserverSuite.script		\epoc32\winscw\c\scripts\te_coredumpserverSuite.script
+..\scripts\te_lists.script						\epoc32\winscw\c\scripts\te_lists.script
+..\scripts\te_self.script						\epoc32\winscw\c\scripts\te_self.script
+..\scripts\te_parameters.script					\epoc32\winscw\c\scripts\te_parameters.script
+..\scripts\te_dexec.script						\epoc32\winscw\c\scripts\te_dexec.script
+..\scripts\te_testformatter.script			    \epoc32\winscw\c\scripts\te_testformatter.script
+..\scripts\te_cdsconnections.script			    \epoc32\winscw\c\scripts\te_cdsconnections.script
+..\scripts\te_token.script			            \epoc32\winscw\c\scripts\te_token.script
+..\scripts\te_utrace.script						\epoc32\winscw\c\scripts\te_utrace.script
+..\scripts\te_self_trace.script					\epoc32\winscw\c\scripts\te_self_trace.script
+..\scripts\te_signaling.script                 \epoc32\winscw\c\scripts\te_signaling.script
+
+..\testdata\te_coredumpserverSuite.ini			\epoc32\winscw\c\testdata\configs\te_coredumpserverSuite.ini
+..\testdata\te_dexec.ini						\epoc32\winscw\c\testdata\configs\te_dexec.ini
+..\testdata\te_self.ini						\epoc32\winscw\c\testdata\configs\te_self.ini
+..\testdata\te_self_trace.ini						\epoc32\winscw\c\testdata\configs\te_self_trace.ini
+..\testdata\te_signaling.ini                       \epoc32\winscw\c\testdata\configs\te_signaling.ini
+.\tcoredumpserversuite.iby   					\epoc32\rom\include\tcoredumpserversuite.iby
+
+PRJ_MMPFILES
+
+PRJ_TESTMMPFILES
+tcoredumpserversuite.mmp
+
+PRJ_PLATFORMS
+ARMV5

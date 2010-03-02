@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<driver:driver xmlns:driver="http://www.symbian.com/TestDriver">
+	<task name="coredump1">    
+
+		<task name="te_utrace">
+			<executeOnPC>
+				<build testBuild="true" URI="${sourceroot}\tcds_app\group">
+					<componentName>tcoredumpserversuite</componentName>
+				</build>
+			</executeOnPC>
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${epocroot}\epoc32\WINSCW\C\scripts\te_utrace.script" SymbianPath="c:\testdata\scripts\te_utrace.script"/>
+			</executeOnSymbian>
+		</task> 
+
+		<task name="te_cdsconnections">
+			<executeOnPC>
+				<build testBuild="true" URI="${sourceroot}\tcds_app\group">
+					<componentName>tcoredumpserversuite</componentName>
+				</build>
+			</executeOnPC>
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${epocroot}\epoc32\WINSCW\C\scripts\te_cdsconnections.script" SymbianPath="c:\testdata\scripts\te_cdsconnections.script"/>
+			</executeOnSymbian>
+		</task> 
+
+		<task name="te_token">
+			<executeOnPC>
+				<build testBuild="true" URI="${sourceroot}\tcds_app\group">
+					<componentName>tcoredumpserversuite</componentName>
+				</build>
+			</executeOnPC>
+
+			<transferToSymbian>
+				<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\oemdebug_10282fe5.exe" SymbianPath="c:\sys\bin\oemdebug_10282fe5.exe"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${epocroot}\epoc32\WINSCW\C\scripts\te_token.script" SymbianPath="c:\testdata\scripts\te_token.script"/>
+			</executeOnSymbian>
+		</task>
+
+		<task name="te_testformatter">
+			<executeOnPC>
+				<build testBuild="true" URI="${sourceroot}\tcds_app\group">
+					<componentName>tcoredumpserversuite</componentName>
+				</build>
+			</executeOnPC>
+
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${epocroot}\epoc32\WINSCW\C\scripts\te_testformatter.script" SymbianPath="c:\testdata\scripts\te_testformatter.script"/>
+			</executeOnSymbian>
+		</task>
+
+		<task name="te_dexec">
+			<executeOnPC>
+				<build testBuild="true" URI="${sourceroot}\tcds_app\group">
+					<componentName>tcoredumpserversuite</componentName>
+				</build>
+			</executeOnPC>
+
+			<transferToSymbian>
+				<transfer PCPath="${sourceroot}\tcds_app\testdata\te_dexec.ini" SymbianPath="c:\testdata\configs\te_dexec.ini"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${epocroot}\epoc32\WINSCW\C\scripts\te_dexec.script" SymbianPath="c:\testdata\scripts\te_dexec.script"/>
+			</executeOnSymbian>
+
+		</task>
+
+		<task name="te_lists">
+			<executeOnPC>
+				<build testBuild="true" URI="${sourceroot}\tcds_app\group">
+					<componentName>tcoredumpserversuite</componentName>
+				</build>
+			</executeOnPC>
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${epocroot}\epoc32\WINSCW\C\scripts\te_lists.script" SymbianPath="c:\testdata\scripts\te_lists.script"/>
+			</executeOnSymbian>
+		</task>
+
+
+		<task name="te_self">
+			<executeOnPC>
+				<build testBuild="true" URI="${sourceroot}\tcds_app\group">
+					<componentName>tcoredumpserversuite</componentName>
+				</build>
+			</executeOnPC>
+
+			<transferToSymbian>
+				<transfer PCPath="${sourceroot}\tcds_app\testdata\te_self.ini" SymbianPath="c:\testdata\configs\te_self.ini"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${epocroot}\epoc32\WINSCW\C\scripts\te_self.script" SymbianPath="c:\testdata\scripts\te_self.script"/>
+			</executeOnSymbian>
+		</task>
+
+		<task name="te_self_trace">
+			<executeOnPC>
+				<build testBuild="true" URI="${sourceroot}\tcds_app\group">
+					<componentName>tcoredumpserversuite</componentName>
+				</build>
+			</executeOnPC>
+
+			<transferToSymbian>
+				<transfer PCPath="${sourceroot}\tcds_app\testdata\te_self_trace.ini" SymbianPath="c:\testdata\configs\te_self_trace.ini"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${epocroot}\epoc32\WINSCW\C\scripts\te_self_trace.script" SymbianPath="c:\testdata\scripts\te_self_trace.script"/>
+			</executeOnSymbian>
+		</task>
+	
+		<task name="te_parameters">
+			<executeOnPC>
+				<build testBuild="true" URI="${sourceroot}\tcds_app\group">
+					<componentName>tcoredumpserversuite</componentName>
+				</build>
+			</executeOnPC>
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${epocroot}\epoc32\WINSCW\C\scripts\te_parameters.script" SymbianPath="c:\testdata\scripts\te_parameters.script"/>
+			</executeOnSymbian>
+		</task>
+		
+		<task name="te_signaling">
+			<executeOnPC>
+				<build testBuild="true" URI="${sourceroot}\tcds_app\group">
+					<componentName>tcoredumpserversuite</componentName>
+				</build>
+			</executeOnPC>
+			
+			<transferToSymbian>
+				<transfer PCPath="${sourceroot}\tcds_app\testdata\te_signaling.ini" SymbianPath="c:\testdata\configs\te_signaling.ini"/>
+			</transferToSymbian>
+			
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${epocroot}\epoc32\WINSCW\C\scripts\te_signaling.script" SymbianPath="c:\testdata\scripts\te_signaling.script"/>
+			</executeOnSymbian>
+		</task>
+
+	</task>
+</driver:driver>

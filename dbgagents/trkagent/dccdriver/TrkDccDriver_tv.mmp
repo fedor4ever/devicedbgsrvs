@@ -1,0 +1,41 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+
+macro 	__OEM_TRK__
+macro	__KERNEL_MODE__
+
+TARGET			TrkDccDriver.ldd
+TARGETTYPE		LDD
+UID				0x100000AF 0x200159DE
+SOURCEPATH		.
+SOURCE			TrkDccDriver.cpp
+LIBRARY			ekern.lib
+
+systeminclude		/epoc32/include
+systeminclude		/epoc32/include/nkern 
+systeminclude 		/epoc32/include/kernel
+systeminclude		/epoc32/include/kernel/arm
+systeminclude		/epoc32/include/nkern/arm
+systeminclude		/epoc32/include/memmodel/epoc
+systeminclude		/epoc32/include/memmodel/epoc/mmubase
+
+DEFFILE			../eabi/trkdccdriver.def
+NOSTRICTDEF
+
+VENDORID 0x101FB657
+capability			all

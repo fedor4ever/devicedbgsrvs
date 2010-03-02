@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="ASCII"?>
+<driver:driver xmlns:driver="http://www.symbian.com/TestDriver">
+<task name="system_crash" timeout="1000000">
+	<executeOnPC>
+		<build testBuild="true" URI="${sourceroot}\tcds_kernel\group">
+			<componentName>tcds_kernel</componentName>
+		</build>
+	</executeOnPC>
+
+	<task name="configureScm" timeout="100000">
+		<task name="holdVariantData" timeout="100000">
+			<transferToSymbian>
+				<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_scm_config.ini" SymbianPath="c:\data\tcds_scm_config.ini"/>
+			</transferToSymbian>
+
+			<transferToSymbian>
+					<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\oemdebug_10282FE5.exe" SymbianPath="c:\sys\bin\oemdebug_10282FE5.exe"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\tcds_scm_config.script" SymbianPath="c:\scripts\tcds_scm_config.script">
+					<testCasesList operator="include">
+						<testCase target="DT-SCM-CONFIG-0001"/>
+					</testCasesList>
+				</testExecuteScript>
+			</executeOnSymbian>
+		</task>
+
+		<task name="dontDumpVariantData" timeout="100000">
+			<transferToSymbian>
+				<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_scm_config.ini" SymbianPath="c:\data\tcds_scm_config.ini"/>
+			</transferToSymbian>
+
+			<transferToSymbian>
+					<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\oemdebug_10282FE5.exe" SymbianPath="c:\sys\bin\oemdebug_10282FE5.exe"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\tcds_scm_config.script" SymbianPath="c:\scripts\tcds_scm_config.script">
+					<testCasesList operator="include">
+						<testCase target="DT-SCM-CONFIG-0002"/>
+					</testCasesList>
+				</testExecuteScript>
+			</executeOnSymbian>
+		</task>
+	</task>
+
+	<!-- This task performs flash utility methods such as cleaning the partition etc -->
+	<task name="flash_utility" timeout="100000">
+			<task name="clean_partition" timeout="100000">
+				<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+				</transferToSymbian>
+
+				<transferToSymbian>
+					<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\oemdebug_10282FE5.exe" SymbianPath="c:\sys\bin\oemdebug_10282FE5.exe"/>
+				</transferToSymbian>
+
+				<executeOnSymbian>
+					<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\tcds_kernel_crash.script" SymbianPath="c:\scripts\tcds_kernel_crash.script">
+					<testCasesList operator="include">
+						<testCase target="DT-BOARD-UTILS-0008"/>
+					</testCasesList>
+					</testExecuteScript>
+				</executeOnSymbian>
+			</task>
+
+			<task name="clean_entire_partition" timeout="100000">
+				<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+				</transferToSymbian>
+
+				<transferToSymbian>
+					<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\oemdebug_102836BC.exe" SymbianPath="c:\sys\bin\oemdebug_102836BC.exe"/>
+				</transferToSymbian>
+
+				<transferToSymbian>
+					<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\oemdebug_10282FE5.exe" SymbianPath="c:\sys\bin\oemdebug_10282FE5.exe"/>
+				</transferToSymbian>
+
+				<executeOnSymbian>
+					<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\tcds_kernel_crash.script" SymbianPath="c:\scripts\tcds_kernel_crash.script">
+					<testCasesList operator="include">
+						<testCase target="DT-BOARD-UTILS-0009"/>
+					</testCasesList>
+					</testExecuteScript>
+				</executeOnSymbian>
+			</task>
+	</task>
+
+	<task name="crash_system" timeout="100000">
+			<task name="crash_prefetch_abort" timeout="100000">
+				<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+				</transferToSymbian>
+				<executeOnSymbian>
+					<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\tcds_kernel_crash.script" SymbianPath="c:\scripts\tcds_kernel_crash.script">
+					<testCasesList operator="include">
+						<testCase target="DT-BOARD-UTILS-0001"/>
+					</testCasesList>
+					</testExecuteScript>
+				</executeOnSymbian>
+			</task>
+
+			<task name="crash_data_read" timeout="100000">
+				<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+				</transferToSymbian>
+				<executeOnSymbian>
+					<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\tcds_kernel_crash.script" SymbianPath="c:\scripts\tcds_kernel_crash.script">
+					<testCasesList operator="include">
+						<testCase target="DT-BOARD-UTILS-0002"/>
+					</testCasesList>
+					</testExecuteScript>
+				</executeOnSymbian>
+			</task>
+
+			<task name="crash_data_write" timeout="100000">
+				<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+				</transferToSymbian>
+				<executeOnSymbian>
+					<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\tcds_kernel_crash.script" SymbianPath="c:\scripts\tcds_kernel_crash.script">
+					<testCasesList operator="include">
+						<testCase target="DT-BOARD-UTILS-0003"/>
+					</testCasesList>
+					</testExecuteScript>
+				</executeOnSymbian>
+			</task>
+
+			<task name="crash_undef_Instr" timeout="100000">
+				<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+				</transferToSymbian>
+				<executeOnSymbian>
+					<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\tcds_kernel_crash.script" SymbianPath="c:\scripts\tcds_kernel_crash.script">
+					<testCasesList operator="include">
+						<testCase target="DT-BOARD-UTILS-0004"/>
+					</testCasesList>
+					</testExecuteScript>
+				</executeOnSymbian>
+			</task>
+
+			<task name="crash_stack_overflow" timeout="100000">
+				<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+				</transferToSymbian>
+				<executeOnSymbian>
+					<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\tcds_kernel_crash.script" SymbianPath="c:\scripts\tcds_kernel_crash.script">
+					<testCasesList operator="include">
+						<testCase target="DT-BOARD-UTILS-0005"/>
+					</testCasesList>
+					</testExecuteScript>
+				</executeOnSymbian>
+			</task>
+
+			<task name="crash_division_by_zero" timeout="100000">
+				<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+				</transferToSymbian>
+				<executeOnSymbian>
+					<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\tcds_kernel_crash.script" SymbianPath="c:\scripts\tcds_kernel_crash.script">
+					<testCasesList operator="include">
+						<testCase target="DT-BOARD-UTILS-0006"/>
+					</testCasesList>
+					</testExecuteScript>
+				</executeOnSymbian>
+			</task>
+
+			<task name="crash_data_read_with_trace" timeout="100000">
+				<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+				</transferToSymbian>
+				<executeOnSymbian>
+					<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\tcds_kernel_crash.script" SymbianPath="c:\scripts\tcds_kernel_crash.script">
+					<testCasesList operator="include">
+						<testCase target="DT-BOARD-UTILS-0007"/>
+					</testCasesList>
+					</testExecuteScript>
+				</executeOnSymbian>
+			</task>
+
+	</task>
+
+	<task name="processcrash" timeout="1000000">
+		<task name="ProcessHeader" timeout="1000000">
+			<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+			</transferToSymbian>
+			<executeOnSymbian>
+					<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\tcds_kernel_process.script" SymbianPath="c:\scripts\tcds_kernel_process.script"/>
+			</executeOnSymbian>
+			<retrieveFromSymbian>
+				<transfer move="true" PCPath="${resultroot}\tcds_kernel\thedump.dmp" SymbianPath="e:\thedump.dmp" />
+			</retrieveFromSymbian>
+		</task>
+
+		<task name="testListAndDeleteAllCrashes" timeout="1000000">
+			<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+			</transferToSymbian>
+			<transferToSymbian>
+				<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\OEMDebug_10282FE5.exe" SymbianPath="c:\sys\bin\OEMDebug_10282FE5.exe"/>
+			</transferToSymbian>
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\tcds_kernel_process.script" SymbianPath="c:\scripts\tcds_kernel_process.script">
+				<testCasesList operator="include">
+					<testCase target="DT-kernelcrash-process-0002"/>
+				</testCasesList>
+				</testExecuteScript>
+			</executeOnSymbian>
+		</task>
+
+		<task name="testSCMZeroConfig" timeout="10000000">
+			<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+			</transferToSymbian>
+			<transferToSymbian>
+				<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\OEMDebug_10282FE5.exe" SymbianPath="c:\sys\bin\OEMDebug_10282FE5.exe"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\tcds_kernel_process.script" SymbianPath="c:\scripts\tcds_kernel_process.script">
+				<testCasesList operator="include">
+					<testCase target="DT-kernelcrash-process-0003"/>
+				</testCasesList>
+				</testExecuteScript>
+			</executeOnSymbian>
+		</task>
+
+		<task name="testValidELFFile" timeout="1000000">
+			<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+			</transferToSymbian>
+			<transferToSymbian>
+				<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\OEMDebug_10282FE5.exe" SymbianPath="c:\sys\bin\OEMDebug_10282FE5.exe"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\tcds_kernel_process.script" SymbianPath="c:\scripts\tcds_kernel_process.script">
+				<testCasesList operator="include">
+					<testCase target="DT-COREDUMP-MONITOR-011"/>
+				</testCasesList>
+				</testExecuteScript>
+			</executeOnSymbian>
+		</task>
+	</task>
+
+	<task name="coredump-server" timeout="1000000">
+		<task name="coredump-server-001" timeout="1000000">
+			<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+			</transferToSymbian>
+
+			<transferToSymbian>
+				<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\oemdebug_102836BC.exe" SymbianPath="c:\sys\bin\oemdebug_102836BC.exe"/>
+			</transferToSymbian>
+
+			<transferToSymbian>
+				<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\OEMDebug_10282FE5.exe" SymbianPath="c:\sys\bin\OEMDebug_10282FE5.exe"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+					<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\DT-coredump-server.script" SymbianPath="c:\scripts\DT-coredump-server.script">
+						<testCasesList operator="include">
+							<testCase target="DT-coredump-server-001"/>
+						</testCasesList>
+					</testExecuteScript>
+			</executeOnSymbian>
+		</task>
+
+		<task name="coredump-server-002" timeout="1000000">
+			<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+					<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\DT-coredump-server.script" SymbianPath="c:\scripts\DT-coredump-server.script">
+						<testCasesList operator="include">
+							<testCase target="DT-coredump-server-002"/>
+						</testCasesList>
+					</testExecuteScript>
+			</executeOnSymbian>
+		</task>
+
+		<task name="coredump-server-003" timeout="1000000">
+			<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+			</transferToSymbian>
+
+			<transferToSymbian>
+				<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\oemdebug_102836BC.exe" SymbianPath="c:\sys\bin\oemdebug_102836BC.exe"/>
+			</transferToSymbian>
+
+			<transferToSymbian>
+				<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\oemdebug_10282FE5.exe" SymbianPath="c:\sys\bin\oemdebug_10282FE5.exe"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+					<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\DT-coredump-server.script" SymbianPath="c:\scripts\DT-coredump-server.script">
+						<testCasesList operator="include">
+							<testCase target="DT-coredump-server-003"/>
+						</testCasesList>
+					</testExecuteScript>
+			</executeOnSymbian>
+		</task>
+
+	</task>
+
+	<task name="coredump-monitor" timeout="1000000">
+
+		<task name="coredump-monitor-002" timeout="1000000">
+			<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+			</transferToSymbian>
+
+			<transferToSymbian>
+				<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\OEMDebug_10282FE5.exe" SymbianPath="c:\sys\bin\OEMDebug_10282FE5.exe"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+					<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\DT-coredump-monitor.script" SymbianPath="c:\scripts\DT-coredump-monitor.script">
+						<testCasesList operator="include">
+							<testCase target="DT-coredump-monitor-002"/>
+						</testCasesList>
+					</testExecuteScript>
+			</executeOnSymbian>
+		</task>
+
+		<task name="coredump-monitor-004" timeout="1000000">
+			<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+			</transferToSymbian>
+
+			<transferToSymbian>
+				<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\OEMDebug_10282FE5.exe" SymbianPath="c:\sys\bin\OEMDebug_10282FE5.exe"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+					<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\DT-coredump-monitor.script" SymbianPath="c:\scripts\DT-coredump-monitor.script">
+						<testCasesList operator="include">
+							<testCase target="DT-coredump-monitor-004"/>
+						</testCasesList>
+					</testExecuteScript>
+			</executeOnSymbian>
+		</task>
+
+		<task name="coredump-monitor-005" timeout="1000000">
+			<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+					<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\DT-coredump-monitor.script" SymbianPath="c:\scripts\DT-coredump-monitor.script">
+						<testCasesList operator="include">
+							<testCase target="DT-coredump-monitor-005"/>
+						</testCasesList>
+					</testExecuteScript>
+			</executeOnSymbian>
+		</task>
+
+		<task name="coredump-monitor-007" timeout="1000000">
+			<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+			</transferToSymbian>
+			<transferToSymbian>
+				<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\OEMDebug_10282FE5.exe" SymbianPath="c:\sys\bin\OEMDebug_10282FE5.exe"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\DT-coredump-monitor.script" SymbianPath="c:\scripts\DT-coredump-monitor.script">
+				<testCasesList operator="include">
+					<testCase target="DT-COREDUMP-MONITOR-007"/>
+				</testCasesList>
+				</testExecuteScript>
+			</executeOnSymbian>
+		</task>
+
+		<task name="coredump-monitor-009" timeout="1000000">
+			<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+			</transferToSymbian>
+			<transferToSymbian>
+				<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\OEMDebug_10282FE5.exe" SymbianPath="c:\sys\bin\OEMDebug_10282FE5.exe"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\DT-coredump-monitor.script" SymbianPath="c:\scripts\DT-coredump-monitor.script">
+				<testCasesList operator="include">
+					<testCase target="DT-COREDUMP-MONITOR-009"/>
+				</testCasesList>
+				</testExecuteScript>
+			</executeOnSymbian>
+		</task>
+
+		<task name="coredump-monitor-010_1" timeout="1000000">
+			<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+			</transferToSymbian>
+			<transferToSymbian>
+				<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\OEMDebug_10282FE5.exe" SymbianPath="c:\sys\bin\OEMDebug_10282FE5.exe"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\DT-coredump-monitor.script" SymbianPath="c:\scripts\DT-coredump-monitor.script">
+				<testCasesList operator="include">
+					<testCase target="DT-COREDUMP-MONITOR-010"/>
+				</testCasesList>
+				</testExecuteScript>
+			</executeOnSymbian>
+		</task>
+
+		<task name="coredump-monitor-011" timeout="100000000">
+			<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+			</transferToSymbian>
+			<transferToSymbian>
+				<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\OEMDebug_10282FE5.exe" SymbianPath="c:\sys\bin\OEMDebug_10282FE5.exe"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\DT-coredump-monitor.script" SymbianPath="c:\scripts\DT-coredump-monitor.script">
+				<testCasesList operator="include">
+					<testCase target="DT-COREDUMP-MONITOR-011"/>
+				</testCasesList>
+				</testExecuteScript>
+			</executeOnSymbian>
+		</task>
+
+		<task name="coredump-monitor-012" timeout="1000000">
+			<transferToSymbian>
+				<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+			</transferToSymbian>
+		
+			<transferToSymbian>
+				<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\OEMDebug_10282FE5.exe" SymbianPath="c:\sys\bin\OEMDebug_10282FE5.exe"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\DT-coredump-monitor.script" SymbianPath="c:\scripts\DT-coredump-monitor.script">
+				<testCasesList operator="include">
+					<testCase target="DT-COREDUMP-MONITOR-012"/>
+				</testCasesList>
+				</testExecuteScript>
+			</executeOnSymbian>
+		</task>
+
+		<task name="coredump-monitor-013" timeout="1000000">
+			<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+			</transferToSymbian>
+		
+			<transferToSymbian>
+				<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\OEMDebug_10282FE5.exe" SymbianPath="c:\sys\bin\OEMDebug_10282FE5.exe"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\DT-coredump-monitor.script" SymbianPath="c:\scripts\DT-coredump-monitor.script">
+				<testCasesList operator="include">
+					<testCase target="DT-COREDUMP-MONITOR-013"/>
+				</testCasesList>
+				</testExecuteScript>
+			</executeOnSymbian>
+			</task>
+
+		<task name="coredump-monitor-014" timeout="1000000">
+			<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+			</transferToSymbian>
+		
+			<transferToSymbian>
+				<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\OEMDebug_10282FE5.exe" SymbianPath="c:\sys\bin\OEMDebug_10282FE5.exe"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\DT-coredump-monitor.script" SymbianPath="c:\scripts\DT-coredump-monitor.script">
+				<testCasesList operator="include">
+					<testCase target="DT-COREDUMP-MONITOR-014"/>
+				</testCasesList>
+				</testExecuteScript>
+			</executeOnSymbian>
+		</task>
+
+		<task name="coredump-monitor-015" timeout="1000000">
+			<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+			</transferToSymbian>
+			<transferToSymbian>
+				<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\OEMDebug_10282FE5.exe" SymbianPath="c:\sys\bin\OEMDebug_10282FE5.exe"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\DT-coredump-monitor.script" SymbianPath="c:\scripts\DT-coredump-monitor.script">
+				<testCasesList operator="include">
+					<testCase target="DT-COREDUMP-MONITOR-015"/>
+				</testCasesList>
+				</testExecuteScript>
+			</executeOnSymbian>
+		</task>
+
+	</task>
+
+	<task name="formatters-SELF" timeout="1000000">
+
+		<task name="formatters-SELF-001" timeout="1000000">
+			<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+			</transferToSymbian>
+			<transferToSymbian>
+				<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\OEMDebug_10282FE5.exe" SymbianPath="c:\sys\bin\OEMDebug_10282FE5.exe"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\DT-formatters-SELF.script" SymbianPath="c:\scripts\DT-formatters-SELF.script">
+				<testCasesList operator="include">
+					<testCase target="DT-formatters-SELF-001"/>
+				</testCasesList>
+				</testExecuteScript>
+			</executeOnSymbian>
+		</task>
+
+		<task name="formatters-SELF-005" timeout="1000000">
+			<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+			</transferToSymbian>
+			<transferToSymbian>
+				<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\OEMDebug_10282FE5.exe" SymbianPath="c:\sys\bin\OEMDebug_10282FE5.exe"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\DT-formatters-SELF.script" SymbianPath="c:\scripts\DT-formatters-SELF.script">
+				<testCasesList operator="include">
+					<testCase target="DT-formatters-SELF-005"/>
+				</testCasesList>
+				</testExecuteScript>
+			</executeOnSymbian>
+		</task>
+
+		<task name="formatters-SELF-009" timeout="1000000">
+			<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+			</transferToSymbian>
+			<transferToSymbian>
+				<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\OEMDebug_10282FE5.exe" SymbianPath="c:\sys\bin\OEMDebug_10282FE5.exe"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\DT-formatters-SELF.script" SymbianPath="c:\scripts\DT-formatters-SELF.script">
+				<testCasesList operator="include">
+					<testCase target="DT-formatters-SELF-009"/>
+				</testCasesList>
+				</testExecuteScript>
+			</executeOnSymbian>
+		</task>
+
+		<task name="formatters-SELF-0010" timeout="1000000">
+			<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_self.ini" SymbianPath="c:\data\tcds_self.ini"/>
+			</transferToSymbian>
+			<transferToSymbian>
+				<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\OEMDebug_10282FE5.exe" SymbianPath="c:\sys\bin\OEMDebug_10282FE5.exe"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\DT-formatters-SELF.script" SymbianPath="c:\scripts\DT-formatters-SELF.script">
+				<testCasesList operator="include">
+					<testCase target="DT-formatters-SELF-0010"/>
+				</testCasesList>
+				</testExecuteScript>
+			</executeOnSymbian>
+		</task>
+
+		<task name="formatters-SELF-0011" timeout="1000000">
+			<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_self.ini" SymbianPath="c:\data\tcds_self.ini"/>
+			</transferToSymbian>
+			<transferToSymbian>
+				<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\OEMDebug_10282FE5.exe" SymbianPath="c:\sys\bin\OEMDebug_10282FE5.exe"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+				<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\DT-formatters-SELF.script" SymbianPath="c:\scripts\DT-formatters-SELF.script">
+				<testCasesList operator="include">
+					<testCase target="DT-formatters-SELF-0011"/>
+				</testCasesList>
+				</testExecuteScript>
+			</executeOnSymbian>
+		</task>	
+	</task>
+
+	<task name="coredump-performance" timeout="1000000">
+
+		<task name="coredump-performance-001" timeout="1000000">
+			<transferToSymbian>
+					<transfer move="false" PCPath="${sourceroot}\tcds_kernel\data\tcds_kernel.ini" SymbianPath="c:\data\tcds_kernel.ini"/>
+			</transferToSymbian>
+
+			<transferToSymbian>
+				<transfer PCPath="${epocroot}\epoc32\release\armv5\urel\OEMDebug_10282FE5.exe" SymbianPath="c:\sys\bin\OEMDebug_10282FE5.exe"/>
+			</transferToSymbian>
+
+			<executeOnSymbian>
+					<testExecuteScript PCPath="${sourceroot}\tcds_kernel\scripts\DT-coredump-performance.script" SymbianPath="c:\scripts\DT-coredump-performance.script">
+						<testCasesList operator="include">
+							<testCase target="DT-coredump-performance-001"/>
+						</testCasesList>
+					</testExecuteScript>
+			</executeOnSymbian>
+		</task>
+
+	</task>
+
+</task>
+</driver:driver>

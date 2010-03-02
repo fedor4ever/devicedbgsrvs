@@ -1,0 +1,80 @@
+// Copyright (c) 2008-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// @File								DT-coredump-server.script
+//
+
+//! @SYMTestSuiteName               	DT-coredump-server
+//! @SYMScriptTestEnvironment       	TEF
+
+LOAD_SUITE tcds_kernel
+
+
+
+START_TESTCASE                DT-coredump-server-001
+//! @SYMTestCaseID              DT-coredump-server-001
+//! @SYMTestCaseDesc            Trusted CDS should be able to retrieve system crash data via the new data source API.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             The test should be able to access privelaged data via the data source API and it should be the data we expect.
+//! @SYMTestExpectedResults     Data should be successfuly returned from data source should match that we have in our mocked vendor falsh access software.
+//! @SYMTestType                CT
+//! @SYMCreationDate            13/8/2007
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+//! @SYMREQ                     XXXX
+    START_TEST_BLOCK    100    tcds_kernel \data\tcds_kernel.ini
+       	CREATE_OBJECT	CCoreDumpServer	server 
+       	    COMMAND		    server	      DataViaDataSource
+    END_TEST_BLOCK
+END_TESTCASE DT-coredump-server-001
+
+
+START_TESTCASE                DT-coredump-server-002
+//! @SYMTestCaseID              DT-coredump-server-002
+//! @SYMTestCaseDesc            Untrusted CDS should not be able to retrieve crash data via the new data source API.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Generate a system crash and an untrusted CDS should attempt to read it. It should fail.
+//! @SYMTestExpectedResults     Permission denied should be returned.
+//! @SYMTestType                CT
+//! @SYMCreationDate            13/8/2007
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+//! @SYMREQ                     XXXX
+    START_TEST_BLOCK    100    tcds_kernel \data\tcds_kernel.ini
+       	CREATE_OBJECT	CCoreDumpServer	server 
+       	    COMMAND		    server	      UntrustedDataAccess
+    END_TEST_BLOCK
+END_TESTCASE DT-coredump-server-002
+
+
+START_TESTCASE                DT-coredump-server-003
+//! @SYMTestCaseID              DT-coredump-server-003
+//! @SYMTestCaseDesc            Trusted CDS should be able to retrieve trace data via the new data source API.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             The CDS should be given trusted capabilities. An application will be written to write raw data to the flash partition, so we can write expected trace data here. The test should make calls to the data source API to get the trace data and the data returned should be what we expect.
+//! @SYMTestExpectedResults     Trace data from data source should match that we have written to the flash.
+//! @SYMTestType                CT
+//! @SYMCreationDate            13/8/2007
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+//! @SYMREQ                     XXXX
+    START_TEST_BLOCK    100    tcds_kernel \data\tcds_kernel.ini
+       	CREATE_OBJECT	CCoreDumpServer	server 
+       	    COMMAND		    server	      TraceViaDataSource
+    END_TEST_BLOCK
+END_TESTCASE DT-coredump-server-003
+
+

@@ -1,0 +1,49 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+#ifndef __TRK_IBY__
+#define __TRK_IBY__
+
+// trk debugger stub
+
+file=ABI_DIR\BUILD_DIR\trkengine.dll	System\Libs\trkengine.dll
+
+#ifdef __UI_FRAMEWORKS_V2__
+file=ABI_DIR\BUILD_DIR\trkapp_200170bb.exe	sys\bin\trkapp_200170bb.exe
+#else
+file=ABI_DIR\BUILD_DIR\trkapp_200170bb.app	System\Apps\Trk\trkapp_200170bb.app
+#endif
+
+#if defined(EKA2)
+device[VARID]=ABI_DIR\BUILD_DIR\trkdriver.ldd System\Libs\trkdriver.ldd
+#else
+file=ASSP_DIR\BUILD_DIR\trkkernelstub.dll	System\Libs\trkkernelstub.dll
+file=EPOCROOT##epoc32\release\ARM4\BUILD_DIR\trkkerneldriver.ldd System\Libs\trkkerneldriver.ldd
+#endif
+
+data=ZSYSTEM\..\trk\trk_bt.ini     \trk.ini
+
+#ifdef __UI_FRAMEWORKS_V2__
+data=MULTI_LINGUIFY(RSC EPOCROOT##epoc32\data\Z\resource\Apps\trkapp_200170bb  resource\Apps\trkapp_200170bb)
+data=MULTI_LINGUIFY(RSC EPOCROOT##epoc32\data\Z\resource\Apps\trkapp_200170bb_loc  resource\Apps\trkapp_200170bb_loc)
+data=MULTI_LINGUIFY(RSC EPOCROOT##epoc32\data\Z\private\10003a3f\Apps\trkapp_200170bb_reg  private\10003a3f\Apps\trkapp_200170bb_reg)
+data=MULTI_LINGUIFY(MIF EPOCROOT##epoc32\data\Z\resource\Apps\trkapp_200170bb  resource\Apps\trkapp_200170bb)
+#else
+data=MULTI_LINGUIFY(RSC ZSYSTEM\Apps\Trk\trkapp_200170bb  System\Apps\Trk\trkapp_200170bb)
+#endif
+
+#endif

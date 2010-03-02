@@ -1,0 +1,16 @@
+EXPORTS
+	??1CTrkEngine@@UAE@XZ @ 1 NONAME ; CTrkEngine::~CTrkEngine(void)
+	?GetConnectionData@CTrkEngine@@QAEXAAVTTrkConnData@@@Z @ 2 NONAME ; void CTrkEngine::GetConnectionData(class TTrkConnData &)
+	?GetConnectionInfo@CTrkEngine@@QAEXAAVTDes16@@@Z @ 3 NONAME ; void CTrkEngine::GetConnectionInfo(class TDes16 &)
+	?GetErrorInfo@CTrkEngine@@QAEXAAVTDes16@@@Z @ 4 NONAME ; void CTrkEngine::GetErrorInfo(class TDes16 &)
+	?GetVersionInfo@CTrkEngine@@QAEXAAH0000@Z @ 5 NONAME ; void CTrkEngine::GetVersionInfo(int &, int &, int &, int &, int &)
+	?IsDebugging@CTrkEngine@@QAEHXZ @ 6 NONAME ; int CTrkEngine::IsDebugging(void)
+	?NewL@CTrkEngine@@SAPAV1@PAVMTrkEngineCallback@@@Z @ 7 NONAME ; class CTrkEngine * CTrkEngine::NewL(class MTrkEngineCallback *)
+	?NewL@CTrkEngine@@SAPAV1@XZ @ 8 NONAME ; class CTrkEngine * CTrkEngine::NewL(void)
+	?NewLC@CTrkEngine@@SAPAV1@PAVMTrkEngineCallback@@@Z @ 9 NONAME ; class CTrkEngine * CTrkEngine::NewLC(class MTrkEngineCallback *)
+	?NewLC@CTrkEngine@@SAPAV1@XZ @ 10 NONAME ; class CTrkEngine * CTrkEngine::NewLC(void)
+	?SetConnectionData@CTrkEngine@@QAEHVTTrkConnData@@@Z @ 11 NONAME ; int CTrkEngine::SetConnectionData(class TTrkConnData)
+	?StartL@CTrkEngine@@QAEXXZ @ 12 NONAME ; void CTrkEngine::StartL(void)
+	?Stop@CTrkEngine@@QAEXXZ @ 13 NONAME ; void CTrkEngine::Stop(void)
+	?StartL@CTrkEngine@@QAEXW4TTrkConnType@@@Z @ 14 NONAME ; void CTrkEngine::StartL(enum TTrkConnType)
+

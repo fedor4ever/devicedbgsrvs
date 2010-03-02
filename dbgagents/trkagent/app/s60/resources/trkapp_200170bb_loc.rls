@@ -1,0 +1,73 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+
+rls_string STRING_r_trk_short_caption "TRK"
+rls_string STRING_r_trk_app_caption "App TRK"
+rls_string STRING_r_trk_sys_caption "System TRK"
+
+rls_string STRING_r_trk_welcome "TRK for Symbian OS\n"
+rls_string STRING_r_trk_version "Version 2.8"
+
+rls_string STRING_r_trk_icon_path "Z:\\resource\\apps\\trkapp_200170bb.mbm"
+rls_string STRING_r_trk_svg_icon_path "Z:\\resource\\apps\\trkapp_200170bb.mif"
+
+rls_string STRING_r_trk_menu "Options"
+rls_string STRING_r_settings_view_menu_change "Change"
+
+rls_string STRING_r_trk_menu_connect "Connect"
+rls_string STRING_r_trk_menu_disconnect "Disconnect"
+rls_string STRING_r_trk_menu_settings "Settings"
+rls_string STRING_r_trk_menu_about "About"
+rls_string STRING_r_trk_menu_help "Help"
+rls_string STRING_r_trk_menu_exit "Exit"
+
+rls_string STRING_r_trk_settings_dialog_title "\tSettings"
+
+rls_string STRING_r_trk_settings_connection_type "Connection"
+rls_string STRING_r_trk_settings_connection_port "Port"
+rls_string STRING_r_trk_settings_connection_baudrate "Baud Rate"
+rls_string STRING_r_trk_settings_plugandplay_options "USB Plug and Play"
+
+
+rls_string STRING_r_trk_settings_connection_usb "USB" // no longer used, always use the one below
+rls_string STRING_r_trk_settings_connection_usb_dbg_trc "USB"
+rls_string STRING_r_trk_settings_connection_bluetooth "Bluetooth"
+rls_string STRING_r_trk_settings_connection_infrared "Infra Red"
+rls_string STRING_r_trk_settings_connection_dcc "DCC"
+rls_string STRING_r_trk_settings_connection_xti "XTI"
+
+rls_string STRING_r_trk_plugandplay_options_yes "On"
+rls_string STRING_r_trk_plugandplay_options_no "Off"
+
+
+
+
+rls_string STRING_r_trk_settings_connection_baud_300     "300"
+rls_string STRING_r_trk_settings_connection_baud_1200    "1200"
+rls_string STRING_r_trk_settings_connection_baud_2400    "2400"
+rls_string STRING_r_trk_settings_connection_baud_4800    "4800"
+rls_string STRING_r_trk_settings_connection_baud_9600    "9600"
+rls_string STRING_r_trk_settings_connection_baud_19200   "19200"
+rls_string STRING_r_trk_settings_connection_baud_38400   "38400"
+rls_string STRING_r_trk_settings_connection_baud_57600   "57600"
+rls_string STRING_r_trk_settings_connection_baud_115200  "115200"
+rls_string STRING_r_trk_settings_connection_baud_230400  "230400"
+rls_string STRING_r_trk_settings_connection_baud_460800  "460800"
+rls_string STRING_r_trk_settings_connection_baud_576000  "576000"
+rls_string STRING_r_trk_settings_connection_baud_1152000 "1152000"
+rls_string STRING_r_trk_settings_connection_baud_4000000 "4000000"

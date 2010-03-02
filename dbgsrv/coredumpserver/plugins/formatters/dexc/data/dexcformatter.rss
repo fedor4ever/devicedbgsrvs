@@ -1,0 +1,54 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// Registry file for the Core Dump D_EXC Formatter
+// ECOM RSS file for D_EXC Core dump formatter
+//
+
+
+
+/**
+ @file 
+*/
+
+#include "RegistryInfo.rh"
+
+// Declares info for two implementations
+RESOURCE REGISTRY_INFO theInfo
+	{
+	// UID for the DLL
+	dll_uid = 0x102832c4;
+
+	// Declare array of interface info
+	interfaces = 
+		{
+		INTERFACE_INFO
+			{
+			// UID of formatter interface
+			interface_uid = 0x10282fe2;
+			implementations = 
+				{
+				// Info for CImplementation1
+				IMPLEMENTATION_INFO
+					{
+					implementation_uid = 0x102832c5;
+					version_no = 1;
+					display_name = "D_EXC Formatter plugin v1.0.0";
+					default_data = "D_EXC V1.0.0";
+					opaque_data = "cds dexc";
+					}
+				};
+			}
+		};
+	}
+

@@ -1,0 +1,71 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// @File								te_utrace.script
+//
+
+//! @SYMTestSuiteName               	DT-formatters-utrace
+//! @SYMScriptTestEnvironment       	TEF
+
+PRINT Running te_coredumpserver.UTraceUserSide
+
+LOAD_SERVER te_coredumpserverSuite
+
+
+
+START_TESTCASE                DT-formatters-utrace-0001
+//! @SYMTestCaseID              DT-formatters-utrace-0001
+//! @SYMTestCaseDesc            UTRACE formatter should produce raw trace buffer data.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             UTRACE formatter should produce raw trace buffer data.
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                UT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+RUN_TEST_STEP 100 te_coredumpserverSuite UTraceUserSide
+END_TESTCASE DT-formatters-utrace-0001
+
+
+START_TESTCASE                DT-formatters-utrace-0002
+//! @SYMTestCaseID              DT-formatters-utrace-0002
+//! @SYMTestCaseDesc            UTrace plugin should load successfully.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             UTrace plugin should load successfully.
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                UT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+RUN_TEST_STEP 100 te_coredumpserverSuite UTraceUserSide
+END_TESTCASE DT-formatters-utrace-0002
+
+
+START_TESTCASE                DT-formatters-utrace-0003
+//! @SYMTestCaseID              DT-formatters-utrace-0003
+//! @SYMTestCaseDesc            UTrace plugin should unload successfully.
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             UTrace plugin should unload successfully.
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                UT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+RUN_TEST_STEP 100 te_coredumpserverSuite UTraceUserSide
+END_TESTCASE DT-formatters-utrace-0003
+PRINT Completed te_coredumpserver.UTraceUserSide
+
+

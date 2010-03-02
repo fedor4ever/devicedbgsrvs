@@ -1,0 +1,80 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// Using relative paths for sourcepath and user includes
+//
+
+
+#ifndef WINSCW
+MACRO HW
+#endif
+
+
+TARGET        coredumpui.exe
+TARGETTYPE    exe
+
+epocstacksize 0x5000
+
+UID           0x100039CE 0x102833b5
+
+VENDORID 0x70000001
+
+START RESOURCE ..\group\coredumpui.rss
+	HEADER
+	TARGETPATH \resource\apps	
+END
+
+START RESOURCE ..\group\coredumpuiloc.rss
+	TARGETPATH \resource\apps
+END
+
+START RESOURCE		../group/coredumpuireg.rss
+	TARGETPATH		/private/10003a3f/apps
+END
+
+SOURCEPATH    ../src
+SOURCE        coredumpuimain.cpp
+SOURCE        coredumpuiapplication.cpp
+SOURCE        coredumpuidocument.cpp
+SOURCE        coredumpuiappui.cpp
+SOURCE        coredumpuiresourceview.cpp
+SOURCE	      coredumpuidialogs.cpp
+SOURCE	      coredumpuiresourcelist.cpp
+SOURCE	      coredumpuinotifier.cpp 
+SOURCE 		  coredumpscmdialog.cpp 
+SOURCE		  coredumpcdsdialog.cpp
+
+
+USERINCLUDE		. 
+USERINCLUDE		../inc
+
+SYSTEMINCLUDE /epoc32/include 
+SYSTEMINCLUDE /epoc32/include/techview
+SYSTEMINCLUDE /epoc32/include/ecom +\include\drivers
+SYSTEMINCLUDE /epoc32/include/tools/coredump
+SYSTEMINCLUDE /epoc32/include/test
+
+LIBRARY		euser.lib apparc.lib cone.lib eikcore.lib ws32.lib apgrfx.lib
+LIBRARY		eikcoctl.lib efsrv.lib eikctl.lib gdi.lib
+LIBRARY		eikdlg.lib hal.lib bafl.lib 
+LIBRARY		coredumpinterface.lib 
+LIBRARY		cdssupport.lib 
+
+#ifdef WINSCW
+library		ecom.lib
+#endif
+
+MACRO CDSDEBUG
+
+LIBRARY estor.lib
+

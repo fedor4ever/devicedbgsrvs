@@ -1,0 +1,59 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// UTRACE formatter MMP file
+// utraceformatter.dll A process dump formatter implemented as an ECOM plugin
+//
+
+
+
+/**
+ @file 
+*/
+
+TARGET      utraceformatter.dll
+TARGETTYPE  plugin
+UID         0x10009D8D 0x102836B9 //second uid=ecom uid, third UID d_exc_formatter
+
+VENDORID    0x70000001
+
+CAPABILITY 	PowerMgmt
+
+SOURCEPATH  ../src
+SOURCE      utraceformatter.cpp
+SOURCE		utraceproxy.cpp
+
+USERINCLUDE ../inc
+USERINCLUDE ../../test
+
+SYSTEMINCLUDE   /epoc32/include
+SYSTEMINCLUDE   /epoc32/include/ecom
+SYSTEMINCLUDE   /epoc32/include/drivers
+SYSTEMINCLUDE   /epoc32/include/tools/coredump
+
+
+//
+// ECOM plugin resource file
+//
+start resource ../data/utraceformatter.rss
+target utraceformatter.rsc
+end
+
+LIBRARY		ecom.lib
+LIBRARY		euser.lib
+LIBRARY     estor.lib
+LIBRARY     cdssupport.lib
+LIBRARY     btracec.lib
+
+MACRO CDSDEBUG
+

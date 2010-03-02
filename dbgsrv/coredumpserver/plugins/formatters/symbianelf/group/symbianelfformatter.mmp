@@ -1,0 +1,75 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// symbianelfformatterv2.mmp
+// Symbian ELF formatter MMP file (v2)
+// symbianelfformatter.dll A process core dump formatter implemented as an ECOM plugin
+//
+
+
+
+/**
+ @file 
+*/
+
+TARGET      symbianelfformatter.dll
+TARGETTYPE  plugin
+UID         0x10009D8D 0x10282fe1 //second uid=ecom uid, third UID symbian_elf_formatter
+
+VENDORID    0x70000001
+
+CAPABILITY 	PowerMgmt
+
+
+SOURCEPATH  ../src
+SOURCE      symbianelfformatter.cpp
+source		symbianelfproxy.cpp
+source		symbianelfstringinfo.cpp
+source		symbianelfoptions.cpp
+
+SOURCEPATH  ../srcv2
+SOURCE      symbianelfformatterv2.cpp
+source		symbianelfstringinfov2.cpp
+source		symbianelfoptionsv2.cpp
+
+
+USERINCLUDE ../inc
+USERINCLUDE ../incv2
+USERINCLUDE ../../test
+
+SYSTEMINCLUDE   /epoc32/include
+SYSTEMINCLUDE   /epoc32/include/ecom
+SYSTEMINCLUDE	/epoc32/include/drivers
+SYSTEMINCLUDE	/epoc32/include/tools
+SYSTEMINCLUDE	/epoc32/include/tools/coredump
+
+//
+// ECOM plugin resource file
+//
+start resource ../data/symbianelfformatter.rss
+target symbianelfformatter.rsc
+end
+
+LIBRARY		ecom.lib
+LIBRARY		euser.lib
+LIBRARY		efsrv.lib
+LIBRARY     estor.lib
+LIBRARY     cdssupport.lib
+LIBRARY     btracec.lib
+
+#ifdef MARM_ARMV5
+STATICLIBRARY scmusr_lib.lib
+#endif
+
+
+MACRO CDSDEBUG

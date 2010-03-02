@@ -1,0 +1,72 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+
+
+TARGET		  trkapp_200170bb.exe
+TARGETTYPE    exe
+epocstacksize 0x12000
+
+
+UID           0x100039CE 0x200170BB
+VENDORID      0x101FB657
+CAPABILITY 	  ALL -TCB -DRM
+
+SOURCEPATH    .
+SOURCE        trkapp.cpp trkapplication.cpp trkdocument.cpp trkappui.cpp trkappview.cpp
+
+SOURCEPATH    ..\common
+SOURCE 		  trkdebugstatelistener.cpp trkconnstatelistener.cpp
+
+SOURCEPATH    ..\..\trksrvclient
+SOURCE 		   trksrvclisession.cpp trksrvclientutils.cpp trksrvclientdefs.cpp
+
+SYSTEMINCLUDE \epoc32\include
+SYSTEMINCLUDE \epoc32\include\techview
+
+USERINCLUDE   ..\..\engine
+USERINCLUDE   ..\..\trkserver
+USERINCLUDE   ..\..\trksrvclient
+USERINCLUDE   ..\common
+
+LIBRARY       euser.lib apparc.lib cone.lib eikcore.lib viewcli.lib gdi.lib
+
+
+sourcepath	.\resources
+START RESOURCE	trkapp_200170bb.rss
+HEADER
+targetpath	\resource\apps
+lang		sc
+end
+
+sourcepath	.\resources
+START RESOURCE	trkapp_200170bb_reg.rss
+TARGETPATH	\private\10003a3f\apps
+END
+
+sourcepath	.\resources
+start resource trkapp_200170bb_loc.rss
+targetpath \resource\apps
+lang sc
+end
+
+START BITMAP    trkapp_200170bb.mbm
+HEADER
+TARGETPATH      \resource\apps
+SOURCEPATH 	..\common\resources
+SOURCE          c8  TrkIcn24.bmp TrkIcn24m.bmp TrkIcn32.bmp TrkIcn32m.bmp TrkIcn48.bmp TrkIcn48m.bmp
+END

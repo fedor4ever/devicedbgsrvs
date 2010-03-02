@@ -1,0 +1,38 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// @File								te_signaling.script
+//
+
+//! @SYMTestSuiteName               	DT-self-signaling
+//! @SYMScriptTestEnvironment       	TEF
+
+PRINT Running te_signaling.SELF
+
+LOAD_SERVER te_coredumpserverSuite
+
+START_TESTCASE                DT-coredumpserver-signaling-0001
+//! @SYMTestCaseID              DT-coredumpserver-signaling-0001
+//! @SYMTestCaseDesc            Test Signling Mechanism using RProperty
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Read RProperty buffers and test signaling mechanism 
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                UT
+//! @SYMCreationDate            08/10/2009
+//! @SYMAuthor                  sakhyaghosh
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ2596
+RUN_TEST_STEP 1000 te_coredumpserverSuite TestSignaling \testdata\configs\te_signaling.ini 
+END_TESTCASE DT-coredumpserver-signaling-0001
+
+PRINT Completed te_signaling.SELF

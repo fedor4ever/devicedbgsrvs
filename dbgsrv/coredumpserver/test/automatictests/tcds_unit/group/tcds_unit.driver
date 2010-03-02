@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ASCII"?>
+<driver:driver xmlns:driver="http://www.symbian.com/TestDriver">
+  <task name="tcds_unit" timeout="100000">
+    <task name="buildProject" timeout="100000">
+      <executeOnPC>
+        <cmd URI="${sourceRoot}" phase="build">cov01 -1</cmd>
+        <build testBuild="true" URI="$(sourceRoot)\tcds_unit\group"/>
+        <cmd URI="${sourceRoot}" phase="build">cov01 -0</cmd>
+      </executeOnPC>
+    </task>
+    <task name="testProject" timeout="100000">
+      <executeOnPC>
+        <build testBuild="true" URI="${sourceRoot}\tcds_unit\group"/>
+      </executeOnPC>
+      <transferToSymbian>
+        <transfer move="false" PCPath="${sourceRoot}\tcds_unit\data\tcds_unit.ini" SymbianPath="c:\data\tcds_unit.ini"/>
+      </transferToSymbian>
+      <executeOnSymbian>
+        <testExecuteScript PCPath="${sourceRoot}\tcds_unit\scripts\tcds_unit.script" SymbianPath="c:\scripts\tcds_unit.script"/>
+      </executeOnSymbian>
+    </task>
+  </task>
+</driver:driver>

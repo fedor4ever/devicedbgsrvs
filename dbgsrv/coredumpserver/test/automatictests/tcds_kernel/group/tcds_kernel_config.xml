@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE preferences SYSTEM 'http://java.sun.com/dtd/preferences.dtd'>
+
+<preferences EXTERNAL_XML_VERSION="1.0">
+  <root type="user">
+    <map />
+    <node name="com">
+      <map />
+      <node name="symbian">
+        <map />
+        <node name="driver">
+          <map>
+            <entry key="bldmake" value="true" />
+            <entry key="buildNumber" value="MSF00167_Symbian_OS_vtb92sf" />
+            <entry key="clean" value="false" />
+            <entry key="client" value="localhost" />
+            <entry key="entryPointAddress" value="file:/Y:\sf\dev\devicedbgsrvs\dbgsrv\coredumpserver\test\automatictests\tcds_kernel\group\tcds_kernel.driver#system_crash" />
+            <entry key="epocRoot" value="Y:\" />
+            <entry key="jobID" value="0" />
+            <entry key="jobsfolder" value="c:\Jobs" />
+            <entry key="kernel" value="EKA2" />
+            <entry key="mode" value="sync" />
+            <entry key="platform" value="armv5" />
+            <entry key="platsec" value="true" />
+            <entry key="rdebug" value="" />
+            <entry key="repositoryRoot" value="Y:\testdriver\repos" />
+            <entry key="resultRoot" value="Y:\logs\testdriver" />
+            <entry key="rom" value="" />
+            <entry key="runNumber" value="2" />
+            <entry key="server" value="//localhost/RemoteTestDriver" />
+            <entry key="server_name" value="localhost" />
+            <entry key="service" value="RemoteTestDriver" />
+            <entry key="sysbin" value="false" />
+            <entry key="sourceRoot" value="Y:\sf\dev\devicedbgsrvs\dbgsrv\coredumpserver\test\automatictests" />
+            <entry key="trgtest" value="0" />
+            <entry key="testExecute" value="false" />
+            <entry key="testPackage" value="Y:\\.\test.pkg" />
+            <entry key="transport" value="serial3" />
+            <entry key="uccAddress" value="" />
+            <entry key="variant" value="udeb" />
+            <entry key="wintap" value="192.168.0.3" />
+            <entry key="workingPath" value="c:\SITK\testdriver\" />
+            <entry key="xmlRoot" value="Y:\" />
+            <entry key="commDB" value="off" />
+            <entry key="uidFirst" value="0x10210D02" />
+            <entry key="uidLast" value="0x10210D32" />
+            <entry key="key" value="" />
+            <entry key="cert" value="" />
+            <entry key="statTimeout" value="300000" />
+          </map>
+        </node>
+      </node>
+    </node>
+  </root>
+</preferences>
+

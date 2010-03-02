@@ -1,0 +1,45 @@
+EXPORTS
+	_ZN10CTrkEngine12GetErrorInfoER6TDes16 @ 1 NONAME
+	_ZN10CTrkEngine14GetVersionInfoERiS0_S0_S0_S0_ @ 2 NONAME
+	_ZN10CTrkEngine17GetConnectionInfoER6TDes16 @ 3 NONAME
+	_ZN10CTrkEngine4NewLEv @ 4 NONAME
+	_ZN10CTrkEngine4StopEv @ 5 NONAME
+	_ZN10CTrkEngine5NewLCEv @ 6 NONAME
+	_ZN10CTrkEngine6StartLEv @ 7 NONAME
+	_ZN10CTrkEngineD0Ev @ 8 NONAME
+	_ZN10CTrkEngineD1Ev @ 9 NONAME
+	_ZN10CTrkEngineD2Ev @ 10 NONAME
+	_ZTI10CTrkEngine @ 11 NONAME ; #<TI>#
+	_ZTI12CExitTrapper @ 12 NONAME ; #<TI>#
+	_ZTI13CDebugProcess @ 13 NONAME ; #<TI>#
+	_ZTI13CEventTrapper @ 14 NONAME ; #<TI>#
+	_ZTI16CTrkFramingLayer @ 15 NONAME ; #<TI>#
+	_ZTI17CTrkDispatchLayer @ 16 NONAME ; #<TI>#
+	_ZTI18CTrkSerialCommPort @ 17 NONAME ; #<TI>#
+	_ZTV10CTrkEngine @ 18 NONAME ; #<VT>#
+	_ZTV12CExitTrapper @ 19 NONAME ; #<VT>#
+	_ZTV13CDebugProcess @ 20 NONAME ; #<VT>#
+	_ZTV13CEventTrapper @ 21 NONAME ; #<VT>#
+	_ZTV16CTrkFramingLayer @ 22 NONAME ; #<VT>#
+	_ZTV17CTrkDispatchLayer @ 23 NONAME ; #<VT>#
+	_ZTV18CTrkSerialCommPort @ 24 NONAME ; #<VT>#
+	_ZTI20CTrkBtSocketCommPort @ 25 NONAME ; #<TI>#
+	_ZTV20CTrkBtSocketCommPort @ 26 NONAME ; #<VT>#
+	_ZTI19CTrkSWInstUIHandler @ 27 NONAME ; #<TI>#
+	_ZTV19CTrkSWInstUIHandler @ 28 NONAME ; #<VT>#
+	_ZN10CTrkEngine17GetConnectionDataER12TTrkConnData @ 29 NONAME
+	_ZN10CTrkEngine17SetConnectionDataE12TTrkConnData @ 30 NONAME
+	_ZTI15CTrkEngineModel @ 31 NONAME ; #<TI>#
+	_ZTV15CTrkEngineModel @ 32 NONAME ; #<VT>#
+	_ZN10CTrkEngine11IsDebuggingEv @ 33 NONAME
+	_ZN10CTrkEngine4NewLEP18MTrkEngineCallback @ 34 NONAME
+	_ZN10CTrkEngine5NewLCEP18MTrkEngineCallback @ 35 NONAME
+	_ZTI19CTrkUsbPortListener @ 36 NONAME ; #<TI>#
+	_ZTV19CTrkUsbPortListener @ 37 NONAME ; #<VT>#
+	_ZTI18CTrkDbgTrcCommPort @ 38 NONAME ; #<TI>#
+	_ZTV18CTrkDbgTrcCommPort @ 39 NONAME ; #<VT>#
+	_ZN10CTrkEngine6StartLE12TTrkConnType @ 40 NONAME
+	_ZTI10CPhoneInfo @ 41 NONAME ; #<TI>#
+	_ZTV10CPhoneInfo @ 42 NONAME ; #<VT>#
+	_ZN10CTrkEngine19GetConnectionStatusEv @ 43 NONAME
+

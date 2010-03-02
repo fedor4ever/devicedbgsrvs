@@ -1,0 +1,42 @@
+// Copyright (c) 2008-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+//! @File								DT-coredump-performance.script
+//! @SYMTestSuiteName               	Core Dump System Crash
+//! @SYMScriptTestEnvironment       	TEF
+ 
+LOAD_SUITE tcds_kernel
+
+//! @SYMTestCaseID              DT-coredump-performance-001
+//! @SYMTestCaseDesc            Performance of writing various size SELF file's
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             data source should allow reading of system crash data
+//! @SYMTestExpectedResults     Pass
+//! @SYMTestType                UT
+//! @SYMTESTSTATUS              Implemented
+//! @SYMPREQ                    PREQ1700
+//! @SYMREQ                     REQ7701 REQ7702 REQ7703 REQ7704 REQ8106 REQ8107 REQ8112 REQ8118 REQ8119 REQ8120 REQ8137 REQ8138 REQ8139
+START_TESTCASE DT-coredump-performance-001
+    START_TEST_BLOCK    10000   tcds_kernel \data\tcds_kernel.ini
+       	CREATE_OBJECT	CProcessCrashWrapper	monitor 
+       	    COMMAND		    monitor	      	 NewL   
+            COMMAND         monitor          ReadCrashInfo
+			COMMAND         monitor          LoadPlugins
+			COMMAND         monitor          ConfigurePlugins
+       	    COMMAND		    monitor	         PerformanceMeasureSELFFile
+       	    COMMAND         monitor          UnLoadPlugins
+    END_TEST_BLOCK
+END_TESTCASE DT-coredump-performance-001
+

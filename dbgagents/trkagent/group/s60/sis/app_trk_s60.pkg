@@ -1,0 +1,54 @@
+;
+; Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+; All rights reserved.
+; This component and the accompanying materials are made available
+; under the terms of "Eclipse Public License v1.0"
+; which accompanies this distribution, and is available
+; at the URL "http://www.eclipse.org/legal/epl-v10.html".
+;
+; Initial Contributors:
+; Nokia Corporation - initial contribution.
+;
+; Contributors:
+;
+; Description: 
+;
+
+
+;Languages
+&EN
+
+;Header
+#{"App TRK"},(0x200170BB),3,20,4
+
+;Localised Vendor name
+%{"Nokia-EN"}
+
+;Unique Vendor name
+:"Nokia"
+
+;Supports Series 60 v 3.0
+[0x101F7961], 0, 0, 0, {"Series60ProductID"}
+
+"eula.txt"-"", FILETEXT, TEXTEXIT
+
+;Files to install
+"\epoc32\release\armv5\urel\trkengine.dll"			-"!:\sys\bin\trkengine.dll"
+"\epoc32\release\armv5\urel\trkapp_200170bb.exe"				-"!:\sys\bin\trkapp_200170bb.exe"
+"\epoc32\release\armv5\urel\trkdriver.ldd"			-"!:\sys\bin\trkdriver.ldd"
+"\epoc32\release\armv5\urel\usbostcomm.dll"				-"!:\sys\bin\usbostcomm.dll"
+"\epoc32\release\armv5\urel\usbostrouter.exe"			-"!:\sys\bin\usbostrouter.exe"
+
+"\epoc32\data\Z\Resource\Apps\trkapp_200170bb.rsc"			-"!:\resource\Apps\trkapp_200170bb.rsc"
+"\epoc32\data\Z\Resource\Apps\trkapp_200170bb_loc.rsc"			-"!:\resource\Apps\trkapp_200170bb_loc.rsc"
+"\epoc32\data\Z\private\10003a3f\apps\trkapp_200170bb_reg.rsc"		-"!:\private\10003a3f\import\apps\trkapp_200170bb_reg.rsc"
+"\epoc32\data\Z\Resource\Apps\trkapp_200170bb.mif"			-"!:\resource\Apps\trkapp_200170bb.mif"
+"\epoc32\data\Z\trk\trk_bt.ini"					-"!:\trk.ini"
+
+
+
+; Required files
+; None
+
+; Component .sis files
+; None

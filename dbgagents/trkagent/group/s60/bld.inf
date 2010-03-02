@@ -1,0 +1,98 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+
+#if(!defined __SERIES60_30__ && !defined __SERIES60_31__)
+  #include <platform_paths.hrh>
+#endif
+
+#if(defined __SERIES60_30__ || defined __SERIES60_31__)
+#include "..\..\dbgtrccomm\group\s60\bld.inf"
+#include "..\..\toolsstarter\bld.inf"
+#else
+#include "../../dbgtrccomm/group/s60/bld.inf"
+#include "../../toolsstarter/bld.inf"
+#endif
+
+
+PRJ_PLATFORMS
+DEFAULT
+
+
+PRJ_EXPORTS
+#if(!defined __SERIES60_30__ && !defined __SERIES60_31__ && !defined __S60_32__)
+      ../../rom/trk.iby     	CORE_IBY_EXPORT_PATH(tools,trk.iby)
+      ../../rom/trk_rom.iby     CORE_IBY_EXPORT_PATH(tools/rom,trk_rom.iby)
+#endif
+
+#if(defined __SERIES60_30__ || defined __SERIES60_31__)
+..\trk.ini    	\epoc32\data\Z\trk\trk.ini
+..\trk_bt.ini    	\epoc32\data\Z\trk\trk_bt.ini
+..\trk_usb.ini    	\epoc32\data\Z\trk\trk_usb.ini
+..\trk_dcc.ini    	\epoc32\data\Z\trk\trk_dcc.ini
+trk_xti.ini    	\epoc32\data\Z\trk\trk_xti.ini
+#else
+../Trk.ini    		/epoc32/data/Z/trk/trk.ini
+../trk_bt.ini    	/epoc32/data/Z/trk/trk_bt.ini
+../trk_usb.ini    	/epoc32/data/Z/trk/trk_usb.ini
+../trk_dcc.ini    	/epoc32/data/Z/trk/trk_dcc.ini
+trk_xti.ini    	/epoc32/data/Z/trk/trk_xti.ini
+#endif
+
+PRJ_MMPFILES
+#ifndef SBSV2
+gnumakefile trk_aif_svg_icons_dc.mk
+#endif
+
+#ifdef MARM
+
+#if defined (__SERIES60_30__) || defined(__SERIES60_31__)
+..\..\dccdriver\trkdccdriver_s60
+// XTI driver requires some tracecore headers that are not available in some S60 releases.
+//..\..\xtidriver\trkxtidriver 
+..\..\eka2driver\trkkerneldriver_s60
+..\..\engine\trkengine_s60
+..\..\app\s60\trkconsole_s60
+..\..\app\s60\trkapp_s60
+..\..\tcbserver\trktcbserver_s60
+..\..\trklauncher\trklauncher_s60
+..\..\trkserver\trkserver_s60
+..\..\DebugNotifier\DebugNotifier_s60
+
+#else
+../../dccdriver/TrkDccDriver_s60
+../../xtidriver/TrkXtiDriver
+../../eka2driver/TrkKernelDriver_s60
+../../engine/TrkEngine_s60
+../../app/s60/TrkConsole_s60
+../../app/s60/TrkApp_s60
+../../tcbserver/TrkTcbServer_s60
+../../trklauncher/trklauncher_s60
+../../trkserver/trkserver_s60
+../../debugnotifier/DebugNotifier_s60
+#endif
+
+#endif
+
+PRJ_EXTENSIONS
+
+#ifdef SBSV2
+START EXTENSION s60/mifconv
+OPTION TARGETFILE trkapp_200170bb.mif
+OPTION SOURCES -c8,8 qgn_menu_trk
+END
+#endif

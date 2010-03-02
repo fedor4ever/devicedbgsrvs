@@ -1,0 +1,44 @@
+// Copyright (c) 2008-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+//
+
+PRJ_PLATFORMS
+ARMV5 WINSCW
+
+PRJ_EXPORTS
+
+PRJ_TESTEXPORTS
+../scripts/tcds_unit_selflib.script		/epoc32/winscw/c/scripts/tcds_unit_selflib.script
+../scripts/tcds_unit.script				/epoc32/winscw/c/scripts/tcds_unit.script
+
+../data/tcds_unit.ini					/epoc32/release/winscw/udeb/z/data/tcds_unit.ini
+../data/tcds_unit_selflib.ini			/epoc32/release/winscw/udeb/z/data/tcds_unit_selflib.ini
+../data/testelf1.elf					/epoc32/release/winscw/udeb/z/data/testelf1.elf
+../data/testelfinvalid.elf				/epoc32/release/winscw/udeb/z/data/testelfinvalid.elf
+../data/tinytestelf.elf					/epoc32/release/winscw/udeb/z/data/tinytestelf.elf
+../data/testelfexecutable.elf			/epoc32/release/winscw/udeb/z/data/testelfexecutable.elf
+
+tcds_unit.iby							/epoc32/rom/include/tcds_unit.iby
+tcds_unit_autoexec.bat					/epoc32/rom/tcds_unit_autoexec.bat
+
+PRJ_MMPFILES
+
+PRJ_TESTMMPFILES
+
+#if defined(MARM)
+tcds_unit
+coredumptest_debug_token
+#endif
+
+tcds_unit_selflib

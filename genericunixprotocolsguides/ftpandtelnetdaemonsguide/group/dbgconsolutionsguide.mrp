@@ -1,0 +1,9 @@
+component	dev_devicedbgsrvs_genericunixprotocolsguides_ftpandtelnetdaemonsguide
+
+source /src/tools/dev/devicedbgsrvs/genericunixprotocolsguides/ftpandtelnetdaemonsguide/com.nokia.ftptelnet_0.1.jar
+source /src/tools/dev/devicedbgsrvs/genericunixprotocolsguides/ftpandtelnetdaemonsguide/group/dbgconsolutionsguide.mrp
+source /src/tools/dev/devicedbgsrvs/genericunixprotocolsguides/ftpandtelnetdaemonsguide/group/bld.inf
+
+exports /src/tools/dev/devicedbgsrvs/genericunixprotocolsguides/ftpandtelnetdaemonsguide/group
+
+notes_source	\component_defs\release.src

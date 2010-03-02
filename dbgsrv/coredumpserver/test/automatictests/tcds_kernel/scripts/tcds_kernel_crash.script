@@ -1,0 +1,185 @@
+// Copyright (c) 2008-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// @File								tcds_kernel_crash.script
+//
+
+//! @SYMTestSuiteName               	DT-board-utils
+//! @SYMScriptTestEnvironment       	TEF
+
+LOAD_SUITE tcds_kernel
+
+
+
+START_TESTCASE                DT-board-utils-0001
+//! @SYMTestCaseID              DT-board-utils-0001
+//! @SYMTestCaseDesc            Crash the board
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Crash the board by Prefetch Abort
+//! @SYMTestExpectedResults     System Crash
+//! @SYMTestType                UT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_kernel \data\tcds_kernel.ini
+       	CREATE_OBJECT	CCrashBoardWrapper	crashb
+		COMMAND		crashb	  CrashBoard  Kernel_PrefetchAbort
+    END_TEST_BLOCK
+END_TESTCASE DT-board-utils-0001
+
+
+START_TESTCASE                DT-board-utils-0002
+//! @SYMTestCaseID              DT-board-utils-0002
+//! @SYMTestCaseDesc            Crash the board
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Crash the board by data read error
+//! @SYMTestExpectedResults     System Crash
+//! @SYMTestType                UT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_kernel \data\tcds_kernel.ini
+       	CREATE_OBJECT	CCrashBoardWrapper	crashb
+		COMMAND		crashb	  CrashBoard  Kernel_EDataRead
+    END_TEST_BLOCK
+END_TESTCASE DT-board-utils-0002
+
+
+START_TESTCASE                DT-board-utils-0003
+//! @SYMTestCaseID              DT-board-utils-0003
+//! @SYMTestCaseDesc            Crash the board
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Crash the board by data write error
+//! @SYMTestExpectedResults     System Crash
+//! @SYMTestType                UT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_kernel \data\tcds_kernel.ini
+       	CREATE_OBJECT	CCrashBoardWrapper	crashb
+		COMMAND		crashb	  CrashBoard  Kernel_EDataWrite
+    END_TEST_BLOCK
+END_TESTCASE DT-board-utils-0003
+
+
+START_TESTCASE                DT-board-utils-0004
+//! @SYMTestCaseID              DT-board-utils-0004
+//! @SYMTestCaseDesc            Crash the board
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Crash the board by undefined instruction
+//! @SYMTestExpectedResults     System Crash
+//! @SYMTestType                UT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_kernel \data\tcds_kernel.ini
+       	CREATE_OBJECT	CCrashBoardWrapper	crashb
+		COMMAND		crashb	  CrashBoard  Kernel_UndefInstr
+    END_TEST_BLOCK
+END_TESTCASE DT-board-utils-0004
+
+
+START_TESTCASE                DT-board-utils-0005
+//! @SYMTestCaseID              DT-board-utils-0005
+//! @SYMTestCaseDesc            Crash the board
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Crash the board by stack overflow
+//! @SYMTestExpectedResults     System Crash
+//! @SYMTestType                UT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_kernel \data\tcds_kernel.ini
+       	CREATE_OBJECT	CCrashBoardWrapper	crashb
+		COMMAND		crashb	  CrashBoard  Kernel_StackOverflow
+    END_TEST_BLOCK
+END_TESTCASE DT-board-utils-0005
+
+
+START_TESTCASE                DT-board-utils-0006
+//! @SYMTestCaseID              DT-board-utils-0006
+//! @SYMTestCaseDesc            Crash the board
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Crash the board by division by zero
+//! @SYMTestExpectedResults     System Crash
+//! @SYMTestType                UT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_kernel \data\tcds_kernel.ini
+       	CREATE_OBJECT	CCrashBoardWrapper	crashb
+		COMMAND		crashb	  CrashBoard  Kernel_DivisionByZero
+    END_TEST_BLOCK
+END_TESTCASE DT-board-utils-0006
+
+
+START_TESTCASE                DT-board-utils-0007
+//! @SYMTestCaseID              DT-board-utils-0007
+//! @SYMTestCaseDesc            Crash the board
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Crash the board by data read error
+//! @SYMTestExpectedResults     System Crash
+//! @SYMTestType                UT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_kernel \data\tcds_kernel.ini
+       	CREATE_OBJECT	CCrashBoardWrapper	crashb
+		COMMAND		crashb	  CrashBoard  Kernel_EDataReadWithTrace
+    END_TEST_BLOCK
+END_TESTCASE DT-board-utils-0007
+
+
+START_TESTCASE                DT-board-utils-0008
+//! @SYMTestCaseID              DT-board-utils-0008
+//! @SYMTestCaseDesc            Cleans the Crash flash partition
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Cleans the Flash Partition
+//! @SYMTestExpectedResults     System Crash
+//! @SYMTestType                UT
+//! @SYMCreationDate            26/11/2008
+//! @SYMAuthor                  stephenroberts
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_kernel \data\tcds_kernel.ini
+       	CREATE_OBJECT	CCrashBoardWrapper	crashb
+		COMMAND		crashb	  CleanFlashPartition  
+    END_TEST_BLOCK
+END_TESTCASE DT-board-utils-0008
+
+
+START_TESTCASE                DT-board-utils-0009
+//! @SYMTestCaseID              DT-board-utils-0009
+//! @SYMTestCaseDesc            Cleans the Entire Crash flash partition Using Debug Security Server
+//! @SYMTestPriority            Critical
+//! @SYMTestActions             Cleans the Entire Crash flash partition
+//! @SYMTestExpectedResults     System Crash
+//! @SYMTestType                UT
+//! @SYMCreationDate            3/12/2008
+//! @SYMAuthor                  sakhyaghosh
+//! @SYMTestStatus              2. Functional
+//! @SYMPREQ                    PREQ1700
+    START_TEST_BLOCK    100    tcds_kernel \data\tcds_kernel.ini
+       	CREATE_OBJECT	CCrashBoardWrapper	crashb
+		COMMAND		crashb	  CleanEntireFlashPartition  
+    END_TEST_BLOCK
+END_TESTCASE DT-board-utils-0009
+
+

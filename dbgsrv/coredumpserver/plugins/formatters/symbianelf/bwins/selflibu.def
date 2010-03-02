@@ -1,0 +1,7 @@
+EXPORTS
+	?NewL@CSELFEditor@@SAPAV1@ABVTDesC16@@@Z @ 1 NONAME ; class CSELFEditor * CSELFEditor::NewL(class TDesC16 const &)
+	?InsertVariantSpecificDataL@CSELFEditor@@QAEXABVTDesC8@@@Z @ 2 NONAME ; void CSELFEditor::InsertVariantSpecificDataL(class TDesC8 const &)
+	?NewLC@CSELFEditor@@SAPAV1@ABVTDesC16@@@Z @ 3 NONAME ; class CSELFEditor * CSELFEditor::NewLC(class TDesC16 const &)
+	?GetELFHeader@CSELFEditor@@QAEXAAUElf32_Ehdr@@@Z @ 4 NONAME ; void CSELFEditor::GetELFHeader(struct Elf32_Ehdr &)
+	?WriteELFUpdatesL@CSELFEditor@@QAEXXZ @ 5 NONAME ; void CSELFEditor::WriteELFUpdatesL(void)
+

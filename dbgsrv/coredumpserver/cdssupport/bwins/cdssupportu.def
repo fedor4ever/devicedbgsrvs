@@ -1,0 +1,117 @@
+EXPORTS
+	?SvcStackAddr@CThreadInfo@@QBEIXZ @ 1 NONAME ; unsigned int CThreadInfo::SvcStackAddr(void) const
+	?PassivelyDebugged@CExecutableInfo@@QBEHXZ @ 2 NONAME ; int CExecutableInfo::PassivelyDebugged(void) const
+	?NewL@CExecutableInfo@@SAPAV1@ABVTDesC8@@@Z @ 3 NONAME ; class CExecutableInfo * CExecutableInfo::NewL(class TDesC8 const &)
+	?GetContent8@TRegisterData@@QBEEXZ @ 4 NONAME ; unsigned char TRegisterData::GetContent8(void) const
+	?SetContent8@TRegisterData@@QAEXE@Z @ 5 NONAME ; void TRegisterData::SetContent8(unsigned char)
+	?Prompt@COptionConfig@@QBEABVTDesC16@@XZ @ 6 NONAME ; class TDesC16 const & COptionConfig::Prompt(void) const
+	?ExternalizeL@TCrashInfo@@QAEXAAVRWriteStream@@PAVCBufFlat@@@Z @ 7 NONAME ; void TCrashInfo::ExternalizeL(class RWriteStream &, class CBufFlat *)
+	?Instance@COptionConfig@@QAEXJ@Z @ 8 NONAME ; void COptionConfig::Instance(long)
+	?Pair@CPluginInfo@@QBEIXZ @ 9 NONAME ; unsigned int CPluginInfo::Pair(void) const
+	?SetContent32@TRegisterData@@QAEXK@Z @ 10 NONAME ; void TRegisterData::SetContent32(unsigned long)
+	?Name@CExecutableInfo@@QBEABVTDesC16@@XZ @ 11 NONAME ; class TDesC16 const & CExecutableInfo::Name(void) const
+	?Observed@CThreadInfo@@QBEHXZ @ 12 NONAME ; int CThreadInfo::Observed(void) const
+	?Type@CPluginInfo@@QBE?AW4TPluginType@TPluginRequest@@XZ @ 13 NONAME ; enum TPluginRequest::TPluginType CPluginInfo::Type(void) const
+	?Pair@CPluginInfo@@QAEXI@Z @ 14 NONAME ; void CPluginInfo::Pair(unsigned int)
+	?MaxSize@CExecutableInfo@@SAHXZ @ 15 NONAME ; int CExecutableInfo::MaxSize(void)
+	?Name@CThreadInfo@@QBEABVTDesC16@@XZ @ 16 NONAME ; class TDesC16 const & CThreadInfo::Name(void) const
+	??1COptionConfig@@UAE@XZ @ 17 NONAME ; COptionConfig::~COptionConfig(void)
+	?SvcStackSize@CThreadInfo@@QBEIXZ @ 18 NONAME ; unsigned int CThreadInfo::SvcStackSize(void) const
+	?NewL@COptionConfig@@SAPAV1@ABVTDesC8@@@Z @ 19 NONAME ; class COptionConfig * COptionConfig::NewL(class TDesC8 const &)
+	?MaxSize@CThreadInfo@@SAHXZ @ 20 NONAME ; int CThreadInfo::MaxSize(void)
+	?Version@CPluginInfo@@QAEXI@Z @ 21 NONAME ; void CPluginInfo::Version(unsigned int)
+	?NameL@CPluginInfo@@QAEXABVTDesC16@@@Z @ 22 NONAME ; void CPluginInfo::NameL(class TDesC16 const &)
+	??1CPluginInfo@@UAE@XZ @ 23 NONAME ; CPluginInfo::~CPluginInfo(void)
+	?Value@COptionConfig@@QAEXJ@Z @ 24 NONAME ; void COptionConfig::Value(long)
+	??1CThreadInfo@@UAE@XZ @ 25 NONAME ; CThreadInfo::~CThreadInfo(void)
+	?MarshalDataL@CStreamElementBase@@QAEPAVHBufC8@@XZ @ 26 NONAME ; class HBufC8 * CStreamElementBase::MarshalDataL(void)
+	?ActivelyDebugged@CExecutableInfo@@QBEHXZ @ 27 NONAME ; int CExecutableInfo::ActivelyDebugged(void) const
+	?InternalizeL@CExecutableInfo@@UAEXAAVRReadStream@@@Z @ 28 NONAME ; void CExecutableInfo::InternalizeL(class RReadStream &)
+	?Uid@CPluginInfo@@QBEHXZ @ 29 NONAME ; int CPluginInfo::Uid(void) const
+	??0COptionConfig@@AAE@XZ @ 30 NONAME ; COptionConfig::COptionConfig(void)
+	?ExternalizeL@COptionConfig@@UAEXAAVRWriteStream@@PAVCBufFlat@@@Z @ 31 NONAME ; void COptionConfig::ExternalizeL(class RWriteStream &, class CBufFlat *)
+	?ValueAsDesc@COptionConfig@@QBEABVTDesC16@@XZ @ 32 NONAME ; class TDesC16 const & COptionConfig::ValueAsDesc(void) const
+	?SetContent16@TRegisterData@@QAEXG@Z @ 33 NONAME ; void TRegisterData::SetContent16(unsigned short)
+	?ExternalizeL@CPluginInfo@@UAEXAAVRWriteStream@@PAVCBufFlat@@@Z @ 34 NONAME ; void CPluginInfo::ExternalizeL(class RWriteStream &, class CBufFlat *)
+	?Uid@CPluginInfo@@QAEXH@Z @ 35 NONAME ; void CPluginInfo::Uid(int)
+	?Available@TRegisterData@@QBEHXZ @ 36 NONAME ; int TRegisterData::Available(void) const
+	?PassivelyDebugged@CExecutableInfo@@QAEXH@Z @ 37 NONAME ; void CExecutableInfo::PassivelyDebugged(int)
+	?Options@COptionConfig@@QBEABVTDesC16@@XZ @ 38 NONAME ; class TDesC16 const & COptionConfig::Options(void) const
+	?MaxSize@CProcessInfo@@SAHXZ @ 39 NONAME ; int CProcessInfo::MaxSize(void)
+	?Name@CPluginInfo@@QBEABVTDesC16@@XZ @ 40 NONAME ; class TDesC16 const & CPluginInfo::Name(void) const
+	?ActivelyDebugged@CExecutableInfo@@QAEXH@Z @ 41 NONAME ; void CExecutableInfo::ActivelyDebugged(int)
+	?GetSubId@TRegisterData@@QBEGXZ @ 42 NONAME ; unsigned short TRegisterData::GetSubId(void) const
+	?MaxSize@TCrashInfo@@SAHXZ @ 43 NONAME ; int TCrashInfo::MaxSize(void)
+	?Index@COptionConfig@@QBEKXZ @ 44 NONAME ; unsigned long COptionConfig::Index(void) const
+	?Size@CProcessInfo@@UBEHXZ @ 45 NONAME ; int CProcessInfo::Size(void) const
+	?NameL@CExecutableInfo@@QAEXABVTDesC16@@@Z @ 46 NONAME ; void CExecutableInfo::NameL(class TDesC16 const &)
+	?NewL@CPluginInfo@@SAPAV1@ABVTDesC8@@@Z @ 47 NONAME ; class CPluginInfo * CPluginInfo::NewL(class TDesC8 const &)
+	?Observed@CProcessInfo@@QBEHXZ @ 48 NONAME ; int CProcessInfo::Observed(void) const
+	?Instance@COptionConfig@@QBEKXZ @ 49 NONAME ; unsigned long COptionConfig::Instance(void) const
+	?ValueL@COptionConfig@@QAEXABVTDesC16@@@Z @ 50 NONAME ; void COptionConfig::ValueL(class TDesC16 const &)
+	?Size@CPluginInfo@@UBEHXZ @ 51 NONAME ; int CPluginInfo::Size(void) const
+	?GetClass@TRegisterData@@QBEEXZ @ 52 NONAME ; unsigned char TRegisterData::GetClass(void) const
+	?Id@CThreadInfo@@QBEAB_KXZ @ 53 NONAME ; unsigned long long const & CThreadInfo::Id(void) const
+	?NumOptions@COptionConfig@@QBEKXZ @ 54 NONAME ; unsigned long COptionConfig::NumOptions(void) const
+	?NewL@CExecutableInfo@@SAPAV1@ABVTDesC16@@HH@Z @ 55 NONAME ; class CExecutableInfo * CExecutableInfo::NewL(class TDesC16 const &, int, int)
+	?Size@CThreadInfo@@UBEHXZ @ 56 NONAME ; int CThreadInfo::Size(void) const
+	?InternalizeL@COptionConfig@@UAEXAAVRReadStream@@@Z @ 57 NONAME ; void COptionConfig::InternalizeL(class RReadStream &)
+	?NameL@CProcessInfo@@QAEXABVTDesC16@@@Z @ 58 NONAME ; void CProcessInfo::NameL(class TDesC16 const &)
+	?SetContent@TRegisterData@@QAEXI@Z @ 59 NONAME ; void TRegisterData::SetContent(unsigned int)
+	?ValueAsBool@COptionConfig@@QBEHXZ @ 60 NONAME ; int COptionConfig::ValueAsBool(void) const
+	?Priority@CThreadInfo@@QBEIXZ @ 61 NONAME ; unsigned int CThreadInfo::Priority(void) const
+	?NewL@CPluginInfo@@SAPAV1@ABVTDesC16@@HIW4TPluginType@TPluginRequest@@@Z @ 62 NONAME ; class CPluginInfo * CPluginInfo::NewL(class TDesC16 const &, int, unsigned int, enum TPluginRequest::TPluginType)
+	??0TCrashInfo@@QAE@XZ @ 63 NONAME ; TCrashInfo::TCrashInfo(void)
+	?NameL@CThreadInfo@@QAEXABVTDesC16@@@Z @ 64 NONAME ; void CThreadInfo::NameL(class TDesC16 const &)
+	?GetContent32@TRegisterData@@QBEKXZ @ 65 NONAME ; unsigned long TRegisterData::GetContent32(void) const
+	?NewL@CProcessInfo@@SAPAV1@ABVTDesC8@@@Z @ 66 NONAME ; class CProcessInfo * CProcessInfo::NewL(class TDesC8 const &)
+	?NewL@CThreadInfo@@SAPAV1@AB_KABVTDesC16@@0ABIABK3232@Z @ 67 NONAME ; class CThreadInfo * CThreadInfo::NewL(unsigned long long const &, class TDesC16 const &, unsigned long long const &, unsigned int const &, unsigned long const &, unsigned long const &, unsigned int const &, unsigned long const &, unsigned int const &)
+	?NewL@TCrashInfo@@SAPAV1@ABVTCrashInfoHeader@Debug@@@Z @ 68 NONAME ; class TCrashInfo * TCrashInfo::NewL(class Debug::TCrashInfoHeader const &)
+	?Value@COptionConfig@@QBEJXZ @ 69 NONAME ; long COptionConfig::Value(void) const
+	?SameRegister@TRegisterData@@QBEHABV1@@Z @ 70 NONAME ; int TRegisterData::SameRegister(class TRegisterData const &) const
+	?GetContent64@TRegisterData@@QBE_KXZ @ 71 NONAME ; unsigned long long TRegisterData::GetContent64(void) const
+	?GetSize@TRegisterData@@QBEEXZ @ 72 NONAME ; unsigned char TRegisterData::GetSize(void) const
+	?SetContent64@TRegisterData@@QAEX_K@Z @ 73 NONAME ; void TRegisterData::SetContent64(unsigned long long)
+	?Version@CPluginInfo@@QBEIXZ @ 74 NONAME ; unsigned int CPluginInfo::Version(void) const
+	?GetId@TRegisterData@@QBEGXZ @ 75 NONAME ; unsigned short TRegisterData::GetId(void) const
+	?SetContent@TRegisterData@@QAEXABV1@@Z @ 76 NONAME ; void TRegisterData::SetContent(class TRegisterData const &)
+	?InternalizeL@TCrashInfo@@QAEXAAVRReadStream@@@Z @ 77 NONAME ; void TCrashInfo::InternalizeL(class RReadStream &)
+	?ExternalizeL@CThreadInfo@@UAEXAAVRWriteStream@@PAVCBufFlat@@@Z @ 78 NONAME ; void CThreadInfo::ExternalizeL(class RWriteStream &, class CBufFlat *)
+	?Type@CPluginInfo@@QAEXW4TPluginType@TPluginRequest@@@Z @ 79 NONAME ; void CPluginInfo::Type(enum TPluginRequest::TPluginType)
+	?ExternalizeL@CProcessInfo@@UAEXAAVRWriteStream@@PAVCBufFlat@@@Z @ 80 NONAME ; void CProcessInfo::ExternalizeL(class RWriteStream &, class CBufFlat *)
+	?Id@CProcessInfo@@QBEAB_KXZ @ 81 NONAME ; unsigned long long const & CProcessInfo::Id(void) const
+	?NewL@CThreadInfo@@SAPAV1@ABVTDesC8@@@Z @ 82 NONAME ; class CThreadInfo * CThreadInfo::NewL(class TDesC8 const &)
+	?NewL@CProcessInfo@@SAPAV1@_KABVTDesC16@@@Z @ 83 NONAME ; class CProcessInfo * CProcessInfo::NewL(unsigned long long, class TDesC16 const &)
+	?Source@COptionConfig@@QBE?AW4TParameterSource@1@XZ @ 84 NONAME ; enum COptionConfig::TParameterSource COptionConfig::Source(void) const
+	?MaxSize@CPluginInfo@@SAHXZ @ 85 NONAME ; int CPluginInfo::MaxSize(void)
+	?Observed@CExecutableInfo@@QAEXH@Z @ 86 NONAME ; void CExecutableInfo::Observed(int)
+	?NewL@COptionConfig@@SAPAV1@ABK0ABW4TParameterSource@1@ABW4TOptionType@1@ABVTDesC16@@03ABJ3@Z @ 87 NONAME ; class COptionConfig * COptionConfig::NewL(unsigned long const &, unsigned long const &, enum COptionConfig::TParameterSource const &, enum COptionConfig::TOptionType const &, class TDesC16 const &, unsigned long const &, class TDesC16 const &, long const &, class TDesC16 const &)
+	??1CExecutableInfo@@UAE@XZ @ 88 NONAME ; CExecutableInfo::~CExecutableInfo(void)
+	?ExternalizeL@CExecutableInfo@@UAEXAAVRWriteStream@@PAVCBufFlat@@@Z @ 89 NONAME ; void CExecutableInfo::ExternalizeL(class RWriteStream &, class CBufFlat *)
+	?Type@COptionConfig@@QBE?AW4TOptionType@1@XZ @ 90 NONAME ; enum COptionConfig::TOptionType COptionConfig::Type(void) const
+	?MaxSize@COptionConfig@@SAHXZ @ 91 NONAME ; int COptionConfig::MaxSize(void)
+	?UsrStackAddr@CThreadInfo@@QBEIXZ @ 92 NONAME ; unsigned int CThreadInfo::UsrStackAddr(void) const
+	?Observed@CProcessInfo@@QAEXH@Z @ 93 NONAME ; void CProcessInfo::Observed(int)
+	??1CProcessInfo@@UAE@XZ @ 94 NONAME ; CProcessInfo::~CProcessInfo(void)
+	?InternalizeL@CPluginInfo@@UAEXAAVRReadStream@@@Z @ 95 NONAME ; void CPluginInfo::InternalizeL(class RReadStream &)
+	?Uid@COptionConfig@@QBEKXZ @ 96 NONAME ; unsigned long COptionConfig::Uid(void) const
+	?GetContent16@TRegisterData@@QBEGXZ @ 97 NONAME ; unsigned short TRegisterData::GetContent16(void) const
+	?Observed@CThreadInfo@@QAEXH@Z @ 98 NONAME ; void CThreadInfo::Observed(int)
+	?Size@COptionConfig@@UBEHXZ @ 99 NONAME ; int COptionConfig::Size(void) const
+	?Size@CExecutableInfo@@UBEHXZ @ 100 NONAME ; int CExecutableInfo::Size(void) const
+	?Observed@CExecutableInfo@@QBEHXZ @ 101 NONAME ; int CExecutableInfo::Observed(void) const
+	?ProcessId@CThreadInfo@@QBEAB_KXZ @ 102 NONAME ; unsigned long long const & CThreadInfo::ProcessId(void) const
+	?InternalizeL@CProcessInfo@@UAEXAAVRReadStream@@@Z @ 103 NONAME ; void CProcessInfo::InternalizeL(class RReadStream &)
+	?NewL@TCrashInfo@@SAPAV1@ABVTDesC8@@@Z @ 104 NONAME ; class TCrashInfo * TCrashInfo::NewL(class TDesC8 const &)
+	?SvcStackPtr@CThreadInfo@@QBEIXZ @ 105 NONAME ; unsigned int CThreadInfo::SvcStackPtr(void) const
+	?Name@CProcessInfo@@QBEABVTDesC16@@XZ @ 106 NONAME ; class TDesC16 const & CProcessInfo::Name(void) const
+	?UsrStackSize@CThreadInfo@@QBEIXZ @ 107 NONAME ; unsigned int CThreadInfo::UsrStackSize(void) const
+	?SetAvailable@TRegisterData@@QAEXH@Z @ 108 NONAME ; void TRegisterData::SetAvailable(int)
+	?InternalizeL@CThreadInfo@@UAEXAAVRReadStream@@@Z @ 109 NONAME ; void CThreadInfo::InternalizeL(class RReadStream &)
+	?SetHeapSize@CThreadInfo@@QAEXK@Z @ 110 NONAME ; void CThreadInfo::SetHeapSize(unsigned long)
+	?SetHeapBase@CThreadInfo@@QAEXK@Z @ 111 NONAME ; void CThreadInfo::SetHeapBase(unsigned long)
+	?LastCpuId@CThreadInfo@@QBEJXZ @ 112 NONAME ; long CThreadInfo::LastCpuId(void) const
+	?SetLastCpuId@CThreadInfo@@QAEXJ@Z @ 113 NONAME ; void CThreadInfo::SetLastCpuId(long)
+	?HeapBase@CThreadInfo@@QBEKXZ @ 114 NONAME ; unsigned long CThreadInfo::HeapBase(void) const
+	?HeapSize@CThreadInfo@@QBEKXZ @ 115 NONAME ; unsigned long CThreadInfo::HeapSize(void) const
+

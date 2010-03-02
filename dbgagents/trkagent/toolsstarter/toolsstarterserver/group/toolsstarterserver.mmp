@@ -1,0 +1,51 @@
+/*
+* Copyright (c) 2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+#if defined (FF_PLATFORM_SIMULATOR)
+macro __PLATSIM__
+#endif
+
+#include <platform_paths.hrh>
+
+TARGET		  toolsstarterserver.exe
+TARGETTYPE	  EXE
+UID 0x1000008C 0x200170B5
+
+USERINCLUDE	  ../inc
+USERINCLUDE   ../../common
+MW_LAYER_SYSTEMINCLUDE
+//SYSTEMINCLUDE   \epoc32\include
+//SYSTEMINCLUDE   \epoc32\include\middleware
+
+SOURCEPATH	  ../src
+SOURCE		    toolssrvmain.cpp toolssrvscheduler.cpp toolssrvserver.cpp toolssrvsession.cpp
+SOURCE        toolsusbportlistener.cpp toolslaunchmgr.cpp toolsprocess.cpp
+
+
+SOURCEPATH     ../data
+START RESOURCE 0x200170B5.rss
+HEADER
+targetpath	/resource/apps
+lang		sc
+END
+
+LIBRARY		 euser.lib usbman.lib
+
+CAPABILITY All -TCB -DRM -ALLFILES
+
+EPOCSTACKSIZE 0x12000
+

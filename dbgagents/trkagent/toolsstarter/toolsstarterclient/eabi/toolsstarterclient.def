@@ -1,0 +1,10 @@
+EXPORTS
+	_ZN19RToolsClientSession13GetConnStatusER17TConnectionStatus @ 1 NONAME
+	_ZN19RToolsClientSession13UsbConnNotifyER5TDes8R14TRequestStatus @ 2 NONAME
+	_ZN19RToolsClientSession14ShutDownServerEv @ 3 NONAME
+	_ZN19RToolsClientSession19UsbConnNotifyCancelEv @ 4 NONAME
+	_ZN19RToolsClientSession7ConnectEv @ 5 NONAME
+	_ZN19RToolsClientSessionC1Ev @ 6 NONAME
+	_ZN19RToolsClientSessionC2Ev @ 7 NONAME
+	_ZNK19RToolsClientSession7VersionEv @ 8 NONAME
+

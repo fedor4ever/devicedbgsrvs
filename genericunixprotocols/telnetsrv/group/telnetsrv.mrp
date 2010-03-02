@@ -1,0 +1,9 @@
+component	dev_devicedbgsrvs_genericunixprotocols_telnetsrv
+
+source	/src/tools/dev/devicedbgsrvs/genericunixprotocols/telnetsrv/group
+binary	/src/tools/dev/devicedbgsrvs/genericunixprotocols/telnetsrv/group all
+exports	/src/tools/dev/devicedbgsrvs/genericunixprotocols/telnetsrv/group
+
+ipr		T
+
+notes_source	/component_defs/release.src
