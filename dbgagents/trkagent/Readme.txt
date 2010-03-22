@@ -3,8 +3,8 @@
 //
 
 Trk provides target side application level debug support for Carbide C++
-It comes preconfigured for certain reference platforms already supported by Symbian.
-It also comes preconfigured for S60 and UIQ platforms. 
+It comes preconfigured for certain reference platforms supported by Symbian.
+It also comes preconfigured for S60 and Techview platforms. 
 
 In order to build for different platforms, please follow the steps below:
 
@@ -14,7 +14,7 @@ If you are working a text shell environment, then choose tshell folder.
 
 2) Choose the type of TRK build, there are two options. One is OEM build which builds System TRK
 and the other one is isv build for building Application TRK. 
-For ex: If you want to build System TRK for S60 3.2 platform, 
+For ex: If you want to build System TRK for S60 5.0 platform, 
 then goto trk\group\s60 and run 
 	bldmake bldfiles
 	abld build
@@ -25,6 +25,3 @@ For including trk in the rom image, please include trk.iby file
 into one of the iby files that are used to build the rom.
 For packaging trk in a sis file, please goto the sis folder and run the appropriate batch file.
 
-
-NOTE: Please note that group2 folder is in development and use this only
-if you are working with TRK that uses new debug API
