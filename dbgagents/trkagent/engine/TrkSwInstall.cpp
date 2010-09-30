@@ -17,7 +17,7 @@
 #include <e32base.h>
 #include <e32cons.h>
 #include <hal.h>
-#include <cinidata.h>
+#include <iniparser.h>
 
 // Epoc Includes
 #include <swi/launcher.h>
